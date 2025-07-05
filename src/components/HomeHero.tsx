@@ -82,7 +82,7 @@ export function HomeHero() {
             ease: 'easeInOut',
           }}
           style={{ transformOrigin: 'center' }}
-        />{' '}
+        />
         <motion.p
           className="italic text-base text-[#666666] dark:text-[#A5A5A5] opacity-70 mb-10"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
