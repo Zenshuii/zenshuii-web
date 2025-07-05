@@ -21,6 +21,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Light mode favicon */}
+        <link
+          rel="icon"
+          href="/zenshuii-logo-black.svg"
+          media="(prefers-color-scheme: light)"
+        />
+        {/* Dark mode favicon */}
+        <link
+          rel="icon"
+          href="/zenshuii-logo-white.svg"
+          media="(prefers-color-scheme: dark)"
+        />
+      </head>
       <body className={`${poppins.variable} antialiased`}>{children}</body>
     </html>
   );
