@@ -40,7 +40,7 @@ export function HomeHero() {
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
-            ease: 'easeInOut',
+            ease: easeInOut,
           }}>
           Zenshuii
         </motion.h1>
@@ -51,7 +51,7 @@ export function HomeHero() {
           transition={{
             delay: 0.3,
             duration: 0.8,
-            ease: 'easeInOut',
+            ease: easeInOut,
           }}>
           A creative studio building mindful apps and digital tools for personal
           growth and wellbeing.
@@ -63,7 +63,7 @@ export function HomeHero() {
           transition={{
             delay: 0.32,
             duration: 0.5,
-            ease: 'easeInOut',
+            ease: easeInOut,
           }}
           style={{ transformOrigin: 'center' }}
         />
@@ -74,7 +74,7 @@ export function HomeHero() {
           transition={{
             delay: 0.4,
             duration: 0.8,
-            ease: 'easeInOut',
+            ease: easeInOut,
           }}>
           Makers of Stoic App
         </motion.p>
@@ -84,7 +84,7 @@ export function HomeHero() {
           transition={{
             delay: 0.6,
             duration: 0.5,
-            ease: 'easeInOut',
+            ease: easeInOut,
           }}>
           <Link
             href="/stoic"
