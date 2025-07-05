@@ -2,7 +2,7 @@ import { HomeHero } from '@/components/HomeHero';
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen w-full">
       <HomeHero />
     </main>
   );
