@@ -11,7 +11,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Zenshuii – Tools for Mindful Living & Digital Wellbeing',
   description:
-    'Official website for Zenshuii. Building mindful digital experiences',
+    'Mindful digital tools and wellbeing resources from Zenshuii, creators of the Stoic app.',
 };
 
 export default function RootLayout({
