@@ -1,33 +1,54 @@
 'use client';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, easeInOut } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export function HomeHero() {
   const shouldReduceMotion = useReducedMotion();
 
+  const watermarkMotion = shouldReduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, scale: 0.85 },
+        animate: { opacity: 0.1, scale: 1 },
+        transition: {
+          duration: 1.2,
+          ease: easeInOut,
+        },
+      };
+
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 bg-white dark:bg-[#1C1C1C]">
       {/* White logo for dark mode */}
-      <Image
-        src="/zenshuii-logo-white.svg"
-        alt=""
-        aria-hidden="true"
-        width={500}
-        height={500}
-        className="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] max-w-[70vw] opacity-10 z-0 hidden dark:block"
-        priority
-      />
+      <motion.div
+        {...watermarkMotion}
+        className="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] max-w-[70vw] z-0 hidden dark:block"
+        aria-hidden="true">
+        <Image
+          src="/zenshuii-logo-white.svg"
+          alt=""
+          aria-hidden="true"
+          width={550}
+          height={550}
+          className="w-full h-auto opacity-100"
+          priority
+        />
+      </motion.div>
       {/* Black logo for light mode */}
-      <Image
-        src="/zenshuii-logo-black.svg"
-        alt=""
-        aria-hidden="true"
-        width={500}
-        height={500}
-        className="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] max-w-[70vw] opacity-10 z-0 dark:hidden"
-        priority
-      />
+      <motion.div
+        {...watermarkMotion}
+        className="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] max-w-[70vw] z-0 dark:hidden"
+        aria-hidden="true">
+        <Image
+          src="/zenshuii-logo-black.svg"
+          alt=""
+          aria-hidden="true"
+          width={550}
+          height={550}
+          className="w-full h-auto opacity-100"
+          priority
+        />
+      </motion.div>
       <div className="relative z-10 flex flex-col items-center w-full">
         <motion.h1
           className="text-4xl sm:text-7xl font-bold mb-6 text-[#FFB877] tracking-tight z-10"
