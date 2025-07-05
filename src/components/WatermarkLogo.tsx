@@ -22,7 +22,6 @@ export function WatermarkLogo({
       <Image
         src={src}
         alt={alt}
-        aria-hidden="true"
         width={550}
         height={550}
         className="w-full h-auto opacity-100"
