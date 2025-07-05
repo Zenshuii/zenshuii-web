@@ -105,7 +105,7 @@ export function HomeHero() {
           <Link
             href="/stoic"
             aria-label="Explore Stoic App"
-            className="inline-block px-8 py-3 rounded-full bg-[color:#FFB877] text-[#232323] font-semibold shadow-md hover:bg-[#FFE5BD] hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 transition text-base sm:text-lg cursor-pointer">
+            className="inline-block px-8 py-3 rounded-full bg-[color:#FFB877] text-[#232323] font-semibold shadow-md hover:bg-[#FFE5BD] hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 text-base sm:text-lg cursor-pointer">
             Explore Stoic App
           </Link>
         </motion.div>
