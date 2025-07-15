@@ -18,7 +18,7 @@ export function HomeHero() {
       };
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 bg-white dark:bg-[#1C1C1C]">
+    <section className="relative flex min-h-screen flex-col items-center justify-center bg-white px-4 text-center dark:bg-[#1C1C1C]">
       {/* White logo for dark mode */}
       <WatermarkLogo
         src="/zenshuii-logo-white.svg"
@@ -33,9 +33,9 @@ export function HomeHero() {
         className="dark:hidden"
         watermarkMotion={watermarkMotion}
       />
-      <div className="relative z-10 flex flex-col items-center w-full">
+      <div className="relative z-10 flex w-full flex-col items-center">
         <motion.h1
-          className="text-4xl sm:text-7xl font-bold mb-6 text-[#FFB877] tracking-tight z-10"
+          className="z-10 mb-6 text-4xl font-bold tracking-tight text-[#FFB877] sm:text-7xl"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -45,7 +45,7 @@ export function HomeHero() {
           Zenshuii
         </motion.h1>
         <motion.p
-          className="max-w-2xl text-lg sm:text-2xl text-[#333333] dark:text-[#F5F5F5] mb-6 leading-relaxed"
+          className="mb-6 max-w-2xl text-lg leading-relaxed text-[#333333] sm:text-2xl dark:text-[#F5F5F5]"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -57,7 +57,7 @@ export function HomeHero() {
           growth and wellbeing.
         </motion.p>
         <motion.hr
-          className="w-12 mx-auto border-[#FFB877] border-t-4 opacity-40 mb-4 origin-center"
+          className="mx-auto mb-4 w-12 origin-center border-t-4 border-[#FFB877] opacity-40"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{
@@ -68,7 +68,7 @@ export function HomeHero() {
           style={{ transformOrigin: 'center' }}
         />
         <motion.p
-          className="italic text-base text-[#666666] dark:text-[#A5A5A5] opacity-70 mb-10"
+          className="mb-10 text-base text-[#666666] italic opacity-70 dark:text-[#A5A5A5]"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -89,7 +89,7 @@ export function HomeHero() {
           <Link
             href="/stoic"
             aria-label="Explore Stoic App"
-            className="inline-block px-8 py-3 rounded-full bg-[color:#FFB877] text-[#232323] font-semibold shadow-md hover:bg-[#FFE5BD] hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 text-base sm:text-lg cursor-pointer">
+            className="inline-block cursor-pointer rounded-full bg-[color:#FFB877] px-8 py-3 text-base font-semibold text-[#232323] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[#FFE5BD] hover:shadow-lg active:scale-95 sm:text-lg">
             Explore Stoic App
           </Link>
         </motion.div>

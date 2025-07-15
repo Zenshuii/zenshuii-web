@@ -1,4 +1,3 @@
-// src/components/navLinks.ts
 export const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },

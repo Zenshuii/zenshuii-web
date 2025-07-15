@@ -56,36 +56,27 @@ export function MobileNav({
           {/* Drawer */}
           <motion.aside
             key="drawer"
-            className="
-              fixed top-0 right-0 h-full w-80 max-w-[90vw] z-50
-              bg-white dark:bg-[#1C1C1C] shadow-2xl border-l border-[#FFB877]/20
-              flex flex-col px-6 pt-8 pb-10
-            "
+            className="fixed top-0 right-0 z-50 flex h-full w-80 max-w-[90vw] flex-col border-l border-[#FFB877]/20 bg-white px-6 pt-8 pb-10 shadow-2xl dark:bg-[#1C1C1C]"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 400, damping: 36 }}>
             {/* Close button */}
             <button
-              className="absolute top-5 right-6 text-[#FFB877] rounded-full p-1 transition hover:bg-[#FFB877]/15 z-50 cursor-pointer"
+              className="absolute top-5 right-6 z-50 cursor-pointer rounded-full p-1 text-[#FFB877] transition hover:bg-[#FFB877]/15"
               aria-label="Close menu"
               onClick={() => setOpen(false)}>
               <X size={32} />
             </button>
 
-            <nav className="mt-8 flex flex-col gap-2 w-full">
+            <nav className="mt-8 flex w-full flex-col gap-2">
               {/* First two links */}
               {otherLinks.slice(0, 2).map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="
-        w-full text-left text-lg font-semibold rounded-lg py-3 px-2
-        text-[#232323] dark:text-[#F5F5F5]
-        hover:bg-[#FFB877]/15 active:scale-95 transition-all
-        focus:outline-none
-      ">
+                  className="w-full rounded-lg px-2 py-3 text-left text-lg font-semibold text-[#232323] transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 dark:text-[#F5F5F5]">
                   {link.label}
                 </Link>
               ))}
@@ -95,12 +86,7 @@ export function MobileNav({
                 <>
                   <button
                     onClick={() => setAppsOpen((v) => !v)}
-                    className="
-    flex items-center justify-between w-full text-lg font-semibold rounded-lg py-3 px-2 mt-1
-    text-[#232323] dark:text-[#F5F5F5]
-    hover:bg-[#FFB877]/15 transition-all
-    focus:outline-none cursor-pointer
-  "
+                    className="mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#232323] transition-all hover:bg-[#FFB877]/15 focus:outline-none dark:text-[#F5F5F5]"
                     aria-expanded={appsOpen}
                     aria-controls="apps-subnav">
                     <span>Apps</span>
@@ -126,18 +112,13 @@ export function MobileNav({
                           duration: 0.19,
                           ease: [0.4, 0.14, 0.3, 1],
                         }}
-                        className="flex flex-col pl-4 ml-1 border-l border-[#FFB877]/20 overflow-hidden">
+                        className="ml-1 flex flex-col overflow-hidden border-l border-[#FFB877]/20 pl-4">
                         {appsLink.children?.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
                             onClick={() => setOpen(false)}
-                            className="
-                  text-base text-[#232323] dark:text-[#F5F5F5]
-                  rounded-md py-2 pl-2
-                  hover:bg-[#FFB877]/15 active:scale-95 transition-all
-                  text-left
-                ">
+                            className="rounded-md py-2 pl-2 text-left text-base text-[#232323] transition-all hover:bg-[#FFB877]/15 active:scale-95 dark:text-[#F5F5F5]">
                             {child.label}
                           </Link>
                         ))}
@@ -153,12 +134,7 @@ export function MobileNav({
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="
-        w-full text-left text-lg font-semibold rounded-lg py-3 px-2
-        text-[#232323] dark:text-[#F5F5F5]
-        hover:bg-[#FFB877]/15 active:scale-95 transition-all
-        focus:outline-none
-      ">
+                  className="w-full rounded-lg px-2 py-3 text-left text-lg font-semibold text-[#232323] transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 dark:text-[#F5F5F5]">
                   {link.label}
                 </Link>
               ))}

@@ -36,18 +36,13 @@ export function DesktopNav() {
   }, [dropdownOpen]);
 
   return (
-    <div className="hidden md:flex gap-8 items-center">
+    <div className="hidden items-center gap-8 md:flex">
       {navLinks.map((link) =>
         !link.children ? (
           <Link
             key={link.href}
             href={link.href}
-            className={`
-    relative font-medium text-[#232323] dark:text-[#F5F5F5] hover:text-[#FFB877] transition-colors duration-150
-    after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full
-    after:bg-[#FFB877]/60 after:rounded-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300
-    hover:after:scale-x-100
-  `}>
+            className={`relative font-medium text-[#232323] transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 dark:text-[#F5F5F5]`}>
             {link.label}
           </Link>
         ) : (
@@ -71,14 +66,7 @@ export function DesktopNav() {
               }
             }}>
             <button
-              className={`
-    relative flex items-center gap-1 font-medium text-[#232323] dark:text-[#F5F5F5]
-    hover:text-[#FFB877] transition-colors duration-150 focus:outline-none
-    after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full
-    after:bg-[#FFB877]/60 after:rounded-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300
-    hover:after:scale-x-100
-    ${dropdownOpen === link.label ? 'after:scale-x-100' : ''}
-  `}
+              className={`relative flex items-center gap-1 font-medium text-[#232323] transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 focus:outline-none dark:text-[#F5F5F5] ${dropdownOpen === link.label ? 'after:scale-x-100' : ''} `}
               aria-haspopup="menu"
               aria-expanded={dropdownOpen === link.label}
               tabIndex={0}
@@ -99,13 +87,7 @@ export function DesktopNav() {
             </button>
             {/* Dropdown menu */}
             <div
-              className={`
-      absolute right-0 top-full mt-3 min-w-[170px] rounded-xl
-      bg-[#FFF6EB] dark:bg-[#232323]
-      shadow-2xl border border-[#FFB877]/20 ring-1 ring-[#FFB877]/10
-      transition-all duration-200 z-20
-      ${dropdownOpen === link.label ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none translate-y-2'}
-    `}
+              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] rounded-xl border border-[#FFB877]/20 bg-[#FFF6EB] shadow-2xl ring-1 ring-[#FFB877]/10 transition-all duration-200 dark:bg-[#232323] ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'} `}
               role="menu"
               aria-label={`${link.label} submenu`}
               // Only use mouse events on desktop
@@ -128,14 +110,7 @@ export function DesktopNav() {
                 <Link
                   key={child.href}
                   href={child.href}
-                  className={`
-          block px-5 py-2 rounded-md
-          text-[#232323] dark:text-[#F5F5F5]
-          hover:bg-[#FFB877]/40 
-          focus:bg-[#FFB877]/60 
-          transition-colors duration-150
-          outline-none
-        `}
+                  className={`block rounded-md px-5 py-2 text-[#232323] transition-colors duration-150 outline-none hover:bg-[#FFB877]/40 focus:bg-[#FFB877]/60 dark:text-[#F5F5F5]`}
                   role="menuitem"
                   tabIndex={0}>
                   {child.label}
