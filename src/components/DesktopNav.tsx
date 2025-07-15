@@ -42,11 +42,15 @@ export function DesktopNav() {
           <Link
             key={link.href}
             href={link.href}
-            className="relative font-medium text-[#232323] dark:text-[#F5F5F5] hover:text-[#FFB877] transition-colors duration-150">
+            className={`
+    relative font-medium text-[#232323] dark:text-[#F5F5F5] hover:text-[#FFB877] transition-colors duration-150
+    after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full
+    after:bg-[#FFB877]/60 after:rounded-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300
+    hover:after:scale-x-100
+  `}>
             {link.label}
           </Link>
         ) : (
-          // ...inside your navLinks.map...
           <div
             ref={appsDropdownRef}
             className="relative"
@@ -67,7 +71,14 @@ export function DesktopNav() {
               }
             }}>
             <button
-              className="flex items-center gap-1 font-medium text-[#232323] dark:text-[#F5F5F5] hover:text-[#FFB877] transition-colors duration-150 focus:outline-none"
+              className={`
+    relative flex items-center gap-1 font-medium text-[#232323] dark:text-[#F5F5F5]
+    hover:text-[#FFB877] transition-colors duration-150 focus:outline-none
+    after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full
+    after:bg-[#FFB877]/60 after:rounded-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300
+    hover:after:scale-x-100
+    ${dropdownOpen === link.label ? 'after:scale-x-100' : ''}
+  `}
               aria-haspopup="menu"
               aria-expanded={dropdownOpen === link.label}
               tabIndex={0}
