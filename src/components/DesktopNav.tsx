@@ -87,7 +87,7 @@ export function DesktopNav() {
             </button>
             {/* Dropdown menu */}
             <div
-              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] rounded-xl border border-[#FFB877]/20 bg-[#FFF6EB] shadow-2xl ring-1 ring-[#FFB877]/10 transition-all duration-200 dark:bg-[#232323] ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'} `}
+              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] rounded-xl border border-[#FFB877]/20 bg-[#FFFFFF] shadow-2xl ring-1 ring-[#FFB877]/10 transition-all duration-200 dark:bg-[#232323] ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'} `}
               role="menu"
               aria-label={`${link.label} submenu`}
               // Only use mouse events on desktop
