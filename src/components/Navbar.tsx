@@ -23,7 +23,11 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link
           href="/"
-          className="text-2xl font-bold text-[#FFB877] tracking-tight">
+          className="
+    text-2xl font-bold text-[#FFB877] tracking-tight
+    transition-transform transition-colors duration-200
+    hover:scale-105 hover:text-[#ffcb8a]
+  ">
           Zenshuii
         </Link>
         <DesktopNav />
