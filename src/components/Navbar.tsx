@@ -16,7 +16,7 @@ export function Navbar() {
     bg-white/80 dark:bg-[#232323]/80
     backdrop-blur
     transition-all
-    ${open ? 'z-40' : 'z-50'}  // Lower z-index when mobile nav is open
+    ${open ? 'z-40' : 'z-50'}
     shadow-[0_2px_16px_0_rgba(0,0,0,0.08)]
     dark:shadow-[0_2px_24px_0_rgba(0,0,0,0.65)]
   `}>
