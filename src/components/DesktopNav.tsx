@@ -1,6 +1,7 @@
 'use client';
 
 import { navLinks } from '@/data/navLinks';
+import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -70,7 +71,6 @@ export function DesktopNav() {
               aria-haspopup="menu"
               aria-expanded={dropdownOpen === link.label}
               tabIndex={0}
-              // Only toggle dropdown on click for touch devices
               onClick={() => {
                 if (isTouchDevice()) {
                   setDropdownOpen(
@@ -79,10 +79,12 @@ export function DesktopNav() {
                 }
               }}>
               {link.label}
-              <ChevronDown
-                size={18}
-                className={`transition-transform ${dropdownOpen === link.label ? 'rotate-180' : ''}`}
-              />
+              <motion.span
+                animate={{ rotate: dropdownOpen === link.label ? 180 : 0 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                className="inline-block">
+                <ChevronDown size={18} />
+              </motion.span>
             </button>
             {/* Dropdown menu */}
             <div
