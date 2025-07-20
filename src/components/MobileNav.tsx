@@ -4,6 +4,8 @@ import { navLinks } from '@/data/navLinks';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { useEffect, useState, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
+import { isActiveLink } from '@/utils/isActiveLink';
 
 export function MobileNav({
   open,
@@ -14,6 +16,8 @@ export function MobileNav({
 }) {
   const [mounted, setMounted] = useState(false);
   const [appsOpen, setAppsOpen] = useState(false);
+
+  const pathname = usePathname();
 
   // Close on Escape key
   const handleKeyDown = useCallback(
@@ -76,7 +80,12 @@ export function MobileNav({
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="w-full rounded-lg px-2 py-3 text-left text-lg font-semibold text-[#232323] transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 dark:text-[#F5F5F5]">
+                  className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 ${
+                    isActiveLink(pathname, link.href)
+                      ? 'text-[#FFB877] dark:text-[#FFB877]'
+                      : 'text-[#232323] dark:text-[#F5F5F5]'
+                  } `}>
+                  {' '}
                   {link.label}
                 </Link>
               ))}
@@ -118,7 +127,11 @@ export function MobileNav({
                             key={child.href}
                             href={child.href}
                             onClick={() => setOpen(false)}
-                            className="rounded-md py-2 pl-2 text-left text-base text-[#232323] transition-all hover:bg-[#FFB877]/15 active:scale-95 dark:text-[#F5F5F5]">
+                            className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[#FFB877]/15 active:scale-95 ${
+                              isActiveLink(pathname, child.href)
+                                ? 'font-semibold text-[#FFB877] dark:text-[#FFB877]'
+                                : 'text-[#232323] dark:text-[#F5F5F5]'
+                            } `}>
                             {child.label}
                           </Link>
                         ))}

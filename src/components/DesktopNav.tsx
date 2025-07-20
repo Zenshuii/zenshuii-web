@@ -1,12 +1,15 @@
 'use client';
 
 import { navLinks } from '@/data/navLinks';
+import { isActiveLink } from '@/utils/isActiveLink';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 export function DesktopNav() {
+  const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
 
   const appsDropdownRef = useRef<HTMLDivElement>(null);
@@ -19,7 +22,7 @@ export function DesktopNav() {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
-        dropdownOpen === 'Apps' && // Only if Apps is open
+        dropdownOpen === 'Apps' &&
         appsDropdownRef.current &&
         !appsDropdownRef.current.contains(event.target as Node)
       ) {
@@ -42,7 +45,11 @@ export function DesktopNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={`relative font-medium text-[#232323] transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 dark:text-[#F5F5F5]`}>
+            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 dark:text-[#F5F5F5] ${
+              isActiveLink(pathname, link.href)
+                ? 'text-[#FFB877] dark:text-[#FFB877]'
+                : 'text-[#232323]'
+            } `}>
             {link.label}
           </Link>
         ) : (
@@ -110,7 +117,11 @@ export function DesktopNav() {
                 <Link
                   key={child.href}
                   href={child.href}
-                  className={`block w-full rounded-none px-5 py-2 text-[#232323] transition-colors duration-150 outline-none hover:bg-[#FFB877]/40 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-[#FFB877] dark:text-[#F5F5F5] dark:hover:bg-[#FFB877]/30`}
+                  className={`block w-full rounded-none px-5 py-2 transition-colors duration-150 outline-none hover:bg-[#FFB877]/40 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-[#FFB877] dark:hover:bg-[#FFB877]/30 ${
+                    isActiveLink(pathname, child.href)
+                      ? 'font-semibold text-[#FFB877] dark:text-[#FFB877]'
+                      : 'text-[#232323] dark:text-[#F5F5F5]'
+                  } `}
                   role="menuitem"
                   tabIndex={0}>
                   {child.label}
