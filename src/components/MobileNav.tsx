@@ -39,7 +39,6 @@ export function MobileNav({
 
   if (!mounted) return null;
 
-  // Flatten navLinks for Home/About/Contact, and separate Apps children
   const otherLinks = navLinks.filter((l) => !l.children);
   const appsLink = navLinks.find((l) => l.label === 'Apps');
 
@@ -56,7 +55,6 @@ export function MobileNav({
             exit={{ opacity: 0 }}
             onClick={() => setOpen(false)}
           />
-
           {/* Drawer */}
           <motion.aside
             key="drawer"
