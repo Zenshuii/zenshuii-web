@@ -82,8 +82,7 @@ export function MobileNav({
                     isActiveLink(pathname, link.href)
                       ? 'text-[#FFB877] dark:text-[#FFB877]'
                       : 'text-[#232323] dark:text-[#F5F5F5]'
-                  } `}>
-                  {' '}
+                  }`}>
                   {link.label}
                 </Link>
               ))}
@@ -129,7 +128,7 @@ export function MobileNav({
                               isActiveLink(pathname, child.href)
                                 ? 'font-semibold text-[#FFB877] dark:text-[#FFB877]'
                                 : 'text-[#232323] dark:text-[#F5F5F5]'
-                            } `}>
+                            }`}>
                             {child.label}
                           </Link>
                         ))}

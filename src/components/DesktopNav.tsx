@@ -49,7 +49,7 @@ export function DesktopNav() {
               isActiveLink(pathname, link.href)
                 ? 'text-[#FFB877] dark:text-[#FFB877]'
                 : 'text-[#232323]'
-            } `}>
+            }`}>
             {link.label}
           </Link>
         ) : (
@@ -120,7 +120,7 @@ export function DesktopNav() {
                     isActiveLink(pathname, child.href)
                       ? 'font-semibold text-[#FFB877] dark:text-[#FFB877]'
                       : 'text-[#232323] dark:text-[#F5F5F5]'
-                  } `}
+                  }`}
                   role="menuitem"
                   tabIndex={0}>
                   {child.label}
