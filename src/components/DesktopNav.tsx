@@ -112,7 +112,7 @@ export function DesktopNav() {
                   );
                 }
               }}>
-              {link.children.map((child) => (
+              {link.children?.map((child) => (
                 <Link
                   key={child.href}
                   href={child.href}
