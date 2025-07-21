@@ -39,9 +39,6 @@ export function MobileNav({
 
   if (!mounted) return null;
 
-  const otherLinks = navLinks.filter((l) => !l.children);
-  const appsLink = navLinks.find((l) => l.label === 'Apps');
-
   return createPortal(
     <AnimatePresence>
       {open && (
@@ -72,87 +69,72 @@ export function MobileNav({
             </button>
 
             <nav className="mt-8 flex w-full flex-col gap-2">
-              {/* First two links */}
-              {otherLinks.slice(0, 2).map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 ${
-                    isActiveLink(pathname, link.href)
-                      ? 'text-[#FFB877] dark:text-[#FFB877]'
-                      : 'text-[#232323] dark:text-[#F5F5F5]'
-                  }`}>
-                  {link.label}
-                </Link>
-              ))}
-
               {/* Apps collapsible as the 3rd item */}
-              {appsLink && (
-                <>
-                  <button
-                    onClick={() => setAppsOpen((v) => !v)}
-                    className="mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#232323] transition-all hover:bg-[#FFB877]/15 focus:outline-none dark:text-[#F5F5F5]"
-                    aria-expanded={appsOpen}
-                    aria-controls="apps-subnav">
-                    <span>Apps</span>
-                    <motion.span
-                      animate={{ rotate: appsOpen ? 180 : 0 }}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 300,
-                        damping: 24,
-                      }}
-                      className="ml-2 inline-block">
-                      <ChevronDown size={22} />
-                    </motion.span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {appsOpen && (
-                      <motion.div
-                        id="apps-subnav"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
+              {navLinks.map((link) =>
+                link.children ? (
+                  // Dropdown/collapsible for links with children
+                  <>
+                    <button
+                      onClick={() => setAppsOpen((v) => !v)}
+                      className="mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#232323] transition-all hover:bg-[#FFB877]/15 focus:outline-none dark:text-[#F5F5F5]"
+                      aria-expanded={appsOpen}
+                      aria-controls="apps-subnav">
+                      <span>{link.label}</span>
+                      <motion.span
+                        animate={{ rotate: appsOpen ? 180 : 0 }}
                         transition={{
-                          duration: 0.19,
-                          ease: [0.4, 0.14, 0.3, 1],
+                          type: 'spring',
+                          stiffness: 300,
+                          damping: 24,
                         }}
-                        className="ml-1 flex flex-col overflow-hidden border-l border-[#FFB877]/20 pl-4">
-                        {appsLink.children?.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            onClick={() => setOpen(false)}
-                            className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[#FFB877]/15 active:scale-95 ${
-                              isActiveLink(pathname, child.href)
-                                ? 'font-semibold text-[#FFB877] dark:text-[#FFB877]'
-                                : 'text-[#232323] dark:text-[#F5F5F5]'
-                            }`}>
-                            {child.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </>
+                        className="ml-2 inline-block">
+                        <ChevronDown size={22} />
+                      </motion.span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {appsOpen && (
+                        <motion.div
+                          id="apps-subnav"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.19,
+                            ease: [0.4, 0.14, 0.3, 1],
+                          }}
+                          className="ml-1 flex flex-col overflow-hidden border-l border-[#FFB877]/20 pl-4">
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setOpen(false)}
+                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[#FFB877]/15 active:scale-95 ${
+                                isActiveLink(pathname, child.href)
+                                  ? 'font-semibold text-[#FFB877] dark:text-[#FFB877]'
+                                  : 'text-[#232323] dark:text-[#F5F5F5]'
+                              }`}>
+                              {child.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  // Regular link
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 ${
+                      isActiveLink(pathname, link.href)
+                        ? 'text-[#FFB877] dark:text-[#FFB877]'
+                        : 'text-[#232323] dark:text-[#F5F5F5]'
+                    }`}>
+                    {link.label}
+                  </Link>
+                ),
               )}
-
-              {/* Remaining links, if any */}
-              {otherLinks.slice(2).map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 ${
-                    isActiveLink(pathname, link.href)
-                      ? 'text-[#FFB877] dark:text-[#FFB877]'
-                      : 'text-[#232323] dark:text-[#F5F5F5]'
-                  }`}>
-                  {' '}
-                  {link.label}
-                </Link>
-              ))}
             </nav>
           </motion.aside>
         </>
