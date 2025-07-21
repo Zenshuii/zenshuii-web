@@ -1,4 +1,5 @@
 'use client';
+
 import { motion, useReducedMotion, easeInOut } from 'framer-motion';
 import Link from 'next/link';
 import { WatermarkLogo } from './WatermarkLogo';

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { X, ChevronDown } from 'lucide-react';
 import { navLinks } from '@/data/navLinks';
@@ -67,12 +69,9 @@ export function MobileNav({
               onClick={() => setOpen(false)}>
               <X size={32} />
             </button>
-
             <nav className="mt-8 flex w-full flex-col gap-2">
-              {/* Apps collapsible as the 3rd item */}
               {navLinks.map((link) =>
                 link.children ? (
-                  // Dropdown/collapsible for links with children
                   <div key={link.label}>
                     <button
                       onClick={() => setAppsOpen((v) => !v)}
@@ -121,7 +120,6 @@ export function MobileNav({
                     </AnimatePresence>
                   </div>
                 ) : (
-                  // Regular link
                   <Link
                     key={link.href}
                     href={link.href}
