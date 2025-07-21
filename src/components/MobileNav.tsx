@@ -73,7 +73,7 @@ export function MobileNav({
               {navLinks.map((link) =>
                 link.children ? (
                   // Dropdown/collapsible for links with children
-                  <>
+                  <div key={link.label}>
                     <button
                       onClick={() => setAppsOpen((v) => !v)}
                       className="mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#232323] transition-all hover:bg-[#FFB877]/15 focus:outline-none dark:text-[#F5F5F5]"
@@ -119,7 +119,7 @@ export function MobileNav({
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </>
+                  </div>
                 ) : (
                   // Regular link
                   <Link
