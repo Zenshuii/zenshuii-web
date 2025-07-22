@@ -11,7 +11,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-white/80 backdrop-blur transition-all dark:bg-[#232323]/80 ${open ? 'z-40' : 'z-50'} shadow-[0_2px_16px_0_rgba(0,0,0,0.08)] dark:shadow-[0_2px_24px_0_rgba(0,0,0,0.65)]`}>
+      className={`fixed top-0 left-0 w-full bg-[#232323]/80 backdrop-blur transition-all ${open ? 'z-40' : 'z-50'} shadow-[0_2px_24px_0_rgba(0,0,0,0.65)]`}>
       <div className="max-w-8xl mx-auto flex min-h-[72px] items-center justify-between px-8 py-4 md:px-20">
         <Link
           href="/"

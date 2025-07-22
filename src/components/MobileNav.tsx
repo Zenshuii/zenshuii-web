@@ -57,7 +57,7 @@ export function MobileNav({
           {/* Drawer */}
           <motion.aside
             key="drawer"
-            className="fixed top-0 right-0 z-50 flex h-full w-80 max-w-[90vw] flex-col border-l border-[#FFB877]/20 bg-white px-6 pt-8 pb-10 shadow-2xl dark:bg-[#1C1C1C]"
+            className="fixed top-0 right-0 z-50 flex h-full w-80 max-w-[90vw] flex-col border-l border-[#FFB877]/20 bg-[#1C1C1C] px-6 pt-8 pb-10 shadow-2xl"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -75,7 +75,7 @@ export function MobileNav({
                   <div key={link.label}>
                     <button
                       onClick={() => setAppsOpen((v) => !v)}
-                      className="mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#232323] transition-all hover:bg-[#FFB877]/15 focus:outline-none dark:text-[#F5F5F5]"
+                      className="mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#F5F5F5] transition-all hover:bg-[#FFB877]/15 focus:outline-none"
                       aria-expanded={appsOpen}
                       aria-controls="apps-subnav">
                       <span>{link.label}</span>
@@ -109,8 +109,8 @@ export function MobileNav({
                               onClick={() => setOpen(false)}
                               className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[#FFB877]/15 active:scale-95 ${
                                 isActiveLink(pathname, child.href)
-                                  ? 'font-semibold text-[#FFB877] dark:text-[#FFB877]'
-                                  : 'text-[#232323] dark:text-[#F5F5F5]'
+                                  ? 'font-semibold text-[#FFB877]'
+                                  : 'text-[#F5F5F5]'
                               }`}>
                               {child.label}
                             </Link>
@@ -126,8 +126,8 @@ export function MobileNav({
                     onClick={() => setOpen(false)}
                     className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 ${
                       isActiveLink(pathname, link.href)
-                        ? 'text-[#FFB877] dark:text-[#FFB877]'
-                        : 'text-[#232323] dark:text-[#F5F5F5]'
+                        ? 'text-[#FFB877]'
+                        : 'text-[#F5F5F5]'
                     }`}>
                     {link.label}
                   </Link>
