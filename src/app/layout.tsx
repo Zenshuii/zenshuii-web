@@ -15,7 +15,13 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'icon',
+      url: '/zenshuii-logo-black.svg',
+      media: '(prefers-color-scheme: light)',
+    },
+    {
+      rel: 'icon',
       url: '/zenshuii-logo-white.svg',
+      media: '(prefers-color-scheme: dark)',
     },
   ],
 };
