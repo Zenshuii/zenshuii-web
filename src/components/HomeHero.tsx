@@ -19,19 +19,11 @@ export function HomeHero() {
       };
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center bg-white px-4 text-center dark:bg-[#1C1C1C]">
-      {/* White logo for dark mode */}
+    <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#1C1C1C] px-4 text-center">
       <WatermarkLogo
         src="/zenshuii-logo-white.svg"
         alt=""
-        className="hidden dark:block"
-        watermarkMotion={watermarkMotion}
-      />
-      {/* Black logo for light mode */}
-      <WatermarkLogo
-        src="/zenshuii-logo-black.svg"
-        alt=""
-        className="dark:hidden"
+        className=""
         watermarkMotion={watermarkMotion}
       />
       <div className="relative z-10 flex w-full flex-col items-center">
@@ -46,7 +38,7 @@ export function HomeHero() {
           Zenshuii
         </motion.h1>
         <motion.p
-          className="mb-6 max-w-2xl text-lg leading-relaxed text-[#333333] sm:text-2xl dark:text-[#F5F5F5]"
+          className="mb-6 max-w-2xl text-lg leading-relaxed text-[#F5F5F5] sm:text-2xl"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -69,7 +61,7 @@ export function HomeHero() {
           style={{ transformOrigin: 'center' }}
         />
         <motion.p
-          className="mb-10 text-base text-[#666666] italic opacity-70 dark:text-[#A5A5A5]"
+          className="mb-10 text-base text-[#A5A5A5] italic opacity-70"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
