@@ -114,7 +114,7 @@ export function DesktopNav() {
                 <Link
                   key={child.href}
                   href={child.href}
-                  className={`block w-full rounded-none px-5 py-2 text-[#F5F5F5] transition-colors duration-150 outline-none hover:bg-[#FFB877]/40 hover:text-[#F5F5F5] focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-[#FFB877] ${
+                  className={`block w-full rounded-none px-5 py-2 text-[#F5F5F5] transition-colors duration-150 outline-none hover:bg-[#FFB877]/40 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-[#FFB877] ${
                     isActiveLink(pathname, child.href)
                       ? 'font-semibold text-[#FFB877]'
                       : ''
