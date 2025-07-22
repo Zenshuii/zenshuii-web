@@ -22,8 +22,7 @@ export function HomeHero() {
     <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#1C1C1C] px-4 text-center">
       <WatermarkLogo
         src="/zenshuii-logo-white.svg"
-        alt=""
-        className=""
+        alt="watermark logo"
         watermarkMotion={watermarkMotion}
       />
       <div className="relative z-10 flex w-full flex-col items-center">
