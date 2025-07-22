@@ -1,7 +1,7 @@
 'use client';
 
 import { navLinks } from '@/data/navLinks';
-import { isActiveLink } from '@/utils/isActiveLink';
+import { isActiveLink, isAnyChildActive } from '@/utils/navHelpers';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -45,8 +45,10 @@ export function DesktopNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={`relative font-medium text-[#F5F5F5] transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 ${
-              isActiveLink(pathname, link.href) ? 'text-[#FFB877]' : ''
+            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 ${
+              isActiveLink(pathname, link.href)
+                ? 'text-[#FFB877]'
+                : 'text-[#F5F5F5]'
             }`}>
             {link.label}
           </Link>
@@ -71,7 +73,11 @@ export function DesktopNav() {
               }
             }}>
             <button
-              className={`relative flex items-center gap-1 font-medium text-[#F5F5F5] transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 focus:outline-none ${dropdownOpen === link.label ? 'after:scale-x-100' : ''} `}
+              className={`relative flex items-center gap-1 font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 focus:outline-none ${
+                dropdownOpen === link.label || isAnyChildActive(link, pathname)
+                  ? 'text-[#FFB877]'
+                  : 'text-[#F5F5F5]'
+              }`}
               aria-haspopup="menu"
               aria-expanded={dropdownOpen === link.label}
               tabIndex={0}

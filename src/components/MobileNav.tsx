@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
-import { isActiveLink } from '@/utils/isActiveLink';
+import { isActiveLink, isAnyChildActive } from '@/utils/navHelpers';
 
 export function MobileNav({
   open,
@@ -75,7 +75,11 @@ export function MobileNav({
                   <div key={link.label}>
                     <button
                       onClick={() => setAppsOpen((v) => !v)}
-                      className="mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#F5F5F5] transition-all hover:bg-[#FFB877]/15 focus:outline-none"
+                      className={`mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#F5F5F5] transition-all hover:bg-[#FFB877]/15 focus:outline-none ${
+                        appsOpen || isAnyChildActive(link, pathname)
+                          ? 'text-[#FFB877]'
+                          : 'text-[#F5F5F5]'
+                      }`}
                       aria-expanded={appsOpen}
                       aria-controls="apps-subnav">
                       <span>{link.label}</span>
