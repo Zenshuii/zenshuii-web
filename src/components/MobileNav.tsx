@@ -131,7 +131,7 @@ export function MobileNav({
                             href={link.href}
                             onClick={() => setOpen(false)}
                             className={`mt-2 rounded-md border-t border-[#FFB877]/10 py-2 pl-2 text-left text-base font-semibold transition-all hover:bg-[#FFB877]/10 hover:text-[#FFB877] active:scale-95 ${
-                              isActiveLink(pathname, link.href)
+                              pathname === link.href
                                 ? 'text-[#FFB877]'
                                 : 'text-[#F5F5F5]'
                             }`}>
