@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 
-export default function ContactPage() {
+export default function AppsPage() {
   return (
     <main className="min-h-screen w-full">
       <Navbar />
