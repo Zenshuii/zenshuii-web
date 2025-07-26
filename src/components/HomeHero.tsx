@@ -25,9 +25,9 @@ export function HomeHero() {
         alt=""
         watermarkMotion={watermarkMotion}
       />
-      <div className="relative z-10 flex w-full flex-col items-center">
+      <div className="relative z-10 flex w-full max-w-xl flex-col items-center">
         <motion.h1
-          className="z-10 mb-6 text-4xl font-bold tracking-tight text-[#FFB877] sm:text-7xl"
+          className="z-10 mb-4 text-4xl font-bold tracking-tight text-[#FFB877] sm:text-6xl"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -37,7 +37,7 @@ export function HomeHero() {
           Zenshuii
         </motion.h1>
         <motion.p
-          className="mb-6 max-w-2xl text-lg leading-relaxed text-[#F5F5F5] sm:text-2xl"
+          className="mb-4 max-w-2xl text-lg leading-relaxed text-[#F5F5F5] sm:text-xl"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -60,7 +60,7 @@ export function HomeHero() {
           style={{ transformOrigin: 'center' }}
         />
         <motion.p
-          className="mb-10 text-base text-[#A5A5A5] italic opacity-70"
+          className="mb-8 text-base text-[#A5A5A5] italic opacity-70"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{

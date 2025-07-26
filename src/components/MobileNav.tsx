@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
-import { isActiveLink } from '@/utils/isActiveLink';
+import { isActiveLink, isAnyChildActive } from '@/utils/navHelpers';
 
 export function MobileNav({
   open,
@@ -75,7 +75,13 @@ export function MobileNav({
                   <div key={link.label}>
                     <button
                       onClick={() => setAppsOpen((v) => !v)}
-                      className="mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#F5F5F5] transition-all hover:bg-[#FFB877]/15 focus:outline-none"
+                      className={`mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#F5F5F5] transition-all hover:bg-[#FFB877]/15 focus:outline-none ${
+                        appsOpen ||
+                        isActiveLink(pathname, link.href) ||
+                        isAnyChildActive(link, pathname)
+                          ? 'text-[#FFB877]'
+                          : 'text-[#F5F5F5]'
+                      }`}
                       aria-expanded={appsOpen}
                       aria-controls="apps-subnav">
                       <span>{link.label}</span>
@@ -86,7 +92,13 @@ export function MobileNav({
                           stiffness: 300,
                           damping: 24,
                         }}
-                        className="ml-2 inline-block">
+                        className={`ml-2 inline-block ${
+                          appsOpen ||
+                          isActiveLink(pathname, link.href) ||
+                          isAnyChildActive(link, pathname)
+                            ? 'text-[#FFB877]'
+                            : 'text-[#F5F5F5]'
+                        }`}>
                         <ChevronDown size={22} />
                       </motion.span>
                     </button>
@@ -107,7 +119,7 @@ export function MobileNav({
                               key={child.href}
                               href={child.href}
                               onClick={() => setOpen(false)}
-                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[#FFB877]/15 active:scale-95 ${
+                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[#FFB877]/15 hover:text-[#FFB877] active:scale-95 ${
                                 isActiveLink(pathname, child.href)
                                   ? 'font-semibold text-[#FFB877]'
                                   : 'text-[#F5F5F5]'
@@ -115,6 +127,16 @@ export function MobileNav({
                               {child.label}
                             </Link>
                           ))}
+                          <Link
+                            href={link.href}
+                            onClick={() => setOpen(false)}
+                            className={`mt-2 rounded-md border-t border-[#FFB877]/10 py-2 pl-2 text-left text-base font-semibold transition-all hover:bg-[#FFB877]/10 hover:text-[#FFB877] active:scale-95 ${
+                              pathname === link.href
+                                ? 'text-[#FFB877]'
+                                : 'text-[#F5F5F5]'
+                            }`}>
+                            Show All Apps
+                          </Link>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -124,7 +146,7 @@ export function MobileNav({
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[#FFB877]/15 focus:outline-none active:scale-95 ${
+                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[#FFB877]/15 hover:text-[#FFB877] focus:outline-none active:scale-95 ${
                       isActiveLink(pathname, link.href)
                         ? 'text-[#FFB877]'
                         : 'text-[#F5F5F5]'

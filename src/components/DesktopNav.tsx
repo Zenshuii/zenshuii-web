@@ -1,7 +1,7 @@
 'use client';
 
 import { navLinks } from '@/data/navLinks';
-import { isActiveLink } from '@/utils/isActiveLink';
+import { isActiveLink, isAnyChildActive } from '@/utils/navHelpers';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -45,8 +45,10 @@ export function DesktopNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={`relative font-medium text-[#F5F5F5] transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 ${
-              isActiveLink(pathname, link.href) ? 'text-[#FFB877]' : ''
+            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 ${
+              isActiveLink(pathname, link.href)
+                ? 'text-[#FFB877]'
+                : 'text-[#F5F5F5]'
             }`}>
             {link.label}
           </Link>
@@ -70,26 +72,45 @@ export function DesktopNav() {
                 );
               }
             }}>
-            <button
-              className={`relative flex items-center gap-1 font-medium text-[#F5F5F5] transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 focus:outline-none ${dropdownOpen === link.label ? 'after:scale-x-100' : ''} `}
-              aria-haspopup="menu"
-              aria-expanded={dropdownOpen === link.label}
-              tabIndex={0}
-              onClick={() => {
-                if (isTouchDevice()) {
+            <div className="relative flex items-center gap-1">
+              <Link
+                href={link.href}
+                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 focus:outline-none ${
+                  dropdownOpen === link.label ||
+                  isActiveLink(pathname, link.href) ||
+                  isAnyChildActive(link, pathname)
+                    ? 'text-[#FFB877]'
+                    : 'text-[#F5F5F5]'
+                }`}
+                tabIndex={0}
+                aria-haspopup="menu"
+                aria-expanded={dropdownOpen === link.label}>
+                {link.label}
+              </Link>
+              <button
+                type="button"
+                className="flex items-center px-1 focus:outline-none"
+                tabIndex={-1}
+                aria-label={`Toggle ${link.label} menu`}
+                onClick={() => {
                   setDropdownOpen(
                     dropdownOpen === link.label ? null : link.label,
                   );
-                }
-              }}>
-              {link.label}
-              <motion.span
-                animate={{ rotate: dropdownOpen === link.label ? 180 : 0 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-                className="inline-block">
-                <ChevronDown size={18} />
-              </motion.span>
-            </button>
+                }}>
+                <motion.span
+                  animate={{ rotate: dropdownOpen === link.label ? 180 : 0 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                  className={`inline-block ${
+                    dropdownOpen === link.label ||
+                    isActiveLink(pathname, link.href) ||
+                    isAnyChildActive(link, pathname)
+                      ? 'text-[#FFB877]'
+                      : 'text-[#F5F5F5]'
+                  } `}>
+                  <ChevronDown size={18} />
+                </motion.span>
+              </button>
+            </div>
             {/* Dropdown menu */}
             <div
               className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] overflow-hidden rounded-xl border border-[#FFB877]/20 bg-[#232323] shadow-2xl ring-1 ring-[#FFB877]/10 transition-all duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
