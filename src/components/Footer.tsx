@@ -4,8 +4,8 @@ import { FaEnvelope, FaInstagram, FaYoutube } from 'react-icons/fa';
 export function Footer() {
   return (
     <footer className="mt-auto w-full border-t border-[#2A2A2A] bg-[#181818] py-6">
-      <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:gap-4">
-        <span className="text-sm leading-relaxed text-[#A5A5A5]">
+      <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:items-start sm:gap-4">
+        <span className="text-center text-sm leading-relaxed text-[#A5A5A5] sm:text-left">
           &copy; {new Date().getFullYear()} Zenshuii by{' '}
           <Link
             href="https://smelidoni.dev/"
