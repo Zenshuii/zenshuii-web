@@ -146,7 +146,9 @@ export function DesktopNav() {
                   onBlur={(e) => {
                     if (
                       !e.relatedTarget ||
-                      !e.currentTarget.parentElement?.contains(e.relatedTarget)
+                      !e.currentTarget.parentElement?.contains(
+                        e.relatedTarget as Node,
+                      )
                     ) {
                       setDropdownOpen(null);
                     }
