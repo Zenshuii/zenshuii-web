@@ -1,8 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import { apps } from '@/data/apps';
 import Image from 'next/image';
+import { motion, useReducedMotion, easeInOut } from 'framer-motion';
 
 export default function AppsPage() {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <section className="flex min-h-dvh w-full flex-col justify-center bg-[var(--color-surface-2)] px-2 pt-24 pb-12 sm:px-4 sm:pt-32 sm:pb-24">
       <div className="relative mx-auto w-full max-w-6xl">
@@ -10,26 +14,40 @@ export default function AppsPage() {
         <section
           aria-labelledby="apps-heading"
           className="flex flex-col items-center justify-start pb-6 text-center sm:pb-8">
-          <h1
+          <motion.h1
             id="apps-heading"
-            className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-accent)] sm:mb-6 sm:text-5xl">
+            className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-accent)] sm:mb-6 sm:text-5xl"
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 32 }}
+            animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: easeInOut }}>
             Our Apps
-          </h1>
-          <p className="mb-6 max-w-2xl text-base leading-relaxed text-balance text-[var(--color-on-surface)] sm:mb-4 sm:max-w-4xl sm:text-lg">
+          </motion.h1>
+          <motion.p
+            className="mb-6 max-w-2xl text-base leading-relaxed text-balance text-[var(--color-on-surface)] sm:mb-4 sm:max-w-4xl sm:text-lg"
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+            animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.7, ease: easeInOut }}>
             Mindful, purposeful digital tools crafted to support reflection,
             focus, and personal growth. Explore what we&apos;ve released and
             what we&apos;re experimenting with.
-          </p>
+          </motion.p>
         </section>
         {/* Apps grid */}
         <section
           aria-label="Available apps"
           className="grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-          {apps.map((app) => (
-            <article
+          {apps.map((app, i) => (
+            <motion.article
               key={app.slug}
               aria-labelledby={`app-${app.slug}-title`}
-              className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3)]/70 p-4 shadow-xl ring-1 ring-[var(--color-accent-a10)] transition-all duration-300 focus-within:border-[var(--color-accent)] focus-within:ring-[var(--color-accent-a60)] hover:translate-y-[-4px] hover:border-[var(--color-accent-a60)] hover:shadow-2xl hover:ring-[var(--color-accent-a20)] active:scale-[0.98] sm:p-6">
+              className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3)]/70 p-4 shadow-xl ring-1 ring-[var(--color-accent-a10)] transition-all duration-300 focus-within:border-[var(--color-accent)] focus-within:ring-[var(--color-accent-a60)] hover:translate-y-[-4px] hover:border-[var(--color-accent-a60)] hover:shadow-2xl hover:ring-[var(--color-accent-a20)] active:scale-[0.98] sm:p-6"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 32 }}
+              animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
+              transition={{
+                delay: shouldReduceMotion ? 0 : 0.22 + i * 0.12,
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1],
+              }}>
               <div className="mb-5 flex h-32 w-full items-center justify-center rounded-xl bg-[var(--color-surface-2)]/60 ring-1 ring-[var(--color-border)] ring-inset">
                 {app.image ? (
                   <Image
@@ -67,7 +85,7 @@ export default function AppsPage() {
                   View
                 </Link>
               </div>
-            </article>
+            </motion.article>
           ))}
         </section>
       </div>
