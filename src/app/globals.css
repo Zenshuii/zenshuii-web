@@ -2,8 +2,8 @@
 
 :root {
   /* Base */
-  --color-background: #ffffff;
-  --color-foreground: #171717;
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
 
   /* Surfaces (elevations) */
   --color-surface-1: #181818;
@@ -25,13 +25,6 @@
   --color-accent-a15: rgba(255, 184, 119, 0.15);
   --color-accent-a20: rgba(255, 184, 119, 0.2);
   --color-accent-a60: rgba(255, 184, 119, 0.6);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #0a0a0a;
-    --color-foreground: #ededed;
-  }
 }
 
 body {
