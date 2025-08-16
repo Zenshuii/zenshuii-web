@@ -45,10 +45,10 @@ export function DesktopNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 ${
+            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 ${
               isActiveLink(pathname, link.href)
-                ? 'text-[#FFB877]'
-                : 'text-[#F5F5F5]'
+                ? 'text-[var(--color-accent)]'
+                : 'text-[var(--color-on-surface)]'
             }`}>
             {link.label}
           </Link>
@@ -75,12 +75,12 @@ export function DesktopNav() {
             <div className="relative flex items-center gap-1">
               <Link
                 href={link.href}
-                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[#FFB877]/60 after:transition-transform after:duration-300 after:content-[''] hover:text-[#FFB877] hover:after:scale-x-100 focus:outline-none ${
+                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 focus:outline-none ${
                   dropdownOpen === link.label ||
                   isActiveLink(pathname, link.href) ||
                   isAnyChildActive(link, pathname)
-                    ? 'text-[#FFB877]'
-                    : 'text-[#F5F5F5]'
+                    ? 'text-[var(--color-accent)]'
+                    : 'text-[var(--color-on-surface)]'
                 }`}
                 tabIndex={0}
                 aria-haspopup="menu"
@@ -104,8 +104,8 @@ export function DesktopNav() {
                     dropdownOpen === link.label ||
                     isActiveLink(pathname, link.href) ||
                     isAnyChildActive(link, pathname)
-                      ? 'text-[#FFB877]'
-                      : 'text-[#F5F5F5]'
+                      ? 'text-[var(--color-accent)]'
+                      : 'text-[var(--color-on-surface)]'
                   } `}>
                   <ChevronDown size={18} />
                 </motion.span>
@@ -113,7 +113,7 @@ export function DesktopNav() {
             </div>
             {/* Dropdown menu */}
             <div
-              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] overflow-hidden rounded-xl border border-[#FFB877]/20 bg-[#232323] shadow-2xl ring-1 ring-[#FFB877]/10 transition-all duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
+              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] overflow-hidden rounded-xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3)] shadow-2xl ring-1 ring-[var(--color-accent-a10)] transition-all duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
               role="menu"
               aria-label={`${link.label} submenu`}
               onMouseEnter={() => {
@@ -135,10 +135,10 @@ export function DesktopNav() {
                 <Link
                   key={child.href}
                   href={child.href}
-                  className={`block w-full rounded-none px-5 py-2 transition-colors duration-150 outline-none hover:bg-[#FFB877]/40 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-[#FFB877] ${
+                  className={`block w-full rounded-none px-5 py-2 transition-colors duration-150 outline-none hover:bg-[var(--color-accent-a15)] focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
                     isActiveLink(pathname, child.href)
-                      ? 'font-semibold text-[#FFB877]'
-                      : 'text-[#F5F5F5]'
+                      ? 'font-semibold text-[var(--color-accent)]'
+                      : 'text-[var(--color-on-surface)]'
                   }`}
                   role="menuitem"
                   tabIndex={0}>

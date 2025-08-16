@@ -9,6 +9,7 @@
   --color-surface-1: #181818;
   --color-surface-2: #1c1c1c;
   --color-surface-3: #232323;
+  --color-surface-3-a80: rgba(35, 35, 35, 0.8);
 
   /* Borders */
   --color-border: #2a2a2a;
@@ -20,6 +21,10 @@
   /* Accent */
   --color-accent: #ffb877;
   --color-accent-weak: #ffe5bd;
+  --color-accent-a10: rgba(255, 184, 119, 0.1);
+  --color-accent-a15: rgba(255, 184, 119, 0.15);
+  --color-accent-a20: rgba(255, 184, 119, 0.2);
+  --color-accent-a60: rgba(255, 184, 119, 0.6);
 }
 
 @media (prefers-color-scheme: dark) {

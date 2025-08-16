@@ -57,14 +57,14 @@ export function MobileNav({
           {/* Drawer */}
           <motion.aside
             key="drawer"
-            className="fixed top-0 right-0 z-50 flex h-full w-80 max-w-[90vw] flex-col border-l border-[#FFB877]/20 bg-[#1C1C1C] px-6 pt-8 pb-10 shadow-2xl"
+            className="fixed top-0 right-0 z-50 flex h-full w-80 max-w-[90vw] flex-col border-l border-[var(--color-accent-a20)] bg-[var(--color-surface-2)] px-6 pt-8 pb-10 shadow-2xl"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 400, damping: 36 }}>
             {/* Close button */}
             <button
-              className="absolute top-5 right-6 z-50 cursor-pointer rounded-full p-1 text-[#FFB877] transition hover:bg-[#FFB877]/15"
+              className="absolute top-5 right-6 z-50 cursor-pointer rounded-full p-1 text-[var(--color-accent)] transition hover:bg-[var(--color-accent-a15)]"
               aria-label="Close menu"
               onClick={() => setOpen(false)}>
               <X size={32} />
@@ -75,12 +75,12 @@ export function MobileNav({
                   <div key={link.label}>
                     <button
                       onClick={() => setAppsOpen((v) => !v)}
-                      className={`mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[#F5F5F5] transition-all hover:bg-[#FFB877]/15 focus:outline-none ${
+                      className={`mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[var(--color-on-surface)] transition-all hover:bg-[var(--color-accent-a15)] focus:outline-none ${
                         appsOpen ||
                         isActiveLink(pathname, link.href) ||
                         isAnyChildActive(link, pathname)
-                          ? 'text-[#FFB877]'
-                          : 'text-[#F5F5F5]'
+                          ? 'text-[var(--color-accent)]'
+                          : 'text-[var(--color-on-surface)]'
                       }`}
                       aria-expanded={appsOpen}
                       aria-controls="apps-subnav">
@@ -96,8 +96,8 @@ export function MobileNav({
                           appsOpen ||
                           isActiveLink(pathname, link.href) ||
                           isAnyChildActive(link, pathname)
-                            ? 'text-[#FFB877]'
-                            : 'text-[#F5F5F5]'
+                            ? 'text-[var(--color-accent)]'
+                            : 'text-[var(--color-on-surface)]'
                         }`}>
                         <ChevronDown size={22} />
                       </motion.span>
@@ -113,16 +113,16 @@ export function MobileNav({
                             duration: 0.19,
                             ease: [0.4, 0.14, 0.3, 1],
                           }}
-                          className="ml-1 flex flex-col overflow-hidden border-l border-[#FFB877]/20 pl-4">
+                          className="ml-1 flex flex-col overflow-hidden border-l border-[var(--color-accent-a20)] pl-4">
                           {link.children.map((child) => (
                             <Link
                               key={child.href}
                               href={child.href}
                               onClick={() => setOpen(false)}
-                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[#FFB877]/15 hover:text-[#FFB877] active:scale-95 ${
+                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[var(--color-accent-a15)] hover:text-[var(--color-accent)] active:scale-95 ${
                                 isActiveLink(pathname, child.href)
-                                  ? 'font-semibold text-[#FFB877]'
-                                  : 'text-[#F5F5F5]'
+                                  ? 'font-semibold text-[var(--color-accent)]'
+                                  : 'text-[var(--color-on-surface)]'
                               }`}>
                               {child.label}
                             </Link>
@@ -130,10 +130,10 @@ export function MobileNav({
                           <Link
                             href={link.href}
                             onClick={() => setOpen(false)}
-                            className={`mt-2 rounded-md border-t border-[#FFB877]/10 py-2 pl-2 text-left text-base font-semibold transition-all hover:bg-[#FFB877]/10 hover:text-[#FFB877] active:scale-95 ${
+                            className={`mt-2 rounded-md border-t border-[var(--color-accent-a10)] py-2 pl-2 text-left text-base font-semibold transition-all hover:bg-[var(--color-accent-a10)] hover:text-[var(--color-accent)] active:scale-95 ${
                               pathname === link.href
-                                ? 'text-[#FFB877]'
-                                : 'text-[#F5F5F5]'
+                                ? 'text-[var(--color-accent)]'
+                                : 'text-[var(--color-on-surface)]'
                             }`}>
                             Show All Apps
                           </Link>
@@ -146,10 +146,10 @@ export function MobileNav({
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[#FFB877]/15 hover:text-[#FFB877] focus:outline-none active:scale-95 ${
+                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[var(--color-accent-a15)] hover:text-[var(--color-accent)] focus:outline-none active:scale-95 ${
                       isActiveLink(pathname, link.href)
-                        ? 'text-[#FFB877]'
-                        : 'text-[#F5F5F5]'
+                        ? 'text-[var(--color-accent)]'
+                        : 'text-[var(--color-on-surface)]'
                     }`}>
                     {link.label}
                   </Link>
