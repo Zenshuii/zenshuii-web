@@ -145,10 +145,8 @@ export function DesktopNav() {
                   onFocus={() => setDropdownOpen(link.label)}
                   onBlur={(e) => {
                     if (
-                      !e.relatedTarget ||
-                      !e.currentTarget.parentElement?.contains(
-                        e.relatedTarget as Node,
-                      )
+                      !(e.relatedTarget instanceof Node) ||
+                      !e.currentTarget.parentElement?.contains(e.relatedTarget)
                     ) {
                       setDropdownOpen(null);
                     }
