@@ -45,7 +45,7 @@ export default function AppsPage() {
               animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
               transition={{
                 delay: shouldReduceMotion ? 0 : 0.22 + i * 0.12,
-                duration: 0.8,
+                duration: 0.6,
                 ease: [0.16, 1, 0.3, 1],
               }}>
               <div className="mb-5 flex h-32 w-full items-center justify-center rounded-xl bg-[var(--color-surface-3-a60)] ring-1 ring-[var(--color-border)] ring-inset">
