@@ -1,8 +1,10 @@
 export default function AppsPage() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#1C1C1C] px-4 text-center">
-      <h1 className="text-2xl font-bold text-[#FFB877]">Apps Page</h1>
-      <p className="mt-4 text-[#F5F5F5]">
+    <section className="relative flex min-h-screen flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 text-center">
+      <h1 className="text-2xl font-bold text-[var(--color-accent)]">
+        Apps Page
+      </h1>
+      <p className="mt-4 text-[var(--color-on-surface)]">
         This is the apps page of our application.
       </p>
     </section>

@@ -11,16 +11,16 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full bg-[#232323]/80 backdrop-blur transition-all ${open ? 'z-40' : 'z-50'} shadow-[0_2px_24px_0_rgba(0,0,0,0.65)]`}>
+      className={`fixed top-0 left-0 w-full bg-[var(--color-surface-3-a80)] backdrop-blur transition-all ${open ? 'z-40' : 'z-50'} shadow-[0_2px_24px_0_rgba(0,0,0,0.65)]`}>
       <div className="max-w-8xl mx-auto flex min-h-[72px] items-center justify-between px-8 py-4 md:px-20">
         <Link
           href="/"
-          className="text-2xl font-bold tracking-tight text-[#FFB877] transition-colors duration-200 hover:scale-105 hover:text-[#ffcb8a]">
+          className="text-2xl font-bold tracking-tight text-[var(--color-accent)] transition-colors duration-200 hover:scale-105 hover:text-[var(--color-accent-weak)] focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3-a80)] focus-visible:outline-none">
           Zenshuii
         </Link>
         <DesktopNav />
         <button
-          className="cursor-pointer rounded-full p-1 text-2xl text-[#FFB877] transition hover:bg-[#FFB877]/15 md:hidden"
+          className="cursor-pointer rounded-full p-1 text-2xl text-[var(--color-accent)] transition hover:bg-[var(--color-accent-a15)] md:hidden"
           aria-label="Open menu"
           onClick={() => setOpen(true)}>
           <Menu size={32} />
