@@ -45,7 +45,7 @@ export function DesktopNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 ${
+            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] focus-visible:outline-none ${
               isActiveLink(pathname, link.href)
                 ? 'text-[var(--color-accent)]'
                 : 'text-[var(--color-on-surface)]'
@@ -75,7 +75,7 @@ export function DesktopNav() {
             <div className="relative flex items-center gap-1">
               <Link
                 href={link.href}
-                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 focus:outline-none ${
+                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] focus-visible:outline-none ${
                   dropdownOpen === link.label ||
                   isActiveLink(pathname, link.href) ||
                   isAnyChildActive(link, pathname)
@@ -135,13 +135,21 @@ export function DesktopNav() {
                 <Link
                   key={child.href}
                   href={child.href}
-                  className={`block w-full rounded-none px-5 py-2 transition-colors duration-150 outline-none hover:bg-[var(--color-accent-a15)] focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
+                  className={`block w-full rounded-none px-5 py-2 transition-colors duration-150 outline-none hover:bg-[var(--color-accent-a15)] focus-visible:z-10 focus-visible:border-l-4 focus-visible:border-[var(--color-accent)] focus-visible:bg-[var(--color-accent-a15)] focus-visible:font-semibold focus-visible:text-[var(--color-accent)] focus-visible:outline-none ${
                     isActiveLink(pathname, child.href)
                       ? 'font-semibold text-[var(--color-accent)]'
                       : 'text-[var(--color-on-surface)]'
                   }`}
                   role="menuitem"
-                  tabIndex={0}>
+                  tabIndex={0}
+                  onFocus={() => setDropdownOpen(link.label)}
+                  onBlur={(e) => {
+                    if (
+                      !e.currentTarget.parentElement?.contains(e.relatedTarget)
+                    ) {
+                      setDropdownOpen(null);
+                    }
+                  }}>
                   {child.label}
                 </Link>
               ))}
