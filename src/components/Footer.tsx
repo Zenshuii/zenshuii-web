@@ -20,7 +20,7 @@ export function Footer() {
           <Link
             href="mailto:sim@zenshuii.com"
             aria-label="Email"
-            className="group rounded-sm text-[#F5F5F5] transition-colors duration-150 hover:text-[#FFB877] focus:ring-2 focus:ring-[#FFB877] focus:ring-offset-2 focus:ring-offset-[#181818] focus:outline-none">
+            className="group rounded-sm text-[#F5F5F5] transition-colors duration-150 hover:text-[#FFB877] focus-visible:ring-2 focus-visible:ring-[#FFB877] focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] focus-visible:outline-none">
             <FaEnvelope
               size={22}
               className="opacity-80 transition-transform duration-200 group-hover:scale-110 group-hover:text-[#FFB877] group-hover:opacity-100"
@@ -31,7 +31,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="group rounded-sm text-[#F5F5F5] transition-colors duration-150 hover:text-[#FFB877] focus:ring-2 focus:ring-[#FFB877] focus:ring-offset-2 focus:ring-offset-[#181818] focus:outline-none">
+            className="group rounded-sm text-[#F5F5F5] transition-colors duration-150 hover:text-[#FFB877] focus-visible:ring-2 focus-visible:ring-[#FFB877] focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] focus-visible:outline-none">
             <FaInstagram
               size={22}
               className="opacity-80 transition-transform duration-200 group-hover:scale-110 group-hover:text-[#FFB877] group-hover:opacity-100"
@@ -42,7 +42,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"
-            className="group rounded-sm text-[#F5F5F5] transition-colors duration-150 hover:text-[#FFB877] focus:ring-2 focus:ring-[#FFB877] focus:ring-offset-2 focus:ring-offset-[#181818] focus:outline-none">
+            className="group rounded-sm text-[#F5F5F5] transition-colors duration-150 hover:text-[#FFB877] focus-visible:ring-2 focus-visible:ring-[#FFB877] focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] focus-visible:outline-none">
             <FaYoutube
               size={22}
               className="opacity-80 transition-transform duration-200 group-hover:scale-110 group-hover:text-[#FFB877] group-hover:opacity-100"
