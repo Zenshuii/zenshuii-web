@@ -40,7 +40,7 @@ export default function AppsPage() {
             <motion.article
               key={app.slug}
               aria-labelledby={`app-${app.slug}-title`}
-              className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3)]/70 p-4 shadow-xl ring-1 ring-[var(--color-accent-a10)] transition-all duration-300 focus-within:border-[var(--color-accent)] focus-within:ring-[var(--color-accent-a60)] hover:translate-y-[-4px] hover:border-[var(--color-accent-a60)] hover:shadow-2xl hover:ring-[var(--color-accent-a20)] active:scale-[0.98] sm:p-6"
+              className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3-a70)] p-4 shadow-xl ring-1 ring-[var(--color-accent-a10)] transition-all duration-300 focus-within:border-[var(--color-accent)] focus-within:ring-[var(--color-accent-a60)] hover:translate-y-[-4px] hover:border-[var(--color-accent-a60)] hover:shadow-2xl hover:ring-[var(--color-accent-a20)] active:scale-98 sm:p-6"
               initial={shouldReduceMotion ? false : { opacity: 0, y: 32 }}
               animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
               transition={{
@@ -48,7 +48,7 @@ export default function AppsPage() {
                 duration: 0.8,
                 ease: [0.16, 1, 0.3, 1],
               }}>
-              <div className="mb-5 flex h-32 w-full items-center justify-center rounded-xl bg-[var(--color-surface-2)]/60 ring-1 ring-[var(--color-border)] ring-inset">
+              <div className="mb-5 flex h-32 w-full items-center justify-center rounded-xl bg-[var(--color-surface-3-a60)] ring-1 ring-[var(--color-border)] ring-inset">
                 {app.image ? (
                   <Image
                     src={app.image}
