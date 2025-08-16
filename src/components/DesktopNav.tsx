@@ -135,7 +135,7 @@ export function DesktopNav() {
                 <Link
                   key={child.href}
                   href={child.href}
-                  className={`block w-full rounded-none px-5 py-2 transition-colors duration-150 outline-none hover:bg-[var(--color-accent-a15)] focus-visible:z-10 focus-visible:border-l-4 focus-visible:border-[var(--color-accent)] focus-visible:bg-[var(--color-accent-a15)] focus-visible:font-semibold focus-visible:text-[var(--color-accent)] focus-visible:outline-none ${
+                  className={`block w-full rounded-none px-5 py-2 transition-colors duration-150 hover:bg-[var(--color-accent-a15)] focus-visible:z-10 focus-visible:border-l-4 focus-visible:border-[var(--color-accent)] focus-visible:bg-[var(--color-accent-a15)] focus-visible:font-semibold focus-visible:text-[var(--color-accent)] focus-visible:outline-none ${
                     isActiveLink(pathname, child.href)
                       ? 'font-semibold text-[var(--color-accent)]'
                       : 'text-[var(--color-on-surface)]'
