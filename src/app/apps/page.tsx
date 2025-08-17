@@ -82,7 +82,7 @@ export default function AppsPage() {
                   href={app.href}
                   aria-label={`View ${app.name}`}
                   className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-5 py-2 text-sm font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] focus-visible:outline-none active:scale-95">
-                  View
+                  View details
                 </Link>
               </div>
             </motion.article>
