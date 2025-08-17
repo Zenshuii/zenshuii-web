@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { apps } from '@/data/apps';
-import Image from 'next/image';
+import { ImageWithSkeleton } from '@/components/ImageWithSkeleton';
 import { motion, useReducedMotion, easeInOut } from 'framer-motion';
 
 export default function AppsPage() {
@@ -50,13 +50,11 @@ export default function AppsPage() {
               }}>
               <div className="mb-5 flex h-32 w-full items-center justify-center rounded-xl bg-[var(--color-surface-3-a60)] ring-1 ring-[var(--color-border)] ring-inset">
                 {app.image ? (
-                  <Image
+                  <ImageWithSkeleton
                     src={app.image}
                     alt={`${app.name} logo`}
                     width={96}
                     height={96}
-                    className="mx-auto h-24 w-24 rounded-xl object-contain"
-                    loading="lazy"
                   />
                 ) : (
                   <span className="text-sm font-medium tracking-wide text-[var(--color-text-muted)]">
