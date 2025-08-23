@@ -33,10 +33,10 @@ export default function AboutPage() {
           <span className="font-semibold text-[var(--color-accent)]">Zen</span>,
           which is a state of being, and{' '}
           <span className="font-semibold text-[var(--color-accent)]">
-            Fengshui
+            Feng Shui
           </span>
           . The word{' '}
-          <span className="font-semibold text-[var(--color-accent)]">shui</span>{' '}
+          <span className="font-semibold text-[var(--color-accent)]">Shui</span>{' '}
           means water. Together, Zenshuii represents a state of flow: living
           with intention, balance, and harmony, and being present in everyday
           life.
