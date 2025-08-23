@@ -23,7 +23,6 @@ export const apps: AppMeta[] = [
     description:
       'Experimental sandbox for prototyping future mindful tools and UI patterns.',
     href: '/apps/test',
-    image: undefined,
     tagline: 'R&D Playground',
   },
 ];
