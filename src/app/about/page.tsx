@@ -67,19 +67,9 @@ export default function AboutPage() {
             </span>
           </blockquote>
           <p>
-            It is about being present in day-to-day life, and creating spaces,
-            habits, and products that inspire calm, clarity, and purpose.
-          </p>
-          <p>
-            If you would like to know more about me and my journey, please visit{' '}
-            <a
-              href="https://smelidoni.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--color-accent)] underline transition-colors hover:text-[var(--color-accent-weak)]">
-              smelidoni.dev
-            </a>
-            .
+            At Zenshuii, our aim is to create purposeful digital tools that
+            support personal growth, wellbeing, and a more mindful way of
+            living.
           </p>
         </motion.div>
       </motion.article>
