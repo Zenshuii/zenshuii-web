@@ -37,9 +37,9 @@ export default function AboutPage() {
           </span>
           . The word{' '}
           <span className="font-semibold text-[var(--color-accent)]">shui</span>{' '}
-          means water. Together, Zenshuii represents a{' '}
-          <span className="italic">state of flow</span>: living with intention,
-          balance, and harmony, and being present in everyday life.
+          means water. Together, Zenshuii represents a state of flow: living
+          with intention, balance, and harmony, and being present in everyday
+          life.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -58,10 +58,17 @@ export default function AboutPage() {
           <p>
             Zenshuii is more than just a name; it is a philosophy. It is about
             embracing change, finding peace in the present moment, and allowing
-            life to flow naturally, much like water. (As Bruce Lee wisely said,
-            &quot;Be water, my friend&quot;) It is about being present in
-            day-to-day life, and creating spaces, habits, and products that
-            inspire calm, clarity, and purpose.
+            life to flow naturally, much like water.
+          </p>
+          <blockquote className="my-4 border-l-4 border-[var(--color-accent)] pl-4 font-semibold text-[var(--color-accent)] italic">
+            “Be water, my friend”
+            <span className="mt-1 block text-xs font-normal text-[var(--color-accent-weak)] not-italic">
+              – Bruce Lee
+            </span>
+          </blockquote>
+          <p>
+            It is about being present in day-to-day life, and creating spaces,
+            habits, and products that inspire calm, clarity, and purpose.
           </p>
           <p>
             If you would like to know more about me and my journey, please visit{' '}
