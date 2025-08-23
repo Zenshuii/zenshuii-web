@@ -62,9 +62,12 @@ export default function AboutPage() {
           </p>
           <blockquote className="my-4 border-l-4 border-[var(--color-accent)] pl-4 font-semibold text-[var(--color-accent)] italic">
             “Be water, my friend”
-            <span className="mt-1 block text-xs font-normal text-[var(--color-accent-weak)] not-italic">
-              – Bruce Lee
-            </span>
+            <footer className="mt-1 block text-xs font-normal text-[var(--color-accent-weak)] not-italic">
+              —{' '}
+              <cite title="Bruce Lee" className="not-italic">
+                Bruce Lee
+              </cite>
+            </footer>
           </blockquote>
           <p>
             At Zenshuii, our aim is to create purposeful digital tools that
