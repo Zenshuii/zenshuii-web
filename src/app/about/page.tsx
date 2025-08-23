@@ -16,7 +16,7 @@ export default function AboutPage() {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 w-full max-w-2xl rounded-2xl border border-[var(--color-accent-a15)] bg-[var(--color-surface-2)]/90 p-8 text-center shadow-xl md:text-left">
+        className="relative z-10 w-full max-w-2xl rounded-2xl border border-[var(--color-accent-a15)] bg-[var(--color-surface-2-a90)] p-8 text-center shadow-xl md:text-left">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

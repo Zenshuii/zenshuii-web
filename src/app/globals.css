@@ -21,6 +21,7 @@
   /* Surfaces (elevations) */
   --color-surface-1: #181818;
   --color-surface-2: #1c1c1c;
+  --color-surface-2-a90: rgba(28, 28, 28, 0.9);
   --color-surface-3: #232323;
   --color-surface-3-a60: rgba(35, 35, 35, 0.6);
   --color-surface-3-a70: rgba(35, 35, 35, 0.7);
