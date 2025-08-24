@@ -58,9 +58,9 @@ export default function AboutPage() {
             relationships, or my personal growth.
           </p>
           <p>
-            Zenshuii is more than just a name; it is a philosophy. It is about
-            embracing change, finding peace in the present moment, and allowing
-            life to flow naturally, much like water.
+            Zenshuii is more than just a name; it&apos;s a philosophy. It&apos;s
+            about embracing change, finding peace in the present moment, and
+            allowing life to flow naturally, much like water.
           </p>
           <blockquote className="my-4 border-l-4 border-[var(--color-accent)] pl-4 font-semibold text-[var(--color-accent)] italic">
             “Be water, my friend”
