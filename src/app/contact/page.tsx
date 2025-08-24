@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Mail } from 'lucide-react';
 
 export default function ContactPage() {
   return (
@@ -36,7 +37,9 @@ export default function ContactPage() {
             </span>
             <a
               href="mailto:sim@zenshuii.com"
-              className="inline-block cursor-pointer rounded-full bg-[var(--color-accent)] px-6 py-2 text-base font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95">
+              className="flex cursor-pointer items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-2 text-base font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95"
+              aria-label="Email">
+              <Mail size={18} aria-hidden="true" />
               sim@zenshuii.com
             </a>
           </div>
