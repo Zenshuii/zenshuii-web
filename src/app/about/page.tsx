@@ -48,8 +48,9 @@ export default function AboutPage() {
           transition={{ delay: 0.35, duration: 0.7, ease: 'easeOut' }}
           className="space-y-6 text-base text-[var(--color-on-surface)] md:text-lg">
           <p>
-            My journey with Zenshuii began from a deep desire to grow, to better
-            myself, and to cultivate a positive mindset. I believe in making{' '}
+            My journey with Zenshuii began from a deep desire to grow, to pursue
+            self-mastery, and to cultivate a positive mindset. I believe in
+            making{' '}
             <span className="font-semibold text-[var(--color-accent)]">
               love
             </span>{' '}
