@@ -20,12 +20,33 @@ export default function StoicAppPage() {
           transition={{ duration: 0.7, ease: easeInOut }}
         />
         <motion.h1
-          className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-accent)] sm:text-4xl"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 32 }}
+          className="mb-2 text-5xl font-extrabold tracking-tight text-[var(--color-accent)] sm:text-6xl"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: -32 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeInOut }}>
-          Discover Stoic
+          Stoic
         </motion.h1>
+        <motion.span
+          className="mb-4 inline-block rounded-full bg-[var(--color-accent-a10)] px-4 py-1 text-xs font-semibold tracking-wider text-[var(--color-accent)] uppercase shadow-sm ring-1 ring-[var(--color-accent-a20)]"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: -8 }}
+          animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
+          transition={{ delay: 0.03, duration: 0.5, ease: easeInOut }}>
+          Coming Soon
+        </motion.span>
+        <motion.p
+          className="mb-6 text-lg font-medium text-[var(--color-text-muted)] sm:text-xl"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
+          transition={{ delay: 0.05, duration: 0.6, ease: easeInOut }}>
+          Mindful Journaling & Reflection
+        </motion.p>
+        <motion.hr
+          className="mx-auto mb-8 w-12 origin-center border-t-4 border-[var(--color-accent)] opacity-40"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 0.12, duration: 0.5, ease: easeInOut }}
+          style={{ transformOrigin: 'center' }}
+        />
         <motion.p
           className="mb-8 max-w-xl text-base leading-relaxed text-[var(--color-on-surface)]"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
