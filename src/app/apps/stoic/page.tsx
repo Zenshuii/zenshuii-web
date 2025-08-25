@@ -41,6 +41,7 @@ export default function StoicAppPage() {
           Coming Soon
         </motion.span>
         <motion.hr
+          aria-hidden="true"
           className="mx-auto mb-6 w-12 origin-center border-t-4 border-[var(--color-accent)] opacity-40"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
