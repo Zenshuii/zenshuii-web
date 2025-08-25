@@ -4,10 +4,7 @@ export const navLinks = [
   {
     href: '/apps',
     label: 'Apps',
-    children: [
-      { href: '/apps/stoic', label: 'Stoic App' },
-      { href: '/apps/test', label: 'Test App' },
-    ],
+    children: [{ href: '/apps/stoic', label: 'Stoic App' }],
   },
   { href: '/contact', label: 'Contact' },
 ];
