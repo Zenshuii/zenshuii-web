@@ -46,7 +46,6 @@ export default function StoicAppPage() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 0.12, duration: 0.5, ease: easeInOut }}
-          style={{ transformOrigin: 'center' }}
         />
         <motion.p
           className="mb-8 max-w-xl text-base leading-relaxed text-[var(--color-on-surface)]"

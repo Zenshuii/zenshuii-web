@@ -58,7 +58,6 @@ export function HomeHero() {
             duration: 0.5,
             ease: easeInOut,
           }}
-          style={{ transformOrigin: 'center' }}
         />
         <motion.p
           className="mb-8 text-base text-[var(--color-text-muted)] italic opacity-70"
