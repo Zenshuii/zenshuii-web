@@ -49,6 +49,7 @@ export function HomeHero() {
           growth and wellbeing.
         </motion.p>
         <motion.hr
+          aria-hidden="true"
           className="mx-auto mb-4 w-12 origin-center border-t-4 border-[var(--color-accent)] opacity-40"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
@@ -57,7 +58,6 @@ export function HomeHero() {
             duration: 0.5,
             ease: easeInOut,
           }}
-          style={{ transformOrigin: 'center' }}
         />
         <motion.p
           className="mb-8 text-base text-[var(--color-text-muted)] italic opacity-70"
