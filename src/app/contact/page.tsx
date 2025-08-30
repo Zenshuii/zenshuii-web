@@ -5,12 +5,12 @@ import { Mail } from 'lucide-react';
 
 export default function ContactPage() {
   return (
-    <section className="relative flex min-h-dvh w-full items-center justify-center bg-[var(--color-surface-2)] px-4 pt-24 pb-12 sm:px-4 sm:pt-32 sm:pb-24">
+    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 pt-[72px] pb-[56px] sm:px-4">
       <motion.article
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 w-full max-w-xl rounded-2xl border border-[var(--color-accent-a15)] bg-[var(--color-surface-2-a90)] p-4 text-center shadow-xl sm:p-8 md:text-left">
+        className="relative z-10 mt-14 w-full max-w-xl rounded-2xl border border-[var(--color-accent-a15)] bg-[var(--color-surface-2-a90)] p-4 text-center shadow-xl sm:mt-14 sm:p-8 md:text-left">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
