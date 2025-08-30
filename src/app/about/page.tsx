@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutPage() {
   return (
-    <section className="relative flex min-h-dvh w-full items-center justify-center bg-gradient-to-br from-[var(--color-surface-2)] via-[var(--color-surface-3-a60)] to-[var(--color-surface-1)] px-4 pt-24 pb-12 sm:px-4 sm:pt-32 sm:pb-24">
+    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-gradient-to-br from-[var(--color-surface-2)] via-[var(--color-surface-3-a60)] to-[var(--color-surface-1)] px-4 pt-[72px] pb-[56px] sm:px-4">
       <motion.div
         initial={{ scale: 0.7, opacity: 0, y: -60, x: -60 }}
         animate={{ scale: 1, opacity: 0.7, y: 0, x: 0 }}
@@ -16,19 +16,19 @@ export default function AboutPage() {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 w-full max-w-2xl rounded-2xl border border-[var(--color-accent-a15)] bg-[var(--color-surface-2-a90)] p-4 text-center shadow-xl sm:p-8 md:text-left">
+        className="relative z-10 mt-8 w-full max-w-3xl rounded-2xl border border-[var(--color-accent-a15)] bg-[var(--color-surface-2-a90)] p-3 text-center text-base shadow-xl sm:mt-12 sm:p-8 sm:text-lg md:text-left md:text-xl">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.7, ease: 'easeOut' }}
-          className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-accent)] md:text-4xl">
+          className="mb-4 text-2xl font-bold tracking-tight text-[var(--color-accent)] sm:text-3xl md:text-4xl">
           The Zenshuii Journey
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
-          className="mb-8 text-lg text-[var(--color-on-surface)] md:text-xl">
+          className="mb-8 text-base text-[var(--color-on-surface)] sm:text-lg md:text-xl">
           Zenshuii is a blend of{' '}
           <span className="font-semibold text-[var(--color-accent)]">Zen</span>,
           which is a state of being, and{' '}
