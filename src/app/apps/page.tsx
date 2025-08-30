@@ -8,8 +8,8 @@ import { motion, useReducedMotion, easeInOut } from 'framer-motion';
 export default function AppsPage() {
   const shouldReduceMotion = useReducedMotion();
   return (
-    <section className="flex min-h-dvh w-full flex-col justify-center bg-[var(--color-surface-2)] px-4 pt-24 pb-12 sm:px-4 sm:pt-32 sm:pb-24">
-      <div className="relative mx-auto w-full max-w-6xl">
+    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 pt-[72px] pb-[56px] sm:px-4">
+      <div className="relative z-10 mt-14 w-full max-w-6xl sm:mt-14">
         {/* Page introductory header */}
         <section
           aria-labelledby="apps-heading"

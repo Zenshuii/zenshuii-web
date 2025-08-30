@@ -9,8 +9,8 @@ const stoicAppUrl = 'https://stoic-app.com/';
 export default function StoicAppPage() {
   const shouldReduceMotion = useReducedMotion();
   return (
-    <section className="relative flex min-h-dvh flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 pt-24 pb-12 sm:pt-32 sm:pb-24">
-      <div className="mx-auto flex w-full max-w-2xl flex-col items-center text-center">
+    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 pt-[72px] pb-[56px] sm:px-4">
+      <div className="relative z-10 mx-auto mt-14 flex w-full max-w-2xl flex-col items-center text-center sm:mt-14">
         <motion.img
           src={stoicLogo}
           alt="Stoic App Logo"

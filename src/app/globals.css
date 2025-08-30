@@ -7,11 +7,12 @@
   }
 }
 
-.animate-shimmer {
-  animation: shimmer 1.2s linear infinite;
-  background-size: 200% 100%;
-}
 @import 'tailwindcss';
+
+html,
+body {
+  height: 100%;
+}
 
 :root {
   /* Base */
@@ -47,4 +48,9 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+}
+
+.animate-shimmer {
+  animation: shimmer 1.2s linear infinite;
+  background-size: 200% 100%;
 }
