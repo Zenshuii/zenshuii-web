@@ -19,7 +19,7 @@ export function HomeHero() {
       };
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 text-center">
+    <section className="relative flex flex-1 flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 pt-[72px] pb-[56px] text-center">
       <WatermarkLogo
         src="/zenshuii-logo-white.svg"
         alt=""
