@@ -24,8 +24,9 @@ export function HomeHero() {
         src="/zenshuii-logo-white.svg"
         alt=""
         watermarkMotion={watermarkMotion}
+        priority
       />
-      <div className="relative z-10 flex w-full max-w-xl flex-col items-center">
+      <div className="relative z-10 mt-14 flex w-full max-w-xl flex-col items-center sm:mt-14">
         <motion.h1
           className="z-10 mb-4 text-4xl font-bold tracking-tight text-[var(--color-accent)] sm:text-6xl"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
