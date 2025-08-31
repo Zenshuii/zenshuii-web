@@ -22,7 +22,7 @@ export function Navbar() {
         </Link>
         <DesktopNav />
         <button
-          className="cursor-pointer rounded-full p-1 text-2xl text-[var(--color-accent)] transition hover:bg-[var(--color-accent-a15)] md:hidden"
+          className="cursor-pointer rounded-full p-1 text-2xl text-[var(--color-accent)] transition hover:bg-[var(--color-accent-a15)] focus:outline-none active:bg-[var(--color-accent-a20)] md:hidden"
           aria-label="Open menu"
           onClick={() => setOpen(true)}>
           <Menu size={32} />

@@ -72,10 +72,10 @@ export function DesktopNav() {
                 );
               }
             }}>
-            <div className="relative flex items-center gap-1">
+            <div className="group relative flex items-center gap-1">
               <Link
                 href={link.href}
-                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] focus-visible:outline-none ${
+                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 group-hover:text-[var(--color-accent)] group-hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] focus-visible:outline-none ${
                   dropdownOpen === link.label ||
                   isActiveLink(pathname, link.href) ||
                   isAnyChildActive(link, pathname)
@@ -113,7 +113,7 @@ export function DesktopNav() {
             </div>
             {/* Dropdown menu */}
             <div
-              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] overflow-hidden rounded-xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3)] shadow-2xl ring-1 ring-[var(--color-accent-a10)] transition-all duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
+              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] overflow-hidden rounded-xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3)] shadow-2xl transition-all duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
               role="menu"
               aria-label={`${link.label} submenu`}
               onMouseEnter={() => {
