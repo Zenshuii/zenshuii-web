@@ -72,10 +72,10 @@ export function DesktopNav() {
                 );
               }
             }}>
-            <div className="relative flex items-center gap-1">
+            <div className="group relative flex items-center gap-1">
               <Link
                 href={link.href}
-                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] focus-visible:outline-none ${
+                className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-[var(--color-accent-a60)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-accent)] hover:after:scale-x-100 group-hover:text-[var(--color-accent)] group-hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] focus-visible:outline-none ${
                   dropdownOpen === link.label ||
                   isActiveLink(pathname, link.href) ||
                   isAnyChildActive(link, pathname)
