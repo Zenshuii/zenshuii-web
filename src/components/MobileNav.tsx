@@ -64,7 +64,7 @@ export function MobileNav({
             transition={{ type: 'spring', stiffness: 400, damping: 36 }}>
             {/* Close button */}
             <button
-              className="absolute top-5 right-6 z-50 cursor-pointer rounded-full p-1 text-[var(--color-accent)] transition hover:bg-[var(--color-accent-a15)]"
+              className="absolute top-5 right-6 z-50 cursor-pointer rounded-full p-1 text-[var(--color-accent)] transition hover:bg-[var(--color-accent-a15)] active:bg-[var(--color-accent-a20)] focus:outline-none"
               aria-label="Close menu"
               onClick={() => setOpen(false)}>
               <X size={32} />
@@ -75,7 +75,7 @@ export function MobileNav({
                   <div key={link.label}>
                     <button
                       onClick={() => setAppsOpen((v) => !v)}
-                      className={`mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[var(--color-on-surface)] transition-all hover:bg-[var(--color-accent-a15)] focus:outline-none ${
+                      className={`mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-[var(--color-on-surface)] transition-all hover:bg-[var(--color-accent-a15)] active:bg-[var(--color-accent-a20)] focus:outline-none ${
                         appsOpen ||
                         isActiveLink(pathname, link.href) ||
                         isAnyChildActive(link, pathname)
@@ -119,7 +119,7 @@ export function MobileNav({
                               key={child.href}
                               href={child.href}
                               onClick={() => setOpen(false)}
-                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[var(--color-accent-a15)] hover:text-[var(--color-accent)] active:scale-95 ${
+                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-[var(--color-accent-a15)] hover:text-[var(--color-accent)] active:scale-95 active:bg-[var(--color-accent-a20)] focus:outline-none ${
                                 isActiveLink(pathname, child.href)
                                   ? 'font-semibold text-[var(--color-accent)]'
                                   : 'text-[var(--color-on-surface)]'
@@ -130,7 +130,7 @@ export function MobileNav({
                           <Link
                             href={link.href}
                             onClick={() => setOpen(false)}
-                            className={`mt-2 rounded-md border-t border-[var(--color-accent-a10)] py-2 pl-2 text-left text-base font-semibold transition-all hover:bg-[var(--color-accent-a10)] hover:text-[var(--color-accent)] active:scale-95 ${
+                            className={`mt-2 rounded-md border-t border-[var(--color-accent-a15)] py-2 pl-2 text-left text-base font-semibold transition-all hover:bg-[var(--color-accent-a10)] hover:text-[var(--color-accent)] active:scale-95 active:bg-[var(--color-accent-a20)] focus:outline-none ${
                               pathname === link.href
                                 ? 'text-[var(--color-accent)]'
                                 : 'text-[var(--color-on-surface)]'
@@ -146,7 +146,7 @@ export function MobileNav({
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[var(--color-accent-a15)] hover:text-[var(--color-accent)] focus:outline-none active:scale-95 ${
+                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-[var(--color-accent-a15)] hover:text-[var(--color-accent)] active:scale-95 active:bg-[var(--color-accent-a20)] focus:outline-none ${
                       isActiveLink(pathname, link.href)
                         ? 'text-[var(--color-accent)]'
                         : 'text-[var(--color-on-surface)]'

@@ -113,7 +113,7 @@ export function DesktopNav() {
             </div>
             {/* Dropdown menu */}
             <div
-              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] overflow-hidden rounded-xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3)] shadow-2xl ring-1 ring-[var(--color-accent-a10)] transition-all duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
+              className={`absolute top-full right-0 z-20 mt-3 min-w-[170px] overflow-hidden rounded-xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3)] shadow-2xl transition-all duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
               role="menu"
               aria-label={`${link.label} submenu`}
               onMouseEnter={() => {

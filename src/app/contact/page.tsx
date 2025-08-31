@@ -10,7 +10,7 @@ export default function ContactPage() {
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 mt-14 w-full max-w-xl rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-2-a90)] p-4 text-center shadow-xl ring-1 ring-[var(--color-accent-a10)] sm:mt-14 sm:p-8 md:text-left">
+        className="relative z-10 mt-14 w-full max-w-xl rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-2-a90)] p-4 text-center shadow-xl sm:mt-14 sm:p-8 md:text-left">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
