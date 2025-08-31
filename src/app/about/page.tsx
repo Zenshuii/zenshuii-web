@@ -28,19 +28,19 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
-          className="mb-8 text-base text-[var(--color-on-surface)] sm:text-lg md:text-xl">
-          Zenshuii is a blend of{' '}
-          <span className="font-semibold text-[var(--color-accent)]">Zen</span>,
-          which is a state of being, and{' '}
+          className="mb-8 text-base leading-relaxed text-[var(--color-on-surface)] sm:text-lg md:text-xl">
+          Zenshuii blends{' '}
+          <span className="font-semibold text-[var(--color-accent)]">Zen</span>{' '}
+          (a state of being) and{' '}
           <span className="font-semibold text-[var(--color-accent)]">
             Feng Shui
           </span>
-          , an ancient Chinese practice focused on harmonising one&apos;s
-          environment. The word{' '}
+          , the ancient Chinese practice of harmonising one&apos;s environment.
+          The word{' '}
           <span className="font-semibold text-[var(--color-accent)]">Shui</span>{' '}
-          means water, and together, Zenshuii represents a state of flow: living
-          with intention, balance, and harmony while being present in everyday
-          life.
+          means water. Together, Zenshuii expresses a state of flow. It means
+          living with intention, balance and harmony, and being fully present in
+          everyday life.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -48,19 +48,19 @@ export default function AboutPage() {
           transition={{ delay: 0.35, duration: 0.7, ease: 'easeOut' }}
           className="space-y-6 text-base text-[var(--color-on-surface)] md:text-lg">
           <p>
-            My journey with Zenshuii began from a deep desire to grow, to pursue
+            My journey with Zenshuii began with a deep desire to grow, to pursue
             self-mastery, and to cultivate a positive mindset. I believe in
             making{' '}
             <span className="font-semibold text-[var(--color-accent)]">
               love
             </span>{' '}
-            the focus in everything I do, whether it is in my work, my
-            relationships, or my personal growth.
+            the focus of everything I do, in my work, my relationships and my
+            personal growth.
           </p>
           <p>
-            Zenshuii is more than just a name; it&apos;s a philosophy. It&apos;s
-            about embracing change, finding peace in the present moment, and
-            allowing life to flow naturally, much like water.
+            Zenshuii is more than a name. It&apos;s a philosophy that embraces
+            change, finds peace in the present moment, and allows life to flow
+            naturally, like water.
           </p>
           <blockquote className="my-4 border-l-4 border-[var(--color-accent)] pl-4 font-semibold text-[var(--color-accent)] italic">
             “Be water, my friend”
