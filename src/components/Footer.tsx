@@ -11,7 +11,7 @@ export function Footer() {
             href="https://smelidoni.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-[var(--color-text-muted)] underline-offset-2 transition-colors duration-150 hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)] focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-1)] focus-visible:outline-none">
+            className="underline decoration-[var(--color-text-muted)] underline-offset-4 transition-colors duration-150 hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)] focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-1)] focus-visible:outline-none">
             Simone Melidoni
           </Link>
           . All rights reserved.
