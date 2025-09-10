@@ -1,5 +1,10 @@
 import Link from 'next/link';
-import { FaEnvelope, FaInstagram, FaYoutube } from 'react-icons/fa';
+import {
+  TbMail,
+  TbBrandInstagram,
+  TbBrandFacebook,
+  TbBrandYoutube,
+} from 'react-icons/tb';
 
 export function Footer() {
   return (
@@ -21,8 +26,9 @@ export function Footer() {
             href="mailto:sim@zenshuii.com"
             aria-label="Email"
             className="group rounded-sm text-[var(--color-on-surface)] transition-colors duration-150 hover:text-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-1)] focus-visible:outline-none">
-            <FaEnvelope
-              size={22}
+            <TbMail
+              size={24}
+              strokeWidth={1.5}
               className="opacity-80 transition-transform duration-200 group-hover:scale-110 group-hover:text-[var(--color-accent)] group-hover:opacity-100"
             />
           </Link>
@@ -32,8 +38,21 @@ export function Footer() {
             rel="noopener noreferrer"
             aria-label="Instagram"
             className="group rounded-sm text-[var(--color-on-surface)] transition-colors duration-150 hover:text-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-1)] focus-visible:outline-none">
-            <FaInstagram
-              size={22}
+            <TbBrandInstagram
+              size={24}
+              strokeWidth={1.5}
+              className="opacity-80 transition-transform duration-200 group-hover:scale-110 group-hover:text-[var(--color-accent)] group-hover:opacity-100"
+            />
+          </Link>
+          <Link
+            href="https://www.facebook.com/profile.php?id=61580432228149"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="group rounded-sm text-[var(--color-on-surface)] transition-colors duration-150 hover:text-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-1)] focus-visible:outline-none">
+            <TbBrandFacebook
+              size={24}
+              strokeWidth={1.5}
               className="opacity-80 transition-transform duration-200 group-hover:scale-110 group-hover:text-[var(--color-accent)] group-hover:opacity-100"
             />
           </Link>
@@ -43,8 +62,9 @@ export function Footer() {
             rel="noopener noreferrer"
             aria-label="YouTube"
             className="group rounded-sm text-[var(--color-on-surface)] transition-colors duration-150 hover:text-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-1)] focus-visible:outline-none">
-            <FaYoutube
-              size={22}
+            <TbBrandYoutube
+              size={24}
+              strokeWidth={1.5}
               className="opacity-80 transition-transform duration-200 group-hover:scale-110 group-hover:text-[var(--color-accent)] group-hover:opacity-100"
             />
           </Link>
