@@ -71,8 +71,7 @@ export function HomeHero() {
             duration: 0.8,
             ease: easeInOut,
           }}>
-          Makers of Stoic App, a mindful journaling and reflection app launching
-          soon.
+          Currently building Stoic, a mindful journaling app launching soon.
         </motion.p>
         <motion.div
           className="flex w-full max-w-sm flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row"

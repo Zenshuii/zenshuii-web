@@ -54,8 +54,8 @@ export default function StoicAppPage() {
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.7, ease: easeInOut }}>
           Stoic is a mindful journaling and reflection app by Zenshuii, designed
-          to help you live with intention and clarity. To learn more, join the
-          waitlist, or explore features, visit the official Stoic App website.
+          to help you live with intention and clarity. Join the waitlist for
+          launch updates.
         </motion.p>
         <motion.div
           className="flex flex-col items-center gap-4"
