@@ -1,10 +1,11 @@
 'use client';
 
 import { motion, useReducedMotion, easeInOut } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import { stoicWaitlistHref } from '@/data/apps';
 
 const stoicLogo = '/apps/stoic-thumb.png';
-const stoicAppUrl = 'https://stoic-app.com/';
 
 export default function StoicAppPage() {
   const shouldReduceMotion = useReducedMotion();
@@ -53,8 +54,8 @@ export default function StoicAppPage() {
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.7, ease: easeInOut }}>
           Stoic is a mindful journaling and reflection app by Zenshuii, designed
-          to help you live with intention and clarity. To learn more, join the
-          waitlist, or explore features, visit the official Stoic App website.
+          to help you live with intention and clarity. Join the waitlist for
+          launch updates.
         </motion.p>
         <motion.div
           className="flex flex-col items-center gap-4"
@@ -62,11 +63,12 @@ export default function StoicAppPage() {
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: easeInOut }}>
           <Link
-            href={stoicAppUrl}
+            href={stoicWaitlistHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-8 py-3 text-base font-semibold text-[var(--color-surface-3)] shadow-lg transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)]">
-            Visit Stoic App Website
+            className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-surface-3)] shadow-lg transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] sm:text-base">
+            Join the Stoic Waitlist
+            <ArrowUpRight size={18} aria-hidden="true" />
           </Link>
         </motion.div>
       </div>

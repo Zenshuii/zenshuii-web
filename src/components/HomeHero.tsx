@@ -1,7 +1,9 @@
 'use client';
 
 import { motion, useReducedMotion, easeInOut } from 'framer-motion';
+import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { stoicWaitlistHref } from '@/data/apps';
 import { WatermarkLogo } from './WatermarkLogo';
 
 export function HomeHero() {
@@ -61,7 +63,7 @@ export function HomeHero() {
           }}
         />
         <motion.p
-          className="mb-8 text-base text-[var(--color-text-muted)] italic opacity-70"
+          className="mb-8 max-w-md text-base leading-relaxed text-[var(--color-text-muted)]"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -69,9 +71,10 @@ export function HomeHero() {
             duration: 0.8,
             ease: easeInOut,
           }}>
-          Makers of Stoic App
+          Currently building Stoic, a mindful journaling app launching soon.
         </motion.p>
         <motion.div
+          className="flex w-full max-w-xs flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -80,10 +83,20 @@ export function HomeHero() {
             ease: easeInOut,
           }}>
           <Link
-            href="/apps"
-            aria-label="Explore Our Apps"
-            className="inline-block cursor-pointer rounded-full bg-[var(--color-accent)] px-8 py-3 text-base font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95 sm:text-lg">
-            Explore our Apps
+            href={stoicWaitlistHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Join the Stoic Waitlist"
+            className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95 sm:w-auto sm:text-base">
+            Join the Stoic Waitlist
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </Link>
+          <Link
+            href="/apps/stoic"
+            aria-label="Learn more about Stoic App"
+            className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[var(--color-accent-a20)] bg-[var(--color-surface-3-a60)] px-6 py-2.5 text-sm font-semibold text-[var(--color-on-surface)] shadow-sm transition-all duration-200 hover:scale-105 hover:border-[var(--color-accent-a60)] hover:bg-[var(--color-accent-a10)] hover:text-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95 sm:w-auto sm:text-base">
+            Learn More
+            <ChevronRight size={18} aria-hidden="true" />
           </Link>
         </motion.div>
       </div>

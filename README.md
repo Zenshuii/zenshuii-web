@@ -1,6 +1,6 @@
 # Zenshuii Web
 
-Official website for **Zenshuii** — building mindful digital experiences.
+Official website for **Zenshuii** – building mindful digital experiences.
 
 ## Tech Stack
 

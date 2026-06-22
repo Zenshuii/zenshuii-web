@@ -7,6 +7,8 @@ export interface AppMeta {
   tagline?: string;
 }
 
+export const stoicWaitlistHref = 'https://stoic-app.com/';
+
 export const apps: AppMeta[] = [
   {
     slug: 'stoic',
