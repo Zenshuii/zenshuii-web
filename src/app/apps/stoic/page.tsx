@@ -66,9 +66,9 @@ export default function StoicAppPage() {
             href={stoicWaitlistHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-8 py-3 text-base font-semibold text-[var(--color-surface-3)] shadow-lg transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)]">
+            className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-surface-3)] shadow-lg transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] sm:text-base">
             Join the Stoic Waitlist
-            <ArrowUpRight size={20} aria-hidden="true" />
+            <ArrowUpRight size={18} aria-hidden="true" />
           </Link>
         </motion.div>
       </div>
