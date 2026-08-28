@@ -1,13 +1,6 @@
-'use client';
-
-import { motion, useReducedMotion } from 'framer-motion';
-import { createRevealMotion, createViewportRevealMotion } from '@/utils/motion';
+import { ViewportReveal } from '@/components/ViewportReveal';
 
 export default function AboutPage() {
-  const shouldReduceMotion = useReducedMotion();
-  const reveal = (delay = 0) =>
-    createRevealMotion(shouldReduceMotion, { delay });
-
   return (
     <section className="relative flex flex-1 overflow-hidden bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
       <div
@@ -16,28 +9,23 @@ export default function AboutPage() {
       />
       <div className="relative mx-auto w-full max-w-7xl">
         <div className="max-w-3xl">
-          <motion.p
-            {...reveal()}
-            className="text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+          <p className="motion-enter text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
             About Zenshuii
-          </motion.p>
-          <motion.h1
-            {...reveal(0.08)}
-            className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-(--color-on-surface) sm:text-5xl lg:text-6xl">
+          </p>
+          <h1 className="motion-enter mt-5 text-4xl font-semibold tracking-[-0.05em] text-(--color-on-surface) [animation-delay:80ms] sm:text-5xl lg:text-6xl">
             A studio for thoughtful digital products.
-          </motion.h1>
-          <motion.p
-            {...reveal(0.16)}
-            className="mt-6 max-w-2xl text-lg leading-relaxed text-(--color-text-muted) sm:text-xl">
+          </h1>
+          <p className="motion-enter mt-6 max-w-2xl text-lg leading-relaxed text-(--color-text-muted) [animation-delay:160ms] sm:text-xl">
             Founded by Simone Melidoni, Zenshuii is a small independent studio
             exploring how digital products can support the way people think,
             reflect, and move through the day.
-          </motion.p>
+          </p>
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          <motion.article
-            {...createViewportRevealMotion(shouldReduceMotion, { delay: 0.12 })}
+          <ViewportReveal
+            as="article"
+            delay={120}
             className="rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-7 sm:p-10">
             <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
               The name
@@ -56,9 +44,10 @@ export default function AboutPage() {
                 make room for a clearer point of view.
               </p>
             </div>
-          </motion.article>
-          <motion.article
-            {...createViewportRevealMotion(shouldReduceMotion, { delay: 0.2 })}
+          </ViewportReveal>
+          <ViewportReveal
+            as="article"
+            delay={200}
             className="rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-7 sm:p-10">
             <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
               Our focus
@@ -78,7 +67,7 @@ export default function AboutPage() {
                 routine and remain useful over time.
               </p>
             </div>
-          </motion.article>
+          </ViewportReveal>
         </div>
       </div>
     </section>

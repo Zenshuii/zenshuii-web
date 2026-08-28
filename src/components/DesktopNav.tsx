@@ -2,8 +2,6 @@
 
 import { navLinks } from '@/data/navLinks';
 import { isActiveLink, isAnyChildActive } from '@/utils/navHelpers';
-import { calmInteractionSpring } from '@/utils/motion';
-import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -97,10 +95,10 @@ export function DesktopNav() {
                     dropdownOpen === link.label ? null : link.label,
                   );
                 }}>
-                <motion.span
-                  animate={{ rotate: dropdownOpen === link.label ? 180 : 0 }}
-                  transition={calmInteractionSpring}
-                  className={`inline-block ${
+                <span
+                  className={`inline-block transition-transform duration-200 ${
+                    dropdownOpen === link.label ? 'rotate-180' : ''
+                  } ${
                     dropdownOpen === link.label ||
                     isActiveLink(pathname, link.href) ||
                     isAnyChildActive(link, pathname)
@@ -108,7 +106,7 @@ export function DesktopNav() {
                       : 'text-(--color-on-surface)'
                   } `}>
                   <ChevronDown size={18} />
-                </motion.span>
+                </span>
               </button>
             </div>
             {/* Dropdown menu */}

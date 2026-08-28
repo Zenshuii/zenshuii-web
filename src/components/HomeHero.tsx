@@ -1,6 +1,3 @@
-'use client';
-
-import { motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -11,13 +8,8 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { stoicWaitlistHref } from '@/data/apps';
-import {
-  calmEase,
-  calmTransition,
-  createRevealMotion,
-  createViewportRevealMotion,
-} from '@/utils/motion';
 import { WatermarkLogo } from './WatermarkLogo';
+import { ViewportReveal } from './ViewportReveal';
 
 const principles = [
   {
@@ -44,21 +36,6 @@ const principles = [
 ];
 
 export function HomeHero() {
-  const shouldReduceMotion = useReducedMotion();
-  const reveal = (delay = 0) =>
-    createRevealMotion(shouldReduceMotion, { delay });
-  const watermarkMotion = shouldReduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, scale: 0.85 },
-        animate: { opacity: 1, scale: 1 },
-        transition: {
-          duration: 1.1,
-          delay: 0.04,
-          ease: calmEase,
-        },
-      };
-
   return (
     <div className="w-full overflow-hidden bg-(--color-background)">
       <section className="relative isolate overflow-hidden border-b border-(--color-border) bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:flex lg:min-h-[clamp(34rem,70vh,56rem)] lg:items-center lg:px-12">
@@ -70,30 +47,20 @@ export function HomeHero() {
           src="/zenshuii-logo-white.svg"
           alt=""
           className="hidden lg:top-[calc(50%+1rem)] lg:left-[28%] lg:block lg:opacity-[0.06]"
-          watermarkMotion={watermarkMotion}
-          priority
         />
         <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(21rem,0.75fr)] lg:gap-20">
           <div className="max-w-3xl">
-            <motion.p
-              {...reveal()}
-              className="mb-7 flex items-center gap-3 text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+            <p className="motion-enter mb-7 flex items-center gap-3 text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
               Independent creative studio
-            </motion.p>
-            <motion.h1
-              {...reveal(0.08)}
-              className="max-w-3xl text-5xl font-semibold tracking-[-0.055em] text-(--color-on-surface) sm:text-6xl lg:text-7xl lg:leading-[1.02]">
+            </p>
+            <h1 className="motion-enter max-w-3xl text-5xl font-semibold tracking-[-0.055em] text-(--color-on-surface) [animation-delay:80ms] sm:text-6xl lg:text-7xl lg:leading-[1.02]">
               Digital tools for a more intentional life.
-            </motion.h1>
-            <motion.p
-              {...reveal(0.16)}
-              className="mt-7 max-w-xl text-lg leading-relaxed text-(--color-text-muted) sm:text-xl">
+            </h1>
+            <p className="motion-enter mt-7 max-w-xl text-lg leading-relaxed text-(--color-text-muted) [animation-delay:160ms] sm:text-xl">
               We create apps for personal growth, wellbeing, and everyday
               clarity.
-            </motion.p>
-            <motion.div
-              {...reveal(0.24)}
-              className="mt-10 flex flex-wrap items-center gap-3">
+            </p>
+            <div className="motion-enter mt-10 flex flex-wrap items-center gap-3 [animation-delay:240ms]">
               <Link
                 href="/apps/stoic"
                 className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-accent) px-6 py-3 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-all duration-200 hover:bg-(--color-accent-hover) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:opacity-85 motion-safe:hover:-translate-y-px">
@@ -106,18 +73,10 @@ export function HomeHero() {
                 About Zenshuii
                 <ArrowUpRight size={16} aria-hidden="true" />
               </Link>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            initial={
-              shouldReduceMotion ? false : { opacity: 0, y: 28, scale: 0.98 }
-            }
-            animate={
-              shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }
-            }
-            transition={{ ...calmTransition, delay: 0.16 }}
-            className="relative mx-auto w-full max-w-md lg:ml-auto">
+          <div className="motion-preview-enter relative mx-auto w-full max-w-md [animation-delay:160ms] lg:ml-auto">
             <div className="absolute -inset-6 rounded-(--radius-panel) bg-(--color-accent-a10) blur-2xl" />
             <article className="relative overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-5 shadow-(--shadow-card) sm:p-7">
               <div className="flex items-center justify-between border-b border-(--color-border) pb-5">
@@ -147,7 +106,7 @@ export function HomeHero() {
                 </p>
               </div>
             </article>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -166,8 +125,8 @@ export function HomeHero() {
             </p>
           </div>
 
-          <motion.article
-            {...createViewportRevealMotion(shouldReduceMotion)}
+          <ViewportReveal
+            as="article"
             className="group mt-10 grid overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-2) md:grid-cols-[minmax(0,1fr)_minmax(17rem,0.75fr)]">
             <div className="p-7 sm:p-10">
               <p className="text-sm font-medium text-(--color-accent)">Stoic</p>
@@ -215,7 +174,7 @@ export function HomeHero() {
                 </p>
               </div>
             </div>
-          </motion.article>
+          </ViewportReveal>
         </div>
       </section>
 
@@ -232,12 +191,11 @@ export function HomeHero() {
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {principles.map(
               ({ number, title, description, icon: Icon }, index) => (
-                <motion.article
+                <ViewportReveal
+                  as="article"
                   key={number}
-                  {...createViewportRevealMotion(shouldReduceMotion, {
-                    delay: index * 0.08,
-                    distance: 16,
-                  })}
+                  delay={index * 80}
+                  distance={16}
                   className="group relative min-h-64 overflow-hidden rounded-(--radius-card) border border-(--color-border) bg-(--color-surface-2) p-7 transition-colors duration-300 hover:border-(--color-border-strong) sm:p-8">
                   <div
                     aria-hidden="true"
@@ -259,7 +217,7 @@ export function HomeHero() {
                       {description}
                     </p>
                   </div>
-                </motion.article>
+                </ViewportReveal>
               ),
             )}
           </div>

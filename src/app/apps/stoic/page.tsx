@@ -1,17 +1,9 @@
-'use client';
-
-import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { stoicWaitlistHref } from '@/data/apps';
-import { calmTransition, createRevealMotion } from '@/utils/motion';
 
 export default function StoicAppPage() {
-  const shouldReduceMotion = useReducedMotion();
-  const reveal = (delay = 0) =>
-    createRevealMotion(shouldReduceMotion, { delay });
-
   return (
     <div className="flex w-full flex-1 flex-col overflow-hidden bg-(--color-surface-2)">
       <section className="relative isolate flex flex-1 items-center overflow-hidden border-b border-(--color-border) bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
@@ -21,17 +13,15 @@ export default function StoicAppPage() {
         />
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)] lg:gap-20">
           <div className="max-w-3xl">
-            <motion.div
-              {...reveal()}
-              className="mb-7 flex items-center gap-3 text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+            <div className="motion-enter mb-7 flex items-center gap-3 text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
               <Link
                 href="/apps"
                 className="inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-(--color-accent-hover) focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none">
                 <ArrowLeft size={14} aria-hidden="true" />
                 All apps
               </Link>
-            </motion.div>
-            <motion.div {...reveal(0.08)} className="flex items-center gap-4">
+            </div>
+            <div className="motion-enter flex items-center gap-4 [animation-delay:80ms]">
               <Image
                 src="/apps/stoic-thumb.png"
                 alt="Stoic logo"
@@ -48,16 +38,12 @@ export default function StoicAppPage() {
                   Coming soon
                 </p>
               </div>
-            </motion.div>
-            <motion.p
-              {...reveal(0.16)}
-              className="mt-8 max-w-xl text-lg leading-relaxed text-(--color-text-muted) sm:text-xl">
+            </div>
+            <p className="motion-enter mt-8 max-w-xl text-lg leading-relaxed text-(--color-text-muted) [animation-delay:160ms] sm:text-xl">
               Stoic brings daily perspective, personal journalling, and the
               wisdom worth returning to into one calmer practice.
-            </motion.p>
-            <motion.div
-              {...reveal(0.24)}
-              className="mt-8 flex flex-wrap gap-2 text-sm text-(--color-text-muted)">
+            </p>
+            <div className="motion-enter mt-8 flex flex-wrap gap-2 text-sm text-(--color-text-muted) [animation-delay:240ms]">
               <span className="rounded-full border border-(--color-accent-a20) bg-(--color-accent-a05) px-3 py-1.5 text-(--color-on-surface)">
                 Daily perspective
               </span>
@@ -67,8 +53,8 @@ export default function StoicAppPage() {
               <span className="rounded-full border border-(--color-accent-a20) bg-(--color-accent-a05) px-3 py-1.5 text-(--color-on-surface)">
                 Saved reflections
               </span>
-            </motion.div>
-            <motion.div {...reveal(0.32)} className="mt-8">
+            </div>
+            <div className="motion-enter mt-8 [animation-delay:320ms]">
               <Link
                 href={stoicWaitlistHref}
                 target="_blank"
@@ -77,18 +63,10 @@ export default function StoicAppPage() {
                 Visit Stoic
                 <ArrowUpRight size={17} aria-hidden="true" />
               </Link>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            initial={
-              shouldReduceMotion ? false : { opacity: 0, y: 28, scale: 0.98 }
-            }
-            animate={
-              shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }
-            }
-            transition={{ ...calmTransition, delay: 0.18 }}
-            className="relative mx-auto w-full max-w-sm">
+          <div className="motion-preview-enter relative mx-auto w-full max-w-sm [animation-delay:180ms]">
             <div className="absolute -inset-6 rounded-(--radius-panel) bg-(--color-accent-a10) blur-2xl" />
             <div className="relative rounded-[2.75rem] border border-(--color-border-strong) bg-(--color-background) p-2 shadow-(--shadow-card)">
               <div className="overflow-hidden rounded-[2.25rem] bg-(--color-surface-1) px-6 pt-7 pb-6 sm:px-7">
@@ -139,7 +117,7 @@ export default function StoicAppPage() {
             <p className="mt-4 text-center text-xs text-(--color-on-surface) opacity-70">
               Early preview. Details may change before launch.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

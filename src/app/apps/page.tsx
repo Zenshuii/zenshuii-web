@@ -1,17 +1,10 @@
-'use client';
-
 import { ArrowRight } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ViewportReveal } from '@/components/ViewportReveal';
 import { apps } from '@/data/apps';
-import { createRevealMotion, createViewportRevealMotion } from '@/utils/motion';
 
 export default function AppsPage() {
-  const shouldReduceMotion = useReducedMotion();
-  const reveal = (delay = 0) =>
-    createRevealMotion(shouldReduceMotion, { delay });
-
   return (
     <section className="relative flex flex-1 overflow-hidden bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
       <div
@@ -20,31 +13,21 @@ export default function AppsPage() {
       />
       <div className="relative mx-auto w-full max-w-7xl">
         <div className="max-w-2xl">
-          <motion.p
-            {...reveal()}
-            className="text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+          <p className="motion-enter text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
             Apps
-          </motion.p>
-          <motion.h1
-            {...reveal(0.08)}
-            className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-(--color-on-surface) sm:text-5xl lg:text-6xl">
+          </p>
+          <h1 className="motion-enter mt-5 text-4xl font-semibold tracking-[-0.05em] text-(--color-on-surface) [animation-delay:80ms] sm:text-5xl lg:text-6xl">
             Products for everyday life.
-          </motion.h1>
-          <motion.p
-            {...reveal(0.16)}
-            className="mt-6 text-lg leading-relaxed text-(--color-text-muted) sm:text-xl">
+          </h1>
+          <p className="motion-enter mt-6 text-lg leading-relaxed text-(--color-text-muted) [animation-delay:160ms] sm:text-xl">
             A growing collection of apps for personal growth, wellbeing, and
             everyday clarity.
-          </motion.p>
+          </p>
         </div>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {apps.map((app, index) => (
-            <motion.div
-              key={app.slug}
-              {...createViewportRevealMotion(shouldReduceMotion, {
-                delay: 0.12 + index * 0.08,
-              })}>
+            <ViewportReveal key={app.slug} delay={120 + index * 80}>
               <Link
                 href={app.href}
                 aria-label={`View details for ${app.name}`}
@@ -81,7 +64,7 @@ export default function AppsPage() {
                   </span>
                 </article>
               </Link>
-            </motion.div>
+            </ViewportReveal>
           ))}
         </div>
       </div>

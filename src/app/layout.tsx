@@ -3,12 +3,11 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { MotionProvider } from '@/components/MotionProvider';
 import { Analytics } from '@vercel/analytics/next';
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
   variable: '--font-poppins',
   display: 'swap',
 });
@@ -40,13 +39,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${poppins.variable} flex min-h-screen flex-col antialiased`}>
-        <MotionProvider>
-          <Navbar />
-          <main className="flex flex-1 flex-col justify-center">
-            {children}
-          </main>
-          <Footer />
-        </MotionProvider>
+        <Navbar />
+        <main className="flex flex-1 flex-col justify-center">{children}</main>
+        <Footer />
         <Analytics />
       </body>
     </html>
