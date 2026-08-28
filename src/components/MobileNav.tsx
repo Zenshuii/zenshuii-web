@@ -66,7 +66,7 @@ export function MobileNav({
             transition={calmInteractionSpring}>
             {/* Close button */}
             <button
-              className="absolute top-5 right-6 z-50 cursor-pointer rounded-full p-1 text-(--color-accent) transition hover:bg-(--color-accent-a15) focus:outline-none active:bg-(--color-accent-a20)"
+              className="absolute top-5 right-6 z-50 cursor-pointer rounded-full p-1 text-(--color-accent) transition hover:bg-(--color-accent-a15) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:bg-(--color-accent-a20)"
               aria-label="Close menu"
               onClick={() => setOpen(false)}>
               <X size={32} />
@@ -77,7 +77,7 @@ export function MobileNav({
                   <div key={link.label}>
                     <button
                       onClick={() => setAppsOpen((v) => !v)}
-                      className={`mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-(--color-on-surface) transition-all hover:bg-(--color-accent-a15) focus:outline-none active:bg-(--color-accent-a20) ${
+                      className={`mt-1 flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-3 text-lg font-semibold text-(--color-on-surface) transition-all hover:bg-(--color-accent-a15) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:bg-(--color-accent-a20) ${
                         appsOpen ||
                         isActiveLink(pathname, link.href) ||
                         isAnyChildActive(link, pathname)
@@ -114,7 +114,7 @@ export function MobileNav({
                               key={child.href}
                               href={child.href}
                               onClick={() => setOpen(false)}
-                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-(--color-accent-a15) hover:text-(--color-accent) focus:outline-none active:scale-95 active:bg-(--color-accent-a20) ${
+                              className={`rounded-md py-2 pl-2 text-left text-base transition-all hover:bg-(--color-accent-a15) hover:text-(--color-accent) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:scale-95 active:bg-(--color-accent-a20) ${
                                 isActiveLink(pathname, child.href)
                                   ? 'font-semibold text-(--color-accent)'
                                   : 'text-(--color-on-surface)'
@@ -125,7 +125,7 @@ export function MobileNav({
                           <Link
                             href={link.href}
                             onClick={() => setOpen(false)}
-                            className={`mt-2 rounded-md border-t border-(--color-accent-a15) py-2 pl-2 text-left text-base font-semibold transition-all hover:bg-(--color-accent-a10) hover:text-(--color-accent) focus:outline-none active:scale-95 active:bg-(--color-accent-a20) ${
+                            className={`mt-2 rounded-md border-t border-(--color-accent-a15) py-2 pl-2 text-left text-base font-semibold transition-all hover:bg-(--color-accent-a10) hover:text-(--color-accent) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:scale-95 active:bg-(--color-accent-a20) ${
                               pathname === link.href
                                 ? 'text-(--color-accent)'
                                 : 'text-(--color-on-surface)'
@@ -141,7 +141,7 @@ export function MobileNav({
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-(--color-accent-a15) hover:text-(--color-accent) focus:outline-none active:scale-95 active:bg-(--color-accent-a20) ${
+                    className={`w-full rounded-lg px-2 py-3 text-left text-lg font-semibold transition-all hover:bg-(--color-accent-a15) hover:text-(--color-accent) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:scale-95 active:bg-(--color-accent-a20) ${
                       isActiveLink(pathname, link.href)
                         ? 'text-(--color-accent)'
                         : 'text-(--color-on-surface)'

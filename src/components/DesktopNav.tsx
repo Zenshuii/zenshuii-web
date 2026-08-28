@@ -46,7 +46,7 @@ export function DesktopNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-(--color-accent-a60) after:transition-transform after:duration-300 after:content-[''] hover:text-(--color-accent) hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-3) focus-visible:outline-none ${
+            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-(--color-accent-a60) after:transition-transform after:duration-300 after:content-[''] hover:text-(--color-accent) hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none ${
               isActiveLink(pathname, link.href)
                 ? 'text-(--color-accent)'
                 : 'text-(--color-on-surface)'
@@ -76,7 +76,7 @@ export function DesktopNav() {
             <div className="group relative flex items-center gap-1">
               <Link
                 href={link.href}
-                className={`relative font-medium transition-colors duration-150 group-hover:text-(--color-accent) after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-(--color-accent-a60) after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100 hover:text-(--color-accent) hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-3) focus-visible:outline-none ${
+                className={`relative font-medium transition-colors duration-150 group-hover:text-(--color-accent) after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-(--color-accent-a60) after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100 hover:text-(--color-accent) hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none ${
                   dropdownOpen === link.label ||
                   isActiveLink(pathname, link.href) ||
                   isAnyChildActive(link, pathname)
@@ -90,8 +90,7 @@ export function DesktopNav() {
               </Link>
               <button
                 type="button"
-                className="flex items-center px-1 focus:outline-none"
-                tabIndex={-1}
+                className="flex items-center rounded-sm px-1 focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none"
                 aria-label={`Toggle ${link.label} menu`}
                 onClick={() => {
                   setDropdownOpen(

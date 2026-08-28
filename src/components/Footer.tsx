@@ -8,8 +8,8 @@ import {
 
 export function Footer() {
   return (
-    <footer className="mt-auto w-full border-t border-(--color-border) bg-(--color-surface-1) py-6">
-      <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:items-start sm:gap-4">
+    <footer className="mt-auto w-full border-t border-(--color-border) bg-(--color-surface-1) py-7">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 sm:flex-row sm:gap-8 sm:px-8 lg:px-12">
         <span className="text-center text-sm leading-relaxed text-(--color-text-muted) sm:text-left">
           &copy; {new Date().getFullYear()} Zenshuii by{' '}
           <Link

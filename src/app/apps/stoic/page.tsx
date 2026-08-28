@@ -25,13 +25,11 @@ export default function StoicAppPage() {
               {...reveal()}
               className="mb-7 flex items-center gap-3 text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
               <Link
-                href="/"
+                href="/apps"
                 className="inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-(--color-accent-hover) focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none">
                 <ArrowLeft size={14} aria-hidden="true" />
-                Zenshuii
+                All apps
               </Link>
-              <span className="h-3 w-px bg-(--color-accent-a30)" />
-              Flagship product
             </motion.div>
             <motion.div {...reveal(0.08)} className="flex items-center gap-4">
               <Image

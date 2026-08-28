@@ -103,7 +103,7 @@ export function HomeHero() {
               <Link
                 href="/about"
                 className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-(--color-on-surface) transition-colors duration-200 hover:text-(--color-accent) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none">
-                Our approach
+                About Zenshuii
                 <ArrowUpRight size={16} aria-hidden="true" />
               </Link>
             </motion.div>

@@ -1,85 +1,89 @@
 'use client';
 
+import { ArrowRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { apps } from '@/data/apps';
-import { ImageWithSkeleton } from '@/components/ImageWithSkeleton';
-import { motion, useReducedMotion } from 'framer-motion';
 import { createRevealMotion, createViewportRevealMotion } from '@/utils/motion';
 
 export default function AppsPage() {
   const shouldReduceMotion = useReducedMotion();
+  const reveal = (delay = 0) =>
+    createRevealMotion(shouldReduceMotion, { delay });
+
   return (
-    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-(--color-surface-2) px-4 pt-18 pb-14 sm:px-4">
-      <div className="relative z-10 mt-14 w-full max-w-6xl sm:mt-14">
-        {/* Page introductory header */}
-        <section
-          aria-labelledby="apps-heading"
-          className="flex flex-col items-center justify-start pb-6 text-center sm:pb-8">
+    <section className="relative flex flex-1 overflow-hidden bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--color-accent-a05) blur-2xl sm:h-140 sm:w-140 sm:bg-(--color-accent-a10) sm:blur-3xl"
+      />
+      <div className="relative mx-auto w-full max-w-7xl">
+        <div className="max-w-2xl">
+          <motion.p
+            {...reveal()}
+            className="text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+            Apps
+          </motion.p>
           <motion.h1
-            id="apps-heading"
-            className="mb-4 text-3xl font-bold tracking-tight text-(--color-accent) sm:mb-6 sm:text-5xl"
-            {...createRevealMotion(shouldReduceMotion, { distance: 32 })}>
-            Our Apps
+            {...reveal(0.08)}
+            className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-(--color-on-surface) sm:text-5xl lg:text-6xl">
+            Products for everyday life.
           </motion.h1>
           <motion.p
-            className="mb-6 max-w-2xl text-base leading-relaxed text-balance text-(--color-on-surface) sm:mb-4 sm:max-w-4xl sm:text-lg"
-            {...createRevealMotion(shouldReduceMotion, {
-              delay: 0.12,
-              distance: 16,
-            })}>
-            Mindful, purposeful digital tools crafted to support reflection,
-            focus, and personal growth. Explore what we&apos;ve released and
-            what we&apos;re experimenting with.
+            {...reveal(0.16)}
+            className="mt-6 text-lg leading-relaxed text-(--color-text-muted) sm:text-xl">
+            A growing collection of apps for personal growth, wellbeing, and
+            everyday clarity.
           </motion.p>
-        </section>
-        {/* Apps grid */}
-        <section
-          aria-label="Available apps"
-          className="grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-          {apps.map((app, i) => (
-            <Link
+        </div>
+
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          {apps.map((app, index) => (
+            <motion.div
               key={app.slug}
-              href={app.href}
-              aria-label={`View details for ${app.name}`}
-              className="group block focus:outline-none focus-visible:rounded-2xl focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-3) focus-visible:outline-none">
-              <motion.article
-                aria-labelledby={`app-${app.slug}-title`}
-                className="relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-(--color-accent-a20) bg-(--color-surface-3-a70) p-4 shadow-xl ring-1 ring-(--color-accent-a10) transition-all duration-300 focus-within:border-(--color-accent) focus-within:ring-(--color-accent-a60) hover:-translate-y-1 hover:border-(--color-accent-a60) hover:shadow-2xl hover:ring-(--color-accent-a20) focus-visible:-translate-y-1 focus-visible:border-(--color-accent-a60) focus-visible:shadow-2xl focus-visible:ring-(--color-accent-a20) active:scale-98 sm:p-6"
-                {...createViewportRevealMotion(shouldReduceMotion, {
-                  delay: 0.2 + i * 0.08,
-                  distance: 24,
-                })}>
-                <div className="mb-5 flex h-32 w-full items-center justify-center rounded-xl bg-(--color-surface-3-a60) ring-1 ring-(--color-border) ring-inset">
-                  {app.image ? (
-                    <ImageWithSkeleton
-                      src={app.image}
-                      alt={`${app.name} logo`}
-                      width={96}
-                      height={96}
-                    />
-                  ) : (
-                    <span className="text-sm font-medium tracking-wide text-(--color-text-muted)">
-                      {app.tagline || 'App'}
-                    </span>
-                  )}
-                </div>
-                <h2
-                  id={`app-${app.slug}-title`}
-                  className="mb-2 text-xl font-semibold text-(--color-on-surface) group-hover:text-(--color-accent)">
-                  {app.name}
-                </h2>
-                <p className="mb-6 line-clamp-4 text-sm leading-relaxed text-(--color-text-muted)">
-                  {app.description}
-                </p>
-                <div className="mt-auto">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-(--color-accent) px-5 py-2 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-all duration-200 group-active:scale-95">
-                    View details
+              {...createViewportRevealMotion(shouldReduceMotion, {
+                delay: 0.12 + index * 0.08,
+              })}>
+              <Link
+                href={app.href}
+                aria-label={`View details for ${app.name}`}
+                className="group block rounded-(--radius-panel) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-4 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none">
+                <article className="relative h-full overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-7 transition-colors duration-300 group-hover:border-(--color-accent-a30) sm:p-10">
+                  <div
+                    aria-hidden="true"
+                    className="absolute top-0 left-0 h-px w-full bg-(--color-accent-a30) transition-[background-color,box-shadow] duration-300 group-hover:bg-(--color-accent) group-hover:shadow-[0_0_18px_2px_var(--color-accent-a30)]"
+                  />
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
+                      Coming soon
+                    </p>
+                    {app.image && (
+                      <Image
+                        src={app.image}
+                        alt={`${app.name} logo`}
+                        width={48}
+                        height={48}
+                        className="rounded-full border border-(--color-accent-a30)"
+                      />
+                    )}
+                  </div>
+                  <h2 className="mt-12 text-3xl font-semibold tracking-[-0.045em] text-(--color-on-surface) sm:text-4xl">
+                    {app.name.replace(' App', '')}
+                  </h2>
+                  <p className="mt-5 max-w-lg text-base leading-relaxed text-(--color-text-muted)">
+                    Daily perspective and personal journalling, designed for a
+                    steadier everyday practice.
+                  </p>
+                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-(--color-accent) transition-colors duration-200 group-hover:text-(--color-accent-hover)">
+                    Explore Stoic
+                    <ArrowRight size={17} aria-hidden="true" />
                   </span>
-                </div>
-              </motion.article>
-            </Link>
+                </article>
+              </Link>
+            </motion.div>
           ))}
-        </section>
+        </div>
       </div>
     </section>
   );
