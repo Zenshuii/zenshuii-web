@@ -136,7 +136,7 @@ export default function StoicAppPage() {
                 </div>
               </div>
             </div>
-            <p className="mt-4 text-center text-xs text-(--color-text-muted)">
+            <p className="mt-4 text-center text-xs text-(--color-on-surface) opacity-70">
               Early preview. Details may change before launch.
             </p>
           </motion.div>
