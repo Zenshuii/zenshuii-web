@@ -1,77 +1,156 @@
 'use client';
 
-import { motion, useReducedMotion, easeInOut } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { stoicWaitlistHref } from '@/data/apps';
 
-const stoicLogo = '/apps/stoic-thumb.png';
+const revealTransition = {
+  duration: 0.8,
+  ease: [0.22, 1, 0.36, 1] as const,
+};
 
 export default function StoicAppPage() {
   const shouldReduceMotion = useReducedMotion();
+  const reveal = (delay = 0) => ({
+    initial: shouldReduceMotion ? false : { opacity: 0, y: 20 },
+    animate: shouldReduceMotion ? undefined : { opacity: 1, y: 0 },
+    transition: { ...revealTransition, delay },
+  });
+
   return (
-    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-(--color-surface-2) px-4 pt-18 pb-14 sm:px-4">
-      <div className="relative z-10 mx-auto mt-14 flex w-full max-w-2xl flex-col items-center text-center sm:mt-14">
-        <motion.img
-          src={stoicLogo}
-          alt="Stoic App Logo"
-          className="mb-6 h-20 w-20 rounded-2xl bg-(--color-surface-3) object-contain shadow-md ring-2 ring-(--color-accent)"
-          initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.8 }}
-          animate={shouldReduceMotion ? false : { opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: easeInOut }}
-        />
-        <motion.h1
-          className="mb-1 text-5xl font-bold tracking-tight text-(--color-accent) sm:text-6xl"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: -32 }}
-          animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: easeInOut }}>
-          Stoic
-        </motion.h1>
-        <motion.p
-          className="mb-2 text-lg font-normal text-(--color-text-muted) sm:text-xl"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
-          animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-          transition={{ delay: 0.05, duration: 0.6, ease: easeInOut }}>
-          Mindful Journaling & Reflection
-        </motion.p>
-        <motion.span
-          className="mt-1 mb-6 inline-block rounded-full bg-(--color-accent-a10) px-3 py-0.5 text-[10px] font-semibold tracking-wider text-(--color-accent) uppercase shadow-sm ring-1 ring-(--color-accent-a20)"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
-          animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-          transition={{ delay: 0.07, duration: 0.5, ease: easeInOut }}>
-          Coming Soon
-        </motion.span>
-        <motion.hr
+    <div className="flex w-full flex-1 flex-col overflow-hidden bg-(--color-surface-2)">
+      <section className="relative isolate flex flex-1 items-center overflow-hidden border-b border-(--color-border) bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
+        <div
           aria-hidden="true"
-          className="mx-auto mb-6 w-12 origin-center border-t-4 border-(--color-accent) opacity-40"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 0.12, duration: 0.5, ease: easeInOut }}
+          className="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--color-accent-a05) blur-2xl sm:h-140 sm:w-140 sm:bg-(--color-accent-a10) sm:blur-3xl"
         />
-        <motion.p
-          className="mb-8 max-w-xl text-base leading-relaxed text-(--color-on-surface)"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-          animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.7, ease: easeInOut }}>
-          Stoic is a mindful journaling and reflection app by Zenshuii, designed
-          to help you live with intention and clarity. Join the waitlist for
-          launch updates.
-        </motion.p>
-        <motion.div
-          className="flex flex-col items-center gap-4"
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
-          animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7, ease: easeInOut }}>
-          <Link
-            href={stoicWaitlistHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-(--color-accent) px-6 py-2.5 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-all duration-200 hover:bg-(--color-accent-hover) focus:outline-none focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-3) active:opacity-85 motion-safe:hover:-translate-y-px sm:text-base">
-            Join the Stoic Waitlist
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </Link>
-        </motion.div>
-      </div>
-    </section>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)] lg:gap-20">
+          <div className="max-w-3xl">
+            <motion.div
+              {...reveal()}
+              className="mb-7 flex items-center gap-3 text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-(--color-accent-hover) focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none">
+                <ArrowLeft size={14} aria-hidden="true" />
+                Zenshuii
+              </Link>
+              <span className="h-3 w-px bg-(--color-accent-a30)" />
+              Flagship product
+            </motion.div>
+            <motion.div {...reveal(0.08)} className="flex items-center gap-4">
+              <Image
+                src="/apps/stoic-thumb.png"
+                alt="Stoic logo"
+                width={56}
+                height={56}
+                className="rounded-2xl border border-(--color-accent-a30)"
+                priority
+              />
+              <div>
+                <h1 className="text-5xl font-semibold tracking-[-0.05em] text-(--color-on-surface) sm:text-6xl">
+                  Stoic
+                </h1>
+                <p className="mt-1 text-sm font-medium text-(--color-accent)">
+                  Coming soon
+                </p>
+              </div>
+            </motion.div>
+            <motion.p
+              {...reveal(0.16)}
+              className="mt-8 max-w-xl text-lg leading-relaxed text-(--color-text-muted) sm:text-xl">
+              Stoic brings daily perspective, personal journalling, and the
+              wisdom worth returning to into one calmer practice.
+            </motion.p>
+            <motion.div
+              {...reveal(0.24)}
+              className="mt-8 flex flex-wrap gap-2 text-sm text-(--color-text-muted)">
+              <span className="rounded-full border border-(--color-accent-a20) bg-(--color-accent-a05) px-3 py-1.5 text-(--color-on-surface)">
+                Daily perspective
+              </span>
+              <span className="rounded-full border border-(--color-accent-a20) bg-(--color-accent-a05) px-3 py-1.5 text-(--color-on-surface)">
+                Personal journalling
+              </span>
+              <span className="rounded-full border border-(--color-accent-a20) bg-(--color-accent-a05) px-3 py-1.5 text-(--color-on-surface)">
+                Saved reflections
+              </span>
+            </motion.div>
+            <motion.div {...reveal(0.32)} className="mt-8">
+              <Link
+                href={stoicWaitlistHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-accent) px-6 py-3 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-all duration-200 hover:bg-(--color-accent-hover) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:opacity-85 motion-safe:hover:-translate-y-px">
+                Visit Stoic
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </Link>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={
+              shouldReduceMotion ? false : { opacity: 0, y: 28, scale: 0.98 }
+            }
+            animate={
+              shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }
+            }
+            transition={{ ...revealTransition, delay: 0.18 }}
+            className="relative mx-auto w-full max-w-sm">
+            <div className="absolute -inset-6 rounded-(--radius-panel) bg-(--color-accent-a10) blur-2xl" />
+            <div className="relative rounded-[2.75rem] border border-(--color-border-strong) bg-(--color-background) p-2 shadow-(--shadow-card)">
+              <div className="overflow-hidden rounded-[2.25rem] bg-(--color-surface-1) px-6 pt-7 pb-6 sm:px-7">
+                <div className="mx-auto h-6 w-24 rounded-full bg-black" />
+                <div className="mt-7 flex items-center justify-between">
+                  <span className="text-sm font-semibold text-(--color-on-surface)">
+                    Stoic
+                  </span>
+                  <span className="text-xs font-medium text-(--color-text-muted)">
+                    22:22
+                  </span>
+                </div>
+                <div className="mt-9">
+                  <p className="text-xs font-semibold tracking-[0.15em] text-(--color-accent) uppercase">
+                    Today&apos;s perspective
+                  </p>
+                  <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-(--color-on-surface)">
+                    Good evening.
+                  </h3>
+                  <p className="mt-2 text-sm text-(--color-text-muted)">
+                    Begin with what is in your control.
+                  </p>
+                </div>
+                <div className="mt-7 rounded-2xl border border-(--color-border) bg-(--color-surface-3-a60) p-5">
+                  <p className="text-xs font-semibold tracking-[0.14em] text-(--color-accent) uppercase">
+                    Today&apos;s insight
+                  </p>
+                  <p className="mt-4 text-lg leading-snug font-medium tracking-[-0.025em] text-(--color-on-surface)">
+                    “Very little is needed to make a happy life.”
+                  </p>
+                  <p className="mt-4 text-sm font-medium text-(--color-accent)">
+                    – Marcus Aurelius
+                  </p>
+                </div>
+                <div className="mt-5 rounded-2xl border border-(--color-border) p-5">
+                  <p className="text-xs font-semibold tracking-[0.14em] text-(--color-text-muted) uppercase">
+                    Journal
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-(--color-on-surface)">
+                    Where did you notice yourself seeking control today?
+                  </p>
+                  <span className="mt-5 flex items-center justify-center rounded-xl bg-(--color-accent) px-4 py-2.5 text-sm font-semibold text-(--color-on-accent)">
+                    Open Journal
+                  </span>
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-center text-xs text-(--color-text-muted)">
+              Early preview. Details may change before launch.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }
