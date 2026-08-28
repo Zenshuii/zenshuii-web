@@ -21,7 +21,7 @@ export function HomeHero() {
       };
 
   return (
-    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 pt-[72px] pb-[56px] text-center">
+    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-(--color-surface-2) px-4 pt-18 pb-14 text-center">
       <WatermarkLogo
         src="/zenshuii-logo-white.svg"
         alt=""
@@ -30,7 +30,7 @@ export function HomeHero() {
       />
       <div className="relative z-10 mt-14 flex w-full max-w-xl flex-col items-center sm:mt-14">
         <motion.h1
-          className="z-10 mb-4 text-4xl font-bold tracking-tight text-[var(--color-accent)] sm:text-6xl"
+          className="z-10 mb-4 text-4xl font-bold tracking-tight text-(--color-accent) sm:text-6xl"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -40,7 +40,7 @@ export function HomeHero() {
           Zenshuii
         </motion.h1>
         <motion.p
-          className="mb-4 max-w-2xl text-lg leading-relaxed text-[var(--color-on-surface)] sm:text-xl"
+          className="mb-4 max-w-2xl text-lg leading-relaxed text-(--color-on-surface) sm:text-xl"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -53,7 +53,7 @@ export function HomeHero() {
         </motion.p>
         <motion.hr
           aria-hidden="true"
-          className="mx-auto mb-4 w-12 origin-center border-t-4 border-[var(--color-accent)] opacity-40"
+          className="mx-auto mb-4 w-12 origin-center border-t-4 border-(--color-accent) opacity-40"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{
@@ -63,7 +63,7 @@ export function HomeHero() {
           }}
         />
         <motion.p
-          className="mb-8 max-w-md text-base leading-relaxed text-[var(--color-text-muted)]"
+          className="mb-8 max-w-md text-base leading-relaxed text-(--color-text-muted)"
           initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
           transition={{
@@ -87,14 +87,14 @@ export function HomeHero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Join the Stoic Waitlist"
-            className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95 sm:w-auto sm:text-base">
+            className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-accent) px-6 py-2.5 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-all duration-200 hover:bg-(--color-accent-hover) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:opacity-85 motion-safe:hover:-translate-y-px sm:w-auto sm:text-base">
             Join the Stoic Waitlist
             <ArrowUpRight size={18} aria-hidden="true" />
           </Link>
           <Link
             href="/apps/stoic"
             aria-label="Learn more about Stoic App"
-            className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[var(--color-accent-a20)] bg-[var(--color-surface-3-a60)] px-6 py-2.5 text-sm font-semibold text-[var(--color-on-surface)] shadow-sm transition-all duration-200 hover:scale-105 hover:border-[var(--color-accent-a60)] hover:bg-[var(--color-accent-a10)] hover:text-[var(--color-accent)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95 sm:w-auto sm:text-base">
+            className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-(--color-accent-a20) bg-(--color-surface-3-a60) px-6 py-2.5 text-sm font-semibold text-(--color-on-surface) shadow-sm transition-all duration-200 hover:border-(--color-accent-a60) hover:bg-(--color-accent-a10) hover:text-(--color-accent) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:opacity-85 motion-safe:hover:-translate-y-px sm:w-auto sm:text-base">
             Learn More
             <ChevronRight size={18} aria-hidden="true" />
           </Link>

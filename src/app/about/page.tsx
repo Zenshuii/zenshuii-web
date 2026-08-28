@@ -4,40 +4,38 @@ import { motion } from 'framer-motion';
 
 export default function AboutPage() {
   return (
-    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-gradient-to-br from-[var(--color-surface-2)] via-[var(--color-surface-3-a60)] to-[var(--color-surface-1)] px-4 pt-[72px] pb-[56px] sm:px-4">
+    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-linear-to-br from-(--color-surface-2) via-(--color-surface-3-a60) to-(--color-surface-1) px-4 pt-18 pb-14 sm:px-4">
       <motion.div
         initial={{ scale: 0.7, opacity: 0, y: -60, x: -60 }}
         animate={{ scale: 1, opacity: 0.7, y: 0, x: 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="pointer-events-none absolute top-0 left-0 z-0 h-64 w-64 rounded-full bg-[var(--color-accent-a10)] blur-2xl md:-top-32 md:-left-32 md:h-96 md:w-96"
+        className="pointer-events-none absolute top-0 left-0 z-0 h-64 w-64 rounded-full bg-(--color-accent-a10) blur-2xl md:-top-32 md:-left-32 md:h-96 md:w-96"
         aria-hidden="true"
       />
       <motion.article
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 mt-14 w-full max-w-3xl rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-2-a90)] p-3 text-center text-base shadow-xl sm:mt-14 sm:p-8 sm:text-lg md:text-left md:text-xl">
+        className="relative z-10 mt-14 w-full max-w-3xl rounded-2xl border border-(--color-accent-a20) bg-(--color-surface-2-a90) p-3 text-center text-base shadow-xl sm:mt-14 sm:p-8 sm:text-lg md:text-left md:text-xl">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.7, ease: 'easeOut' }}
-          className="mb-4 text-2xl font-bold tracking-tight text-[var(--color-accent)] sm:text-3xl md:text-4xl">
+          className="mb-4 text-2xl font-bold tracking-tight text-(--color-accent) sm:text-3xl md:text-4xl">
           The Zenshuii Journey
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
-          className="mb-8 text-base leading-relaxed text-[var(--color-on-surface)] sm:text-lg md:text-xl">
+          className="mb-8 text-base leading-relaxed text-(--color-on-surface) sm:text-lg md:text-xl">
           Zenshuii blends{' '}
-          <span className="font-semibold text-[var(--color-accent)]">Zen</span>{' '}
-          (a state of being) and{' '}
-          <span className="font-semibold text-[var(--color-accent)]">
-            Feng Shui
-          </span>
+          <span className="font-semibold text-(--color-accent)">Zen</span> (a
+          state of being) and{' '}
+          <span className="font-semibold text-(--color-accent)">Feng Shui</span>
           , the ancient Chinese practice of harmonising one&apos;s environment.
           The word{' '}
-          <span className="font-semibold text-[var(--color-accent)]">Shui</span>{' '}
+          <span className="font-semibold text-(--color-accent)">Shui</span>{' '}
           means water. Together, Zenshuii expresses a state of flow. It means
           living with intention, balance and harmony, and being fully present in
           everyday life.
@@ -46,14 +44,12 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.7, ease: 'easeOut' }}
-          className="space-y-6 text-base text-[var(--color-on-surface)] md:text-lg">
+          className="space-y-6 text-base text-(--color-on-surface) md:text-lg">
           <p>
             My journey with Zenshuii began with a deep desire to grow, to pursue
             self-mastery, and to cultivate a positive mindset. I believe in
             making{' '}
-            <span className="font-semibold text-[var(--color-accent)]">
-              love
-            </span>{' '}
+            <span className="font-semibold text-(--color-accent)">love</span>{' '}
             the focus of everything I do, in my work, my relationships and my
             personal growth.
           </p>
@@ -62,9 +58,9 @@ export default function AboutPage() {
             change, finds peace in the present moment, and allows life to flow
             naturally, like water.
           </p>
-          <blockquote className="my-4 border-l-4 border-[var(--color-accent)] pl-4 font-semibold text-[var(--color-accent)] italic">
+          <blockquote className="my-4 border-l-4 border-(--color-accent) pl-4 font-semibold text-(--color-accent) italic">
             “Be water, my friend”
-            <footer className="mt-1 block text-xs font-normal text-[var(--color-accent-weak)] not-italic">
+            <footer className="mt-1 block text-xs font-normal text-(--color-accent-weak) not-italic">
               —{' '}
               <cite title="Bruce Lee" className="not-italic">
                 Bruce Lee
