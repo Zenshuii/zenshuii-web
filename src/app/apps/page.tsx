@@ -31,11 +31,11 @@ export default function AppsPage() {
               <Link
                 href={app.href}
                 aria-label={`View details for ${app.name}`}
-                className="group block rounded-(--radius-panel) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-4 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none">
-                <article className="relative h-full overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-7 transition-colors duration-300 group-hover:border-(--color-accent-a30) sm:p-10">
+                className="block rounded-(--radius-panel) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-4 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none">
+                <article className="group relative h-full overflow-hidden rounded-(--radius-panel) border border-(--color-border) bg-(--color-surface-1) p-7 transition-colors duration-300 hover:border-(--color-border-strong) sm:p-10">
                   <div
                     aria-hidden="true"
-                    className="absolute top-0 left-0 h-px w-full bg-(--color-accent-a30) transition-[background-color,box-shadow] duration-300 group-hover:bg-(--color-accent) group-hover:shadow-[0_0_18px_2px_var(--color-accent-a30)]"
+                    className="pointer-events-none absolute -top-3 right-10 left-10 h-8 rounded-full bg-linear-to-b from-(--color-accent-a30) to-transparent opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100"
                   />
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">

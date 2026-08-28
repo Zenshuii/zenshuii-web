@@ -199,7 +199,7 @@ export function HomeHero() {
                   className="group relative min-h-64 overflow-hidden rounded-(--radius-card) border border-(--color-border) bg-(--color-surface-2) p-7 transition-colors duration-300 hover:border-(--color-border-strong) sm:p-8">
                   <div
                     aria-hidden="true"
-                    className="absolute top-0 left-0 h-px w-full bg-(--color-accent-a30) transition-[background-color,box-shadow] duration-300 group-hover:bg-(--color-accent) group-hover:shadow-[0_0_18px_2px_var(--color-accent-a30)]"
+                    className="pointer-events-none absolute -top-3 right-10 left-10 h-8 rounded-full bg-linear-to-b from-(--color-accent-a30) to-transparent opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100"
                   />
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold text-(--color-accent)">
