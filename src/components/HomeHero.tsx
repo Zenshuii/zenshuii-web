@@ -61,7 +61,7 @@ export function HomeHero() {
 
   return (
     <div className="w-full overflow-hidden bg-(--color-background)">
-      <section className="relative isolate overflow-hidden border-b border-(--color-border) bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
+      <section className="relative isolate overflow-hidden border-b border-(--color-border) bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:flex lg:min-h-[clamp(34rem,70vh,56rem)] lg:items-center lg:px-12">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--color-accent-a05) blur-2xl sm:h-140 sm:w-140 sm:bg-(--color-accent-a10) sm:blur-3xl"
@@ -73,7 +73,7 @@ export function HomeHero() {
           watermarkMotion={watermarkMotion}
           priority
         />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(21rem,0.75fr)] lg:gap-20">
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(21rem,0.75fr)] lg:gap-20">
           <div className="max-w-3xl">
             <motion.p
               {...reveal()}
