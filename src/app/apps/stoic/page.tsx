@@ -97,8 +97,8 @@ export default function StoicAppPage() {
                   <p className="mt-4 text-lg leading-snug font-medium tracking-[-0.025em] text-(--color-on-surface)">
                     “Very little is needed to make a happy life.”
                   </p>
-                  <p className="mt-4 text-sm font-medium text-(--color-accent)">
-                    – Marcus Aurelius
+                  <p className="mt-8 text-sm font-medium text-(--color-accent)">
+                    — Marcus Aurelius
                   </p>
                 </div>
                 <div className="mt-5 rounded-2xl border border-(--color-border) p-5">

@@ -156,7 +156,7 @@ export function HomeHero() {
             </div>
             <div className="relative min-h-64 overflow-hidden border-t border-(--color-border) bg-(--color-surface-1) p-7 md:min-h-0 md:border-t-0 md:border-l md:p-10">
               <div className="absolute top-0 right-0 hidden h-52 w-52 translate-x-1/3 -translate-y-1/3 rounded-full bg-(--color-accent-a15) blur-3xl md:block" />
-              <div className="relative flex h-full min-h-48 flex-col justify-between rounded-2xl border border-(--color-border-strong) bg-(--color-surface-2-a90) p-6">
+              <div className="relative flex h-full min-h-48 flex-col rounded-2xl border border-(--color-border-strong) bg-(--color-surface-2-a90) p-6">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold text-(--color-on-surface)">
                     Stoic
@@ -165,12 +165,12 @@ export function HomeHero() {
                     Daily reflection
                   </span>
                 </div>
-                <p className="max-w-xs text-xl font-medium tracking-[-0.03em] text-(--color-on-surface)">
+                <p className="mt-8 max-w-xs text-xl font-medium tracking-[-0.03em] text-(--color-on-surface)">
                   “Very little is needed to make a happy life; it is all within
                   yourself, in your way of thinking.”
                 </p>
-                <p className="text-sm font-medium text-(--color-accent)">
-                  – Marcus Aurelius
+                <p className="mt-8 text-sm font-medium text-(--color-accent) sm:mt-auto">
+                  — Marcus Aurelius
                 </p>
               </div>
             </div>
