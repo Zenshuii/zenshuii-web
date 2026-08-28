@@ -151,7 +151,7 @@ export function HomeHero() {
         </div>
       </section>
 
-      <section className="border-b border-(--color-border) px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
+      <section className="border-b border-(--color-border) bg-(--color-surface-1) px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <div className="flex max-w-2xl flex-col gap-4">
             <p className="text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
@@ -219,7 +219,7 @@ export function HomeHero() {
         </div>
       </section>
 
-      <section className="px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
+      <section className="bg-(--color-surface-2) px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <div className="flex max-w-2xl flex-col gap-4">
             <p className="text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
