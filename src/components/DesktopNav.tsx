@@ -40,15 +40,15 @@ export function DesktopNav() {
   }, [dropdownOpen]);
 
   return (
-    <div className="hidden items-center gap-8 md:flex">
+    <div className="hidden items-center gap-7 md:flex">
       {navLinks.map((link) =>
         !link.children ? (
           <Link
             key={link.href}
             href={link.href}
-            className={`relative font-medium transition-colors duration-150 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-(--color-accent-a60) after:transition-transform after:duration-300 after:content-[''] hover:text-(--color-accent) hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none ${
+            className={`relative rounded-sm text-sm font-medium transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-(--color-accent-a60) after:transition-transform after:duration-300 after:content-[''] hover:text-(--color-accent) hover:after:scale-x-100 focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none ${
               isActiveLink(pathname, link.href)
-                ? 'text-(--color-accent)'
+                ? 'text-(--color-accent) after:scale-x-100'
                 : 'text-(--color-on-surface)'
             }`}>
             {link.label}
@@ -73,14 +73,14 @@ export function DesktopNav() {
                 );
               }
             }}>
-            <div className="group relative flex items-center gap-1">
+            <div className="group relative flex items-center gap-0.5">
               <Link
                 href={link.href}
-                className={`relative font-medium transition-colors duration-150 group-hover:text-(--color-accent) after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-(--color-accent-a60) after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100 hover:text-(--color-accent) hover:after:scale-x-100 focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none ${
+                className={`relative rounded-sm text-sm font-medium transition-colors duration-200 group-hover:text-(--color-accent) after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-(--color-accent-a60) after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100 hover:text-(--color-accent) hover:after:scale-x-100 focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none ${
                   dropdownOpen === link.label ||
                   isActiveLink(pathname, link.href) ||
                   isAnyChildActive(link, pathname)
-                    ? 'text-(--color-accent)'
+                    ? 'text-(--color-accent) after:scale-x-100'
                     : 'text-(--color-on-surface)'
                 }`}
                 tabIndex={0}
@@ -90,7 +90,7 @@ export function DesktopNav() {
               </Link>
               <button
                 type="button"
-                className="flex items-center rounded-sm px-1 focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none"
+                className="flex items-center rounded-sm p-1 focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none"
                 aria-label={`Toggle ${link.label} menu`}
                 onClick={() => {
                   setDropdownOpen(
@@ -113,7 +113,7 @@ export function DesktopNav() {
             </div>
             {/* Dropdown menu */}
             <div
-              className={`absolute top-full right-0 z-20 mt-3 min-w-42.5 overflow-hidden rounded-xl border border-(--color-accent-a20) bg-(--color-surface-3) shadow-2xl transition-all duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'}`}
+              className={`absolute top-full right-0 z-20 mt-4 min-w-48 origin-top-right rounded-2xl border border-(--color-border-strong) bg-(--color-surface-1) p-1.5 shadow-(--shadow-card) transition-[opacity,transform] duration-200 ${dropdownOpen === link.label ? 'pointer-events-auto translate-y-0 scale-100 opacity-100' : 'pointer-events-none translate-y-1 scale-98 opacity-0'}`}
               role="menu"
               aria-label={`${link.label} submenu`}
               onMouseEnter={() => {
@@ -135,7 +135,7 @@ export function DesktopNav() {
                 <Link
                   key={child.href}
                   href={child.href}
-                  className={`block w-full rounded-none px-5 py-2 transition-colors duration-150 hover:bg-(--color-accent-a15) focus-visible:z-10 focus-visible:border-l-4 focus-visible:border-(--color-accent) focus-visible:bg-(--color-accent-a15) focus-visible:font-semibold focus-visible:text-(--color-accent) focus-visible:outline-none ${
+                  className={`block w-full rounded-xl px-3 py-2.5 text-sm transition-colors duration-200 hover:bg-(--color-accent-a10) hover:text-(--color-accent) focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:outline-none ${
                     isActiveLink(pathname, child.href)
                       ? 'font-semibold text-(--color-accent)'
                       : 'text-(--color-on-surface)'
