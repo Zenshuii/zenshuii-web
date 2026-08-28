@@ -11,6 +11,13 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { stoicWaitlistHref } from '@/data/apps';
+import {
+  calmEase,
+  calmTransition,
+  createRevealMotion,
+  createViewportRevealMotion,
+} from '@/utils/motion';
+import { WatermarkLogo } from './WatermarkLogo';
 
 const principles = [
   {
@@ -36,18 +43,21 @@ const principles = [
   },
 ];
 
-const revealTransition = {
-  duration: 0.8,
-  ease: [0.22, 1, 0.36, 1] as const,
-};
-
 export function HomeHero() {
   const shouldReduceMotion = useReducedMotion();
-  const reveal = (delay = 0) => ({
-    initial: shouldReduceMotion ? false : { opacity: 0, y: 20 },
-    animate: shouldReduceMotion ? undefined : { opacity: 1, y: 0 },
-    transition: { ...revealTransition, delay },
-  });
+  const reveal = (delay = 0) =>
+    createRevealMotion(shouldReduceMotion, { delay });
+  const watermarkMotion = shouldReduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, scale: 0.85 },
+        animate: { opacity: 1, scale: 1 },
+        transition: {
+          duration: 1.1,
+          delay: 0.04,
+          ease: calmEase,
+        },
+      };
 
   return (
     <div className="w-full overflow-hidden bg-(--color-background)">
@@ -55,6 +65,13 @@ export function HomeHero() {
         <div
           aria-hidden="true"
           className="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--color-accent-a05) blur-2xl sm:h-140 sm:w-140 sm:bg-(--color-accent-a10) sm:blur-3xl"
+        />
+        <WatermarkLogo
+          src="/zenshuii-logo-white.svg"
+          alt=""
+          className="hidden lg:top-[calc(50%+1rem)] lg:left-[28%] lg:block lg:opacity-[0.06]"
+          watermarkMotion={watermarkMotion}
+          priority
         />
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(21rem,0.75fr)] lg:gap-20">
           <div className="max-w-3xl">
@@ -99,7 +116,7 @@ export function HomeHero() {
             animate={
               shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }
             }
-            transition={{ ...revealTransition, delay: 0.16 }}
+            transition={{ ...calmTransition, delay: 0.16 }}
             className="relative mx-auto w-full max-w-md lg:ml-auto">
             <div className="absolute -inset-6 rounded-(--radius-panel) bg-(--color-accent-a10) blur-2xl" />
             <article className="relative overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-5 shadow-(--shadow-card) sm:p-7">
@@ -150,10 +167,7 @@ export function HomeHero() {
           </div>
 
           <motion.article
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-            whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={revealTransition}
+            {...createViewportRevealMotion(shouldReduceMotion)}
             className="group mt-10 grid overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-2) md:grid-cols-[minmax(0,1fr)_minmax(17rem,0.75fr)]">
             <div className="p-7 sm:p-10">
               <p className="text-sm font-medium text-(--color-accent)">Stoic</p>
@@ -220,12 +234,10 @@ export function HomeHero() {
               ({ number, title, description, icon: Icon }, index) => (
                 <motion.article
                   key={number}
-                  initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-                  whileInView={
-                    shouldReduceMotion ? undefined : { opacity: 1, y: 0 }
-                  }
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ ...revealTransition, delay: index * 0.08 }}
+                  {...createViewportRevealMotion(shouldReduceMotion, {
+                    delay: index * 0.08,
+                    distance: 16,
+                  })}
                   className="group relative min-h-64 overflow-hidden rounded-(--radius-card) border border-(--color-border) bg-(--color-surface-2) p-7 transition-colors duration-300 hover:border-(--color-border-strong) sm:p-8">
                   <div
                     aria-hidden="true"

@@ -5,19 +5,12 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { stoicWaitlistHref } from '@/data/apps';
-
-const revealTransition = {
-  duration: 0.8,
-  ease: [0.22, 1, 0.36, 1] as const,
-};
+import { calmTransition, createRevealMotion } from '@/utils/motion';
 
 export default function StoicAppPage() {
   const shouldReduceMotion = useReducedMotion();
-  const reveal = (delay = 0) => ({
-    initial: shouldReduceMotion ? false : { opacity: 0, y: 20 },
-    animate: shouldReduceMotion ? undefined : { opacity: 1, y: 0 },
-    transition: { ...revealTransition, delay },
-  });
+  const reveal = (delay = 0) =>
+    createRevealMotion(shouldReduceMotion, { delay });
 
   return (
     <div className="flex w-full flex-1 flex-col overflow-hidden bg-(--color-surface-2)">
@@ -96,7 +89,7 @@ export default function StoicAppPage() {
             animate={
               shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }
             }
-            transition={{ ...revealTransition, delay: 0.18 }}
+            transition={{ ...calmTransition, delay: 0.18 }}
             className="relative mx-auto w-full max-w-sm">
             <div className="absolute -inset-6 rounded-(--radius-panel) bg-(--color-accent-a10) blur-2xl" />
             <div className="relative rounded-[2.75rem] border border-(--color-border-strong) bg-(--color-background) p-2 shadow-(--shadow-card)">

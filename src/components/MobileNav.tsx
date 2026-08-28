@@ -8,6 +8,7 @@ import { createPortal } from 'react-dom';
 import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { isActiveLink, isAnyChildActive } from '@/utils/navHelpers';
+import { calmControlTransition, calmInteractionSpring } from '@/utils/motion';
 
 export function MobileNav({
   open,
@@ -52,6 +53,7 @@ export function MobileNav({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={calmControlTransition}
             onClick={() => setOpen(false)}
           />
           {/* Drawer */}
@@ -61,7 +63,7 @@ export function MobileNav({
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', stiffness: 400, damping: 36 }}>
+            transition={calmInteractionSpring}>
             {/* Close button */}
             <button
               className="absolute top-5 right-6 z-50 cursor-pointer rounded-full p-1 text-(--color-accent) transition hover:bg-(--color-accent-a15) focus:outline-none active:bg-(--color-accent-a20)"
@@ -87,11 +89,7 @@ export function MobileNav({
                       <span>{link.label}</span>
                       <motion.span
                         animate={{ rotate: appsOpen ? 180 : 0 }}
-                        transition={{
-                          type: 'spring',
-                          stiffness: 300,
-                          damping: 24,
-                        }}
+                        transition={calmInteractionSpring}
                         className={`ml-2 inline-block ${
                           appsOpen ||
                           isActiveLink(pathname, link.href) ||
@@ -109,10 +107,7 @@ export function MobileNav({
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{
-                            duration: 0.19,
-                            ease: [0.4, 0.14, 0.3, 1],
-                          }}
+                          transition={calmControlTransition}
                           className="ml-1 flex flex-col overflow-hidden border-l border-(--color-accent-a20) pl-4">
                           {link.children.map((child) => (
                             <Link

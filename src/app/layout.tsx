@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { MotionProvider } from '@/components/MotionProvider';
 import { Analytics } from '@vercel/analytics/next';
 
 const poppins = Poppins({
@@ -39,9 +40,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${poppins.variable} flex min-h-screen flex-col antialiased`}>
-        <Navbar />
-        <main className="flex flex-1 flex-col justify-center">{children}</main>
-        <Footer />
+        <MotionProvider>
+          <Navbar />
+          <main className="flex flex-1 flex-col justify-center">
+            {children}
+          </main>
+          <Footer />
+        </MotionProvider>
         <Analytics />
       </body>
     </html>

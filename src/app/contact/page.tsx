@@ -1,35 +1,30 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Mail } from 'lucide-react';
+import { createRevealMotion } from '@/utils/motion';
 
 export default function ContactPage() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-(--color-surface-2) px-4 pt-18 pb-14 sm:px-4">
       <motion.article
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        {...createRevealMotion(shouldReduceMotion, { distance: 24 })}
         className="relative z-10 mt-14 w-full max-w-xl rounded-2xl border border-(--color-accent-a20) bg-(--color-surface-2-a90) p-4 text-center shadow-xl sm:mt-14 sm:p-8 md:text-left">
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.7, ease: 'easeOut' }}
+          {...createRevealMotion(shouldReduceMotion, { delay: 0.1 })}
           className="mb-4 text-3xl font-bold tracking-tight text-(--color-accent) md:text-4xl">
           Get in Touch
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
+          {...createRevealMotion(shouldReduceMotion, { delay: 0.2 })}
           className="mb-8 text-lg text-(--color-on-surface) md:text-xl">
           I&apos;d love to hear from you. Whether you have a question, feedback,
           or just want to connect, feel free to reach out directly.
         </motion.p>
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.7, ease: 'easeOut' }}
+          {...createRevealMotion(shouldReduceMotion, { delay: 0.32 })}
           className="space-y-6 text-base text-(--color-on-surface) md:text-lg">
           <div className="flex flex-col items-center gap-2 md:items-start">
             <span className="text-sm font-medium text-(--color-text-muted)">

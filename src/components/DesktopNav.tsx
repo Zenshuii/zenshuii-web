@@ -2,6 +2,7 @@
 
 import { navLinks } from '@/data/navLinks';
 import { isActiveLink, isAnyChildActive } from '@/utils/navHelpers';
+import { calmInteractionSpring } from '@/utils/motion';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -99,7 +100,7 @@ export function DesktopNav() {
                 }}>
                 <motion.span
                   animate={{ rotate: dropdownOpen === link.label ? 180 : 0 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                  transition={calmInteractionSpring}
                   className={`inline-block ${
                     dropdownOpen === link.label ||
                     isActiveLink(pathname, link.href) ||
