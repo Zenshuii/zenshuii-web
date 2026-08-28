@@ -1,8 +1,17 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { ViewportReveal } from '@/components/ViewportReveal';
 import { apps } from '@/data/apps';
+import { createPageMetadata } from '@/utils/metadata';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Apps',
+  description:
+    'Explore the growing collection of Zenshuii apps for personal growth, wellbeing, and everyday clarity.',
+  path: '/apps',
+});
 
 export default function AppsPage() {
   return (

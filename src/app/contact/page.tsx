@@ -1,4 +1,13 @@
 import { ArrowUpRight, Mail } from 'lucide-react';
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/utils/metadata';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Contact',
+  description:
+    'Get in touch with Zenshuii about Stoic, future products, or a potential collaboration.',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (

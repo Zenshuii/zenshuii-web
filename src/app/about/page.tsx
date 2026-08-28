@@ -1,4 +1,13 @@
+import type { Metadata } from 'next';
 import { ViewportReveal } from '@/components/ViewportReveal';
+import { createPageMetadata } from '@/utils/metadata';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'About',
+  description:
+    'Learn about Zenshuii, an independent creative studio by Simone Melidoni, making thoughtful digital products for everyday life.',
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (

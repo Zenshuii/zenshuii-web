@@ -1,7 +1,20 @@
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { stoicWaitlistHref } from '@/data/apps';
+import { createPageMetadata } from '@/utils/metadata';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Stoic',
+  description:
+    'Stoic is a calmer practice for daily perspective, personal journalling, and reflections worth returning to.',
+  path: '/apps/stoic',
+  imagePath: '/apps/stoic-og-image.png',
+  imageAlt: 'Stoic – A calmer practice for daily perspective and journalling.',
+  imageWidth: 1200,
+  imageHeight: 1200,
+});
 
 export default function StoicAppPage() {
   return (

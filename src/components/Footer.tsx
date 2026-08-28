@@ -21,7 +21,7 @@ export function Footer() {
           </Link>
           . All rights reserved.
         </span>
-        <div className="flex gap-6">
+        <nav className="flex gap-6" aria-label="Social links">
           <Link
             href="mailto:sim@zenshuii.com"
             aria-label="Email"
@@ -68,7 +68,7 @@ export function Footer() {
               className="opacity-80 transition-transform duration-200 group-hover:scale-110 group-hover:text-(--color-accent) group-hover:opacity-100"
             />
           </Link>
-        </div>
+        </nav>
       </div>
     </footer>
   );
