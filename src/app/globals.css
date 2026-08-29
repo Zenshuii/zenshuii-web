@@ -143,7 +143,7 @@ body {
   animation-delay: 40ms;
 }
 
-.viewport-reveal {
+.viewport-reveal.is-pending {
   opacity: 0;
   transform: translateY(var(--reveal-distance, 20px));
   transition:
@@ -151,7 +151,7 @@ body {
     transform var(--duration-enter) var(--ease-calm) var(--reveal-delay, 0ms);
 }
 
-.viewport-reveal.is-visible {
+.viewport-reveal.is-pending.is-visible {
   opacity: 1;
   transform: translateY(0);
 }

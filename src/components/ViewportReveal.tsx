@@ -1,6 +1,11 @@
 'use client';
 
-import { type CSSProperties, type ReactNode, useEffect, useRef } from 'react';
+import {
+  type CSSProperties,
+  type ReactNode,
+  useLayoutEffect,
+  useRef,
+} from 'react';
 
 type ViewportRevealProps = {
   as?: 'article' | 'div';
@@ -22,7 +27,7 @@ export function ViewportReveal({
     elementRef.current = element;
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = elementRef.current;
     if (!element) return;
 
@@ -35,6 +40,8 @@ export function ViewportReveal({
       reveal();
       return;
     }
+
+    element.classList.add('is-pending');
 
     const observer = new IntersectionObserver(
       ([entry]) => {
