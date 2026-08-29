@@ -18,7 +18,7 @@ export default function AppsPage() {
     <section className="relative flex flex-1 overflow-hidden bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--color-accent-a05) blur-2xl sm:h-140 sm:w-140 sm:bg-(--color-accent-a10) sm:blur-3xl"
+        className="page-glow pointer-events-none absolute"
       />
       <div className="relative mx-auto w-full max-w-7xl">
         <div className="max-w-2xl">

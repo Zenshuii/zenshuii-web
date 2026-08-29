@@ -22,7 +22,7 @@ export default function StoicAppPage() {
       <section className="relative isolate flex flex-1 items-center overflow-hidden border-b border-(--color-border) bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--color-accent-a05) blur-2xl sm:h-140 sm:w-140 sm:bg-(--color-accent-a10) sm:blur-3xl"
+          className="page-glow pointer-events-none absolute"
         />
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)] lg:gap-20">
           <div className="max-w-3xl">
@@ -80,8 +80,8 @@ export default function StoicAppPage() {
           </div>
 
           <div className="motion-preview-enter relative mx-auto w-full max-w-sm [animation-delay:180ms]">
-            <div className="absolute -inset-6 rounded-(--radius-panel) bg-(--color-accent-a10) blur-2xl" />
-            <div className="relative rounded-[2.75rem] border border-(--color-border-strong) bg-(--color-background) p-2 shadow-(--shadow-card)">
+            <div className="preview-glow absolute -inset-6 rounded-(--radius-panel)" />
+            <div className="preview-surface relative rounded-[2.75rem] border border-(--color-border-strong) bg-(--color-background) p-2 shadow-(--shadow-card)">
               <div className="overflow-hidden rounded-[2.25rem] bg-(--color-surface-1) px-6 pt-7 pb-6 sm:px-7">
                 <div className="mx-auto h-6 w-24 rounded-full bg-black" />
                 <div className="mt-7 flex items-center justify-between">

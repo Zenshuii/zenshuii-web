@@ -41,7 +41,7 @@ export function HomeHero() {
       <section className="relative isolate overflow-hidden border-b border-(--color-border) bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:flex lg:min-h-[clamp(34rem,70vh,56rem)] lg:items-center lg:px-12">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--color-accent-a05) blur-2xl sm:h-140 sm:w-140 sm:bg-(--color-accent-a10) sm:blur-3xl"
+          className="page-glow pointer-events-none absolute"
         />
         <WatermarkLogo
           src="/zenshuii-logo-white.svg"
@@ -77,8 +77,8 @@ export function HomeHero() {
           </div>
 
           <div className="motion-preview-enter relative mx-auto w-full max-w-md [animation-delay:160ms] lg:ml-auto">
-            <div className="absolute -inset-6 rounded-(--radius-panel) bg-(--color-accent-a10) blur-2xl" />
-            <article className="relative overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-5 shadow-(--shadow-card) sm:p-7">
+            <div className="preview-glow absolute -inset-6 rounded-(--radius-panel)" />
+            <article className="preview-surface relative overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-5 shadow-(--shadow-card) sm:p-7">
               <div className="flex items-center justify-between border-b border-(--color-border) pb-5">
                 <div>
                   <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
