@@ -48,7 +48,7 @@ export default function AppsPage() {
                   />
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
-                      Coming soon
+                      {app.status}
                     </p>
                     {app.image && (
                       <Image
@@ -64,11 +64,10 @@ export default function AppsPage() {
                     {app.name.replace(' App', '')}
                   </h2>
                   <p className="mt-5 max-w-lg text-base leading-relaxed text-(--color-text-muted)">
-                    Daily perspective and personal journalling, designed for a
-                    steadier everyday practice.
+                    {app.description}
                   </p>
                   <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-(--color-accent) transition-colors duration-200 group-hover:text-(--color-accent-hover)">
-                    Explore Stoic
+                    Explore {app.name.replace(' App', '')}
                     <ArrowRight size={17} aria-hidden="true" />
                   </span>
                 </article>
