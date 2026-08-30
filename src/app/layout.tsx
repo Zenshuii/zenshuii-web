@@ -47,12 +47,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/zenshuii-logo.png',
+        url: '/zenshuii-favicon.png',
         type: 'image/png',
         sizes: '300x300',
       },
     ],
-    shortcut: '/zenshuii-logo.png',
+    shortcut: '/zenshuii-favicon.png',
   },
 };
 
