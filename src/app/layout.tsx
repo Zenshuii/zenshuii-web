@@ -4,17 +4,46 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Analytics } from '@vercel/analytics/next';
+import { siteDescription, siteName, siteUrl } from '@/utils/metadata';
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
   variable: '--font-poppins',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Zenshuii – Tools for Mindful Living & Digital Wellbeing',
-  description:
-    'Mindful digital tools and wellbeing resources from Zenshuii, creators of the Stoic app.',
+  metadataBase: siteUrl,
+  title: {
+    default: 'Zenshuii – Digital tools for a more intentional life.',
+    template: '%s | Zenshuii',
+  },
+  description: siteDescription,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: '/',
+    siteName,
+    title: 'Zenshuii – Digital tools for a more intentional life.',
+    description: siteDescription,
+    images: [
+      {
+        url: '/zenshuii-og-image.png',
+        width: 1200,
+        height: 1200,
+        alt: 'Zenshuii – Digital tools for a more intentional life.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zenshuii – Digital tools for a more intentional life.',
+    description: siteDescription,
+    images: ['/zenshuii-og-image.png'],
+  },
+  robots: { index: true, follow: true },
   icons: [
     {
       rel: 'icon',

@@ -1,83 +1,84 @@
-'use client';
+import type { Metadata } from 'next';
+import { ViewportReveal } from '@/components/ViewportReveal';
+import { createPageMetadata } from '@/utils/metadata';
 
-import { motion } from 'framer-motion';
+export const metadata: Metadata = createPageMetadata({
+  title: 'About',
+  description:
+    'Learn about Zenshuii, an independent creative studio by Simone Melidoni, making thoughtful digital products for everyday life.',
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (
-    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-gradient-to-br from-[var(--color-surface-2)] via-[var(--color-surface-3-a60)] to-[var(--color-surface-1)] px-4 pt-[72px] pb-[56px] sm:px-4">
-      <motion.div
-        initial={{ scale: 0.7, opacity: 0, y: -60, x: -60 }}
-        animate={{ scale: 1, opacity: 0.7, y: 0, x: 0 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="pointer-events-none absolute top-0 left-0 z-0 h-64 w-64 rounded-full bg-[var(--color-accent-a10)] blur-2xl md:-top-32 md:-left-32 md:h-96 md:w-96"
+    <section className="relative flex flex-1 overflow-hidden bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
+      <div
         aria-hidden="true"
+        className="page-glow pointer-events-none absolute"
       />
-      <motion.article
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 mt-14 w-full max-w-3xl rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-2-a90)] p-3 text-center text-base shadow-xl sm:mt-14 sm:p-8 sm:text-lg md:text-left md:text-xl">
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.7, ease: 'easeOut' }}
-          className="mb-4 text-2xl font-bold tracking-tight text-[var(--color-accent)] sm:text-3xl md:text-4xl">
-          The Zenshuii Journey
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
-          className="mb-8 text-base leading-relaxed text-[var(--color-on-surface)] sm:text-lg md:text-xl">
-          Zenshuii blends{' '}
-          <span className="font-semibold text-[var(--color-accent)]">Zen</span>{' '}
-          (a state of being) and{' '}
-          <span className="font-semibold text-[var(--color-accent)]">
-            Feng Shui
-          </span>
-          , the ancient Chinese practice of harmonising one&apos;s environment.
-          The word{' '}
-          <span className="font-semibold text-[var(--color-accent)]">Shui</span>{' '}
-          means water. Together, Zenshuii expresses a state of flow. It means
-          living with intention, balance and harmony, and being fully present in
-          everyday life.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.7, ease: 'easeOut' }}
-          className="space-y-6 text-base text-[var(--color-on-surface)] md:text-lg">
-          <p>
-            My journey with Zenshuii began with a deep desire to grow, to pursue
-            self-mastery, and to cultivate a positive mindset. I believe in
-            making{' '}
-            <span className="font-semibold text-[var(--color-accent)]">
-              love
-            </span>{' '}
-            the focus of everything I do, in my work, my relationships and my
-            personal growth.
+      <div className="relative mx-auto w-full max-w-7xl">
+        <div className="max-w-3xl">
+          <p className="motion-enter text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+            About Zenshuii
           </p>
-          <p>
-            Zenshuii is more than a name. It&apos;s a philosophy that embraces
-            change, finds peace in the present moment, and allows life to flow
-            naturally, like water.
+          <h1 className="motion-enter mt-5 text-4xl font-semibold tracking-[-0.05em] text-(--color-on-surface) [animation-delay:80ms] sm:text-5xl lg:text-6xl">
+            A studio for thoughtful digital products.
+          </h1>
+          <p className="motion-enter mt-6 max-w-2xl text-lg leading-relaxed text-(--color-text-muted) [animation-delay:160ms] sm:text-xl">
+            Founded by Simone Melidoni, Zenshuii is a small independent studio
+            exploring how digital products can support the way people think,
+            reflect, and move through the day.
           </p>
-          <blockquote className="my-4 border-l-4 border-[var(--color-accent)] pl-4 font-semibold text-[var(--color-accent)] italic">
-            “Be water, my friend”
-            <footer className="mt-1 block text-xs font-normal text-[var(--color-accent-weak)] not-italic">
-              —{' '}
-              <cite title="Bruce Lee" className="not-italic">
-                Bruce Lee
-              </cite>
-            </footer>
-          </blockquote>
-          <p>
-            At Zenshuii, our aim is to create purposeful digital tools that
-            support personal growth, wellbeing, and a more mindful way of
-            living.
-          </p>
-        </motion.div>
-      </motion.article>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <ViewportReveal
+            as="article"
+            delay={120}
+            className="rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-7 sm:p-10">
+            <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
+              The name
+            </p>
+            <h2 className="mt-8 text-2xl font-semibold tracking-[-0.04em] text-(--color-on-surface) sm:text-3xl">
+              A sense of flow.
+            </h2>
+            <div className="mt-5 space-y-4 text-base leading-relaxed text-(--color-text-muted)">
+              <p>
+                Zenshuii brings together Zen and Shui – water. It speaks to the
+                balance between stillness and movement. It is about taking time
+                to notice, then adapting as life changes.
+              </p>
+              <p>
+                Rather than a promise of perfection, the name is a reminder to
+                make room for a clearer point of view.
+              </p>
+            </div>
+          </ViewportReveal>
+          <ViewportReveal
+            as="article"
+            delay={200}
+            className="rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-7 sm:p-10">
+            <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
+              Our focus
+            </p>
+            <h2 className="mt-8 text-2xl font-semibold tracking-[-0.04em] text-(--color-on-surface) sm:text-3xl">
+              A clear reason for every detail.
+            </h2>
+            <div className="mt-5 space-y-4 text-base leading-relaxed text-(--color-text-muted)">
+              <p>
+                We make tools for the small, repeatable moments that shape a
+                day. They might help you write down a thought, return to a
+                perspective, or pause before moving on.
+              </p>
+              <p>
+                We favour clear journeys and careful details over unnecessary
+                complexity. Each product should earn a place in someone&apos;s
+                routine and remain useful over time.
+              </p>
+            </div>
+          </ViewportReveal>
+        </div>
+      </div>
     </section>
   );
 }

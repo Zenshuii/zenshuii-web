@@ -1,44 +1,38 @@
-'use client';
-
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { WatermarkLogo } from '@/components/WatermarkLogo';
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 text-[var(--color-foreground)]">
-      <motion.h1
-        className="mb-4 text-6xl font-bold tracking-tight"
-        style={{ color: 'var(--color-accent)' }}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}>
-        404
-      </motion.h1>
-      <motion.h2
-        className="mb-2 text-2xl font-semibold"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.6, ease: 'easeOut' }}>
-        Page Not Found
-      </motion.h2>
-      <motion.p
-        className="mb-8 max-w-md text-center text-[var(--color-text-muted)]"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}>
-        Sorry, the page you are looking for does not exist or has been moved.
-      </motion.p>
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}>
-        <Link
-          href="/"
-          className="flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-2 text-base font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95"
-          aria-label="Go Home">
-          Go Home
-        </Link>
-      </motion.div>
-    </main>
+    <section className="relative isolate flex flex-1 items-center overflow-hidden border-b border-(--color-border) bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
+      <div
+        aria-hidden="true"
+        className="page-glow pointer-events-none absolute"
+      />
+      <WatermarkLogo
+        src="/zenshuii-logo-white.svg"
+        alt=""
+        className="opacity-[0.035] sm:opacity-[0.045]"
+      />
+      <div className="relative mx-auto w-full max-w-2xl text-center">
+        <p className="motion-enter text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+          404
+        </p>
+        <h1 className="motion-enter mt-6 text-5xl font-semibold tracking-[-0.055em] text-(--color-on-surface) [animation-delay:80ms] sm:text-6xl">
+          This page isn&apos;t here.
+        </h1>
+        <p className="motion-enter mx-auto mt-6 max-w-lg text-lg leading-relaxed text-(--color-text-muted) [animation-delay:160ms] sm:text-xl">
+          It may have moved, or the link may be out of date.
+        </p>
+        <div className="motion-enter mt-10 [animation-delay:240ms]">
+          <Link
+            href="/"
+            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-accent) px-6 py-3 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-all duration-200 hover:bg-(--color-accent-hover) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:opacity-85 motion-safe:hover:-translate-y-px">
+            <ArrowLeft size={17} aria-hidden="true" />
+            Back to home
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }

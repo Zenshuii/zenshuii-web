@@ -1,88 +1,80 @@
-'use client';
-
+import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { ViewportReveal } from '@/components/ViewportReveal';
 import { apps } from '@/data/apps';
-import { ImageWithSkeleton } from '@/components/ImageWithSkeleton';
-import { motion, useReducedMotion, easeInOut } from 'framer-motion';
+import { createPageMetadata } from '@/utils/metadata';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Apps',
+  description:
+    'Explore the growing collection of Zenshuii apps for personal growth, wellbeing, and everyday clarity.',
+  path: '/apps',
+});
 
 export default function AppsPage() {
-  const shouldReduceMotion = useReducedMotion();
   return (
-    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 pt-[72px] pb-[56px] sm:px-4">
-      <div className="relative z-10 mt-14 w-full max-w-6xl sm:mt-14">
-        {/* Page introductory header */}
-        <section
-          aria-labelledby="apps-heading"
-          className="flex flex-col items-center justify-start pb-6 text-center sm:pb-8">
-          <motion.h1
-            id="apps-heading"
-            className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-accent)] sm:mb-6 sm:text-5xl"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 32 }}
-            animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: easeInOut }}>
-            Our Apps
-          </motion.h1>
-          <motion.p
-            className="mb-6 max-w-2xl text-base leading-relaxed text-balance text-[var(--color-on-surface)] sm:mb-4 sm:max-w-4xl sm:text-lg"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-            animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.7, ease: easeInOut }}>
-            Mindful, purposeful digital tools crafted to support reflection,
-            focus, and personal growth. Explore what we&apos;ve released and
-            what we&apos;re experimenting with.
-          </motion.p>
-        </section>
-        {/* Apps grid */}
-        <section
-          aria-label="Available apps"
-          className="grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-          {apps.map((app, i) => (
-            <Link
-              key={app.slug}
-              href={app.href}
-              aria-label={`View details for ${app.name}`}
-              className="group block focus:outline-none focus-visible:rounded-2xl focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-3)] focus-visible:outline-none">
-              <motion.article
-                aria-labelledby={`app-${app.slug}-title`}
-                className="relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-3-a70)] p-4 shadow-xl ring-1 ring-[var(--color-accent-a10)] transition-all duration-300 focus-within:border-[var(--color-accent)] focus-within:ring-[var(--color-accent-a60)] hover:translate-y-[-4px] hover:border-[var(--color-accent-a60)] hover:shadow-2xl hover:ring-[var(--color-accent-a20)] focus-visible:translate-y-[-4px] focus-visible:border-[var(--color-accent-a60)] focus-visible:shadow-2xl focus-visible:ring-[var(--color-accent-a20)] active:scale-98 sm:p-6"
-                initial={shouldReduceMotion ? false : { opacity: 0, y: 32 }}
-                animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-                transition={{
-                  delay: shouldReduceMotion ? 0 : 0.22 + i * 0.12,
-                  duration: 0.6,
-                  ease: [0.16, 1, 0.3, 1],
-                }}>
-                <div className="mb-5 flex h-32 w-full items-center justify-center rounded-xl bg-[var(--color-surface-3-a60)] ring-1 ring-[var(--color-border)] ring-inset">
-                  {app.image ? (
-                    <ImageWithSkeleton
-                      src={app.image}
-                      alt={`${app.name} logo`}
-                      width={96}
-                      height={96}
-                    />
-                  ) : (
-                    <span className="text-sm font-medium tracking-wide text-[var(--color-text-muted)]">
-                      {app.tagline || 'App'}
-                    </span>
-                  )}
-                </div>
-                <h2
-                  id={`app-${app.slug}-title`}
-                  className="mb-2 text-xl font-semibold text-[var(--color-on-surface)] group-hover:text-[var(--color-accent)]">
-                  {app.name}
-                </h2>
-                <p className="mb-6 line-clamp-4 text-sm leading-relaxed text-[var(--color-text-muted)]">
-                  {app.description}
-                </p>
-                <div className="mt-auto">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-5 py-2 text-sm font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 group-active:scale-95">
-                    View details
+    <section className="relative flex flex-1 overflow-hidden bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:px-12">
+      <div
+        aria-hidden="true"
+        className="page-glow pointer-events-none absolute"
+      />
+      <div className="relative mx-auto w-full max-w-7xl">
+        <div className="max-w-2xl">
+          <p className="motion-enter text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+            Apps
+          </p>
+          <h1 className="motion-enter mt-5 text-4xl font-semibold tracking-[-0.05em] text-(--color-on-surface) [animation-delay:80ms] sm:text-5xl lg:text-6xl">
+            Products for everyday life.
+          </h1>
+          <p className="motion-enter mt-6 text-lg leading-relaxed text-(--color-text-muted) [animation-delay:160ms] sm:text-xl">
+            A growing collection of apps for personal growth, wellbeing, and
+            everyday clarity.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          {apps.map((app, index) => (
+            <ViewportReveal key={app.slug} delay={120 + index * 80}>
+              <Link
+                href={app.href}
+                aria-label={`View details for ${app.name}`}
+                className="block rounded-(--radius-panel) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-4 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none">
+                <article className="group relative h-full overflow-hidden rounded-(--radius-panel) border border-(--color-border) bg-(--color-surface-1) p-7 transition-colors duration-300 hover:border-(--color-border-strong) sm:p-10">
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -top-3 right-10 left-10 h-8 rounded-full bg-linear-to-b from-(--color-accent-a30) to-transparent opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
+                      {app.status}
+                    </p>
+                    {app.image && (
+                      <Image
+                        src={app.image}
+                        alt={`${app.name} logo`}
+                        width={48}
+                        height={48}
+                        className="rounded-full border border-(--color-accent-a30)"
+                      />
+                    )}
+                  </div>
+                  <h2 className="mt-12 text-3xl font-semibold tracking-[-0.045em] text-(--color-on-surface) sm:text-4xl">
+                    {app.name.replace(' App', '')}
+                  </h2>
+                  <p className="mt-5 max-w-lg text-base leading-relaxed text-(--color-text-muted)">
+                    {app.description}
+                  </p>
+                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-(--color-accent) transition-colors duration-200 group-hover:text-(--color-accent-hover)">
+                    Explore {app.name.replace(' App', '')}
+                    <ArrowRight size={17} aria-hidden="true" />
                   </span>
-                </div>
-              </motion.article>
-            </Link>
+                </article>
+              </Link>
+            </ViewportReveal>
           ))}
-        </section>
+        </div>
       </div>
     </section>
   );

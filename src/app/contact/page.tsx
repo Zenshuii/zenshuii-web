@@ -1,50 +1,51 @@
-'use client';
+import { ArrowUpRight, Mail } from 'lucide-react';
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/utils/metadata';
 
-import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+export const metadata: Metadata = createPageMetadata({
+  title: 'Contact',
+  description:
+    'Get in touch with Zenshuii about Stoic, future products, or a potential collaboration.',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (
-    <section className="relative flex w-full flex-1 flex-col items-center justify-center bg-[var(--color-surface-2)] px-4 pt-[72px] pb-[56px] sm:px-4">
-      <motion.article
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 mt-14 w-full max-w-xl rounded-2xl border border-[var(--color-accent-a20)] bg-[var(--color-surface-2-a90)] p-4 text-center shadow-xl sm:mt-14 sm:p-8 md:text-left">
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.7, ease: 'easeOut' }}
-          className="mb-4 text-3xl font-bold tracking-tight text-[var(--color-accent)] md:text-4xl">
-          Get in Touch
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
-          className="mb-8 text-lg text-[var(--color-on-surface)] md:text-xl">
-          I&apos;d love to hear from you. Whether you have a question, feedback,
-          or just want to connect, feel free to reach out directly.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.7, ease: 'easeOut' }}
-          className="space-y-6 text-base text-[var(--color-on-surface)] md:text-lg">
-          <div className="flex flex-col items-center gap-2 md:items-start">
-            <span className="text-sm font-medium text-[var(--color-text-muted)]">
-              Email
-            </span>
-            <a
-              href="mailto:sim@zenshuii.com"
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-[var(--color-surface-3)] shadow-md transition-all duration-200 hover:scale-105 hover:bg-[var(--color-accent-weak)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-2)] focus-visible:outline-none active:scale-95 sm:text-base"
-              aria-label="Email">
-              <Mail size={18} aria-hidden="true" />
-              sim@zenshuii.com
-            </a>
-          </div>
-        </motion.div>
-      </motion.article>
+    <section className="relative flex flex-1 overflow-hidden bg-(--color-surface-2) px-5 pt-32 pb-16 sm:px-8 sm:pt-40 sm:pb-24 lg:items-center lg:px-12">
+      <div
+        aria-hidden="true"
+        className="page-glow pointer-events-none absolute"
+      />
+      <div className="relative mx-auto grid w-full max-w-7xl items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.65fr)] lg:gap-20">
+        <div className="max-w-3xl">
+          <p className="motion-enter text-xs font-semibold tracking-[0.18em] text-(--color-accent) uppercase">
+            Contact
+          </p>
+          <h1 className="motion-enter mt-5 text-4xl font-semibold tracking-[-0.05em] text-(--color-on-surface) [animation-delay:80ms] sm:text-5xl lg:text-6xl">
+            Let&apos;s start a conversation.
+          </h1>
+          <p className="motion-enter mt-6 max-w-xl text-lg leading-relaxed text-(--color-text-muted) [animation-delay:160ms] sm:text-xl">
+            Questions about Stoic, future products, or a potential collaboration
+            are always welcome.
+          </p>
+        </div>
+
+        <article className="motion-enter rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-7 shadow-(--shadow-card) [animation-delay:240ms] sm:p-10">
+          <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
+            Email
+          </p>
+          <p className="mt-5 text-xl font-semibold tracking-[-0.035em] text-(--color-on-surface)">
+            sim@zenshuii.com
+          </p>
+          <a
+            href="mailto:sim@zenshuii.com"
+            className="mt-8 inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-accent) px-6 py-3 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-all duration-200 hover:bg-(--color-accent-hover) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-1) focus-visible:outline-none active:opacity-85 motion-safe:hover:-translate-y-px">
+            <Mail size={17} aria-hidden="true" />
+            Send an email
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        </article>
+      </div>
     </section>
   );
 }

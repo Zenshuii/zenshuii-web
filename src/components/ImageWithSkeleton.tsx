@@ -35,10 +35,10 @@ export function ImageWithSkeleton({
       {!imgLoaded && (
         <span
           aria-hidden="true"
-          className="absolute inset-0 z-10 animate-pulse rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-2)]/60"
+          className="absolute inset-0 z-10 animate-pulse rounded-xl border border-(--color-border) bg-(--color-surface-2)/60"
           style={skeletonStyle}>
           <span
-            className="animate-shimmer block h-full w-full rounded-xl bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.08)] to-transparent"
+            className="animate-shimmer block h-full w-full rounded-xl bg-linear-to-r from-transparent via-white/8 to-transparent"
             style={{ animationDuration: '1.2s' }}
           />
         </span>
