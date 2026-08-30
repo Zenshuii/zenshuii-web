@@ -44,18 +44,16 @@ export const metadata: Metadata = {
     images: ['/zenshuii-og-image.png'],
   },
   robots: { index: true, follow: true },
-  icons: [
-    {
-      rel: 'icon',
-      url: '/zenshuii-logo-black.svg',
-      media: '(prefers-color-scheme: light)',
-    },
-    {
-      rel: 'icon',
-      url: '/zenshuii-logo-white.svg',
-      media: '(prefers-color-scheme: dark)',
-    },
-  ],
+  icons: {
+    icon: [
+      {
+        url: '/zenshuii-favicon.png',
+        type: 'image/png',
+        sizes: '300x300',
+      },
+    ],
+    shortcut: '/zenshuii-favicon.png',
+  },
 };
 
 export default function RootLayout({
