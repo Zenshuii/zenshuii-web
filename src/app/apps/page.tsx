@@ -44,7 +44,7 @@ export default function AppsPage() {
                 <article className="group relative h-full overflow-hidden rounded-(--radius-panel) border border-(--color-border) bg-(--color-surface-1) p-7 transition-colors duration-300 hover:border-(--color-border-strong) sm:p-10">
                   <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -top-3 right-10 left-10 h-8 rounded-full bg-linear-to-b from-(--color-accent-a30) to-transparent opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100"
+                    className="pointer-events-none absolute -top-3 right-10 left-10 h-8 rounded-full bg-linear-to-b from-(--color-accent-a30) to-transparent opacity-45 blur-lg transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100"
                   />
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
