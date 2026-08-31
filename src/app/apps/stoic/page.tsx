@@ -10,10 +10,6 @@ export const metadata: Metadata = createPageMetadata({
   description:
     'Stoic is a calmer practice for daily perspective, personal journalling, and reflections worth returning to.',
   path: '/apps/stoic',
-  imagePath: '/apps/stoic-og-image.png',
-  imageAlt: 'Stoic – A calmer practice for daily perspective and journalling.',
-  imageWidth: 1200,
-  imageHeight: 1200,
 });
 
 export default function StoicAppPage() {

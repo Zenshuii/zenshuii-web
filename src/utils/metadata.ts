@@ -9,20 +9,12 @@ type PageMetadata = {
   title: string;
   description: string;
   path: string;
-  imagePath?: string;
-  imageAlt?: string;
-  imageWidth?: number;
-  imageHeight?: number;
 };
 
 export function createPageMetadata({
   title,
   description,
   path,
-  imagePath = '/zenshuii-og-image.png',
-  imageAlt = 'Zenshuii – Digital tools for a more intentional life.',
-  imageWidth = 1200,
-  imageHeight = 1200,
 }: PageMetadata): Metadata {
   const socialTitle = `${title} | ${siteName}`;
 
@@ -37,20 +29,11 @@ export function createPageMetadata({
       siteName,
       title: socialTitle,
       description,
-      images: [
-        {
-          url: imagePath,
-          width: imageWidth,
-          height: imageHeight,
-          alt: imageAlt,
-        },
-      ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: 'summary',
       title: socialTitle,
       description,
-      images: [imagePath],
     },
   };
 }

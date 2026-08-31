@@ -28,20 +28,11 @@ export const metadata: Metadata = {
     siteName,
     title: 'Zenshuii – Digital tools for a more intentional life.',
     description: siteDescription,
-    images: [
-      {
-        url: '/zenshuii-og-image.png',
-        width: 1200,
-        height: 1200,
-        alt: 'Zenshuii – Digital tools for a more intentional life.',
-      },
-    ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'Zenshuii – Digital tools for a more intentional life.',
     description: siteDescription,
-    images: ['/zenshuii-og-image.png'],
   },
   robots: { index: true, follow: true },
   icons: {
