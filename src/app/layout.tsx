@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
@@ -12,6 +12,11 @@ const poppins = Poppins({
   variable: '--font-poppins',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: '#0a0a0a',
+};
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -38,12 +43,27 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/zenshuii-favicon.png',
+        url: '/favicon.ico',
+        type: 'image/x-icon',
+        sizes: '16x16 32x32 48x48',
+      },
+      {
+        url: '/favicon-256.png',
         type: 'image/png',
-        sizes: '300x300',
+        sizes: '256x256',
+      },
+      {
+        url: '/favicon.svg',
+        type: 'image/svg+xml',
+        sizes: 'any',
       },
     ],
-    shortcut: '/zenshuii-favicon.png',
+    shortcut: '/favicon-256.png',
+    apple: {
+      url: '/apple-touch-icon.png',
+      type: 'image/png',
+      sizes: '180x180',
+    },
   },
 };
 
