@@ -45,20 +45,13 @@ export const metadata: Metadata = {
       {
         url: '/favicon.ico',
         type: 'image/x-icon',
-        sizes: '16x16 32x32 48x48',
-      },
-      {
-        url: '/favicon-256.png',
-        type: 'image/png',
-        sizes: '256x256',
+        sizes: '32x32',
       },
       {
         url: '/favicon.svg',
         type: 'image/svg+xml',
-        sizes: 'any',
       },
     ],
-    shortcut: '/favicon-256.png',
     apple: {
       url: '/apple-touch-icon.png',
       type: 'image/png',
