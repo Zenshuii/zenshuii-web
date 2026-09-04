@@ -44,9 +44,10 @@ export default function AboutPage() {
             </h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-(--color-text-muted)">
               <p>
-                Zenshuii brings together Zen and Shui – water. It speaks to the
-                balance between stillness and movement. It is about taking time
-                to notice, then adapting as life changes.
+                Zenshuii brings together Zen, a practice of presence and
+                clarity, and Shui, meaning water. It speaks to the balance
+                between stillness and movement. It is about taking time to
+                notice, then moving with life as it changes.
               </p>
               <p>
                 Rather than a promise of perfection, the name is a reminder to
