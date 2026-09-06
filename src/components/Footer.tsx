@@ -11,15 +11,7 @@ export function Footer() {
     <footer className="mt-auto w-full border-t border-(--color-border) bg-(--color-surface-1) py-7">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 sm:flex-row sm:gap-8 sm:px-8 lg:px-12">
         <span className="text-center text-sm leading-relaxed text-(--color-text-muted) sm:text-left">
-          &copy; {new Date().getFullYear()} Zenshuii by{' '}
-          <Link
-            href="https://smelidoni.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline decoration-(--color-text-muted) underline-offset-4 transition-colors duration-150 hover:text-(--color-accent) hover:decoration-(--color-accent) focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-1) focus-visible:outline-none">
-            Simone Melidoni
-          </Link>
-          . All rights reserved.
+          &copy; {new Date().getFullYear()} Zenshuii
         </span>
         <nav className="flex gap-6" aria-label="Social links">
           <Link
