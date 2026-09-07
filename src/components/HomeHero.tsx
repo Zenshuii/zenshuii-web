@@ -76,36 +76,38 @@ export function HomeHero() {
             </div>
           </div>
 
-          <div className="motion-preview-enter relative mx-auto w-full max-w-md [animation-delay:160ms] lg:ml-auto">
+          <div className="relative mx-auto w-full max-w-md lg:ml-auto">
             <div className="preview-glow absolute -inset-6 rounded-(--radius-panel)" />
-            <article className="preview-surface relative overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-5 shadow-(--shadow-card) sm:p-7">
-              <div className="flex items-center justify-between border-b border-(--color-border) pb-5">
-                <div>
-                  <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
-                    Now building
-                  </p>
-                  <p className="mt-2 text-lg font-semibold tracking-[-0.025em] text-(--color-on-surface)">
-                    Stoic
+            <div className="motion-preview-enter relative [animation-delay:160ms]">
+              <article className="preview-surface overflow-hidden rounded-(--radius-panel) border border-(--color-border-strong) bg-(--color-surface-1) p-5 shadow-(--shadow-card) sm:p-7">
+                <div className="flex items-center justify-between border-b border-(--color-border) pb-5">
+                  <div>
+                    <p className="text-xs font-semibold tracking-[0.16em] text-(--color-accent) uppercase">
+                      Now building
+                    </p>
+                    <p className="mt-2 text-lg font-semibold tracking-[-0.025em] text-(--color-on-surface)">
+                      Stoic
+                    </p>
+                  </div>
+                  <Image
+                    src="/apps/stoic-thumb.png"
+                    alt="Stoic logo"
+                    width={40}
+                    height={40}
+                    className="rounded-full border border-(--color-accent-a30)"
+                  />
+                </div>
+                <div className="pt-10 pb-3">
+                  <h2 className="max-w-sm text-3xl font-semibold tracking-[-0.045em] text-(--color-on-surface) sm:text-4xl">
+                    Make room for a clearer mind.
+                  </h2>
+                  <p className="mt-5 max-w-sm text-sm leading-relaxed text-(--color-text-muted)">
+                    Stoic brings journalling and daily perspective into one calm
+                    practice.
                   </p>
                 </div>
-                <Image
-                  src="/apps/stoic-thumb.png"
-                  alt="Stoic logo"
-                  width={40}
-                  height={40}
-                  className="rounded-full border border-(--color-accent-a30)"
-                />
-              </div>
-              <div className="pt-10 pb-3">
-                <h2 className="max-w-sm text-3xl font-semibold tracking-[-0.045em] text-(--color-on-surface) sm:text-4xl">
-                  Make room for a clearer mind.
-                </h2>
-                <p className="mt-5 max-w-sm text-sm leading-relaxed text-(--color-text-muted)">
-                  Stoic brings journalling and daily perspective into one calm
-                  practice.
-                </p>
-              </div>
-            </article>
+              </article>
+            </div>
           </div>
         </div>
       </section>

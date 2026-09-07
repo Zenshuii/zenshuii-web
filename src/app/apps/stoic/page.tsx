@@ -68,58 +68,60 @@ export default function StoicAppPage() {
                 href={stoicWaitlistHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-accent) px-6 py-3 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-all duration-200 hover:bg-(--color-accent-hover) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:opacity-85 motion-safe:hover:-translate-y-px">
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-accent) px-6 py-3 text-sm font-semibold text-(--color-on-accent) shadow-(--shadow-button) transition-colors duration-200 hover:bg-(--color-accent-hover) focus-visible:ring-2 focus-visible:ring-(--color-accent) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-surface-2) focus-visible:outline-none active:opacity-85">
                 Visit Stoic
                 <ArrowUpRight size={17} aria-hidden="true" />
               </Link>
             </div>
           </div>
 
-          <div className="motion-preview-enter relative mx-auto w-full max-w-sm [animation-delay:180ms]">
+          <div className="relative mx-auto w-full max-w-sm">
             <div className="preview-glow absolute -inset-6 rounded-(--radius-panel)" />
-            <div className="preview-surface relative rounded-[2.75rem] border border-(--color-border-strong) bg-(--color-background) p-2 shadow-(--shadow-card)">
-              <div className="overflow-hidden rounded-[2.25rem] bg-(--color-surface-1) px-6 pt-7 pb-6 sm:px-7">
-                <div className="mx-auto h-6 w-24 rounded-full bg-black" />
-                <div className="mt-7 flex items-center justify-between">
-                  <span className="text-sm font-semibold text-(--color-on-surface)">
-                    Stoic
-                  </span>
-                  <span className="text-xs font-medium text-(--color-text-muted)">
-                    22:22
-                  </span>
-                </div>
-                <div className="mt-9">
-                  <p className="text-xs font-semibold tracking-[0.15em] text-(--color-accent) uppercase">
-                    Today&apos;s perspective
-                  </p>
-                  <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-(--color-on-surface)">
-                    Good evening.
-                  </h3>
-                  <p className="mt-2 text-sm text-(--color-text-muted)">
-                    Begin with what is in your control.
-                  </p>
-                </div>
-                <div className="mt-7 rounded-2xl border border-(--color-border) bg-(--color-surface-3-a60) p-5">
-                  <p className="text-xs font-semibold tracking-[0.14em] text-(--color-accent) uppercase">
-                    Today&apos;s insight
-                  </p>
-                  <p className="mt-4 text-lg leading-snug font-medium tracking-[-0.025em] text-(--color-on-surface)">
-                    “Very little is needed to make a happy life.”
-                  </p>
-                  <p className="mt-8 text-sm font-medium text-(--color-accent)">
-                    — Marcus Aurelius
-                  </p>
-                </div>
-                <div className="mt-5 rounded-2xl border border-(--color-border) p-5">
-                  <p className="text-xs font-semibold tracking-[0.14em] text-(--color-text-muted) uppercase">
-                    Journal
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-(--color-on-surface)">
-                    Where did you notice yourself seeking control today?
-                  </p>
-                  <span className="mt-5 flex items-center justify-center rounded-xl bg-(--color-accent) px-4 py-2.5 text-sm font-semibold text-(--color-on-accent)">
-                    Open Journal
-                  </span>
+            <div className="motion-preview-enter relative [animation-delay:180ms]">
+              <div className="preview-surface rounded-[2.75rem] border border-(--color-border-strong) bg-(--color-background) p-2 shadow-(--shadow-card)">
+                <div className="overflow-hidden rounded-[2.25rem] bg-(--color-surface-1) px-6 pt-7 pb-6 sm:px-7">
+                  <div className="mx-auto h-6 w-24 rounded-full bg-black" />
+                  <div className="mt-7 flex items-center justify-between">
+                    <span className="text-sm font-semibold text-(--color-on-surface)">
+                      Stoic
+                    </span>
+                    <span className="text-xs font-medium text-(--color-text-muted)">
+                      22:22
+                    </span>
+                  </div>
+                  <div className="mt-9">
+                    <p className="text-xs font-semibold tracking-[0.15em] text-(--color-accent) uppercase">
+                      Today&apos;s perspective
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-(--color-on-surface)">
+                      Good evening.
+                    </h3>
+                    <p className="mt-2 text-sm text-(--color-text-muted)">
+                      Begin with what is in your control.
+                    </p>
+                  </div>
+                  <div className="mt-7 rounded-2xl border border-(--color-border) bg-(--color-surface-3-a60) p-5">
+                    <p className="text-xs font-semibold tracking-[0.14em] text-(--color-accent) uppercase">
+                      Today&apos;s insight
+                    </p>
+                    <p className="mt-4 text-lg leading-snug font-medium tracking-[-0.025em] text-(--color-on-surface)">
+                      “Very little is needed to make a happy life.”
+                    </p>
+                    <p className="mt-8 text-sm font-medium text-(--color-accent)">
+                      — Marcus Aurelius
+                    </p>
+                  </div>
+                  <div className="mt-5 rounded-2xl border border-(--color-border) p-5">
+                    <p className="text-xs font-semibold tracking-[0.14em] text-(--color-text-muted) uppercase">
+                      Journal
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-(--color-on-surface)">
+                      Where did you notice yourself seeking control today?
+                    </p>
+                    <span className="mt-5 flex items-center justify-center rounded-xl bg-(--color-accent) px-4 py-2.5 text-sm font-semibold text-(--color-on-accent)">
+                      Open Journal
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
