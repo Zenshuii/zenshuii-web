@@ -184,6 +184,8 @@ body {
   .preview-glow {
     background: var(--color-accent-a10);
     filter: blur(40px);
+    transform: translateZ(0);
+    will-change: filter;
   }
 
   .preview-surface {
